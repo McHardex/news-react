@@ -2,31 +2,31 @@ import articleRequests from '../requests/articleRequests';
 import * as actionTypes from '../constants/actionTypes';
 import { strip } from '../lib/stringHelper'
 
-const signUpSuccess = (user) => {
+const getArticlesSuccess = (articles) => {
   return {
-    type: actionTypes.SIGN_UP_SUCCESS,
-    user
+    type: actionTypes.FETCH_ARTICLES_SUCCESS,
+    articles
   }
 }
 
-const signUpError = (error) => {
+const getArticlesError = (error) => {
   return {
-    type: actionTypes.SIGN_UP_ERROR,
+    type: actionTypes.FETCH_ARTICLES_ERROR,
     error
   }
 }
 
-export function getArticles(userDetails) {
+export function getArticles() {
   return (dispatch) => {
     return (
-      articleRequests.getArticles(userDetails)
+      articleRequests.getArticles()
         .then(response => response.json())
         .then(res => {
           console.log(res)
           if(res.errors){
-            dispatch(signUpError(strip(res.errors)))
+            dispatch(getArticlesError(strip(res.errors)))
           } else {
-            dispatch(signUpSuccess(res.user))
+            dispatch(getArticlesSuccess(res.articles))
           }
         })
     )
