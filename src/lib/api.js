@@ -5,7 +5,7 @@ export default function getApi(method, url, data, access_token){
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': access_token
+      'x-auth-token': access_token
     },
     method: method,
     body: JSON.stringify(data),

@@ -2,20 +2,19 @@ import * as actionTypes from '../constants/actionTypes'
 
 const initialAuthState = {
   user: {},
-  loginSuccess: null,
   loginError: null,
-  signUpSuccess: null,
-  signUpError: null
+  signUpError: null,
+  signUpSuccess: false
 }
 
 export const auth = (state = initialAuthState, action) => {
   switch (action.type) {
     case actionTypes.SIGN_UP_SUCCESS:
-      return {...state, user: action.user}
+      return {...state, user: action.user, signUpSuccess: true, signUpError: false}
     case actionTypes.SIGN_UP_ERROR:
       return {...state, signUpError: action.error}
     case actionTypes.LOGIN_SUCCESS:
-      return {...state, loginSuccess: action.user}
+      return {...state, user: {token: action.token}}
     case actionTypes.LOGIN_ERROR:
       return {...state, loginError: action.error}
     default:

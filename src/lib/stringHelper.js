@@ -1,3 +1,3 @@
-export function strip(srting) {
-  return srting.split('"').join('')
+export function strip(string) {
+  return string.split('"').join('')
 }

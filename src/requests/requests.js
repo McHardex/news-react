@@ -1,10 +1,10 @@
 import getApi from '../lib/api';
 
 export default {
-//   // get all articles
-//   getArticles() {
-//     return getApi('GET', 'https://mchnews.herokuapp.com/api/articles')
-//   },
+  // get all articles
+  getArticles() {
+    return getApi('GET', 'https://mchnews.herokuapp.com/api/articles')
+  },
 //   // get a single article
 //    getSingleArticle(articleId, accessToken) {
 //     return getApi('GET', `https://mchnews.herokuapp.com/api/articles$/${articleId}`, {}, accessToken)

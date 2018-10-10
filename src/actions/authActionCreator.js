@@ -16,16 +16,48 @@ const signUpError = (error) => {
   }
 }
 
+const loginSuccess = (token) => {
+  return {
+    type: actionTypes.LOGIN_SUCCESS,
+    token
+  }
+}
+
+const loginError = (error) => {
+  return {
+    type: actionTypes.LOGIN_ERROR,
+    error
+  }
+}
+
 export function signUpUser(userDetails) {
   return (dispatch) => {
     return (
       userRequests.createUser(userDetails)
         .then(response => response.json())
         .then(res => {
-          if(res.status !== 200 ){
-            dispatch(signUpError(strip(res.error)))
+          console.log(res)
+          if(res.errors){
+            dispatch(signUpError(strip(res.errors)))
           } else {
             dispatch(signUpSuccess(res.user))
+          }
+        })
+    )
+  }
+}
+
+export function loginUser(userDetails) {
+  return (dispatch) => {
+    return (
+      userRequests.login(userDetails)
+        .then(response => response.json())
+        .then(res => {
+          console.log(res)
+          if(res.errors){
+            dispatch(loginError(strip(res.errors)))
+          } else {
+            dispatch(loginSuccess(res.token))
           }
         })
     )

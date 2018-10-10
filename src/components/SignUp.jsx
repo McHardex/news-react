@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { signUpUser } from '../actions/userApiActionCreator'
+import { signUpUser } from '../actions/authActionCreator'
 
 export class SignUp extends Component {
   constructor(props) {
@@ -46,9 +46,10 @@ export class SignUp extends Component {
             <label>password</label>
             <input name='password' type='password' placeholder='enter your password'/><br/>
           </div>
-          <p className='errorMessage'>{this.props.auth.signUpError}</p>
           <button type='submit'>Sign Up</button>
         </form>
+        { this.props.auth.signUpSuccess && <p>Account successfully created</p> }
+        <p>{ this.props.auth.signUpError }</p>
       </div>
     )
   }
