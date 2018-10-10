@@ -1,15 +1,13 @@
+import fetch from 'unfetch';
 
-
-const getApi = (method, url, payload, accessToken) => {
+export default function getApi(method, url, data, access_token){
   return fetch(url, {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': accessToken
+      'Authorization': access_token
     },
     method: method,
-    body: JSON.stringify(payload),
+    body: JSON.stringify(data),
   })
 }
-
-export { getApi }
