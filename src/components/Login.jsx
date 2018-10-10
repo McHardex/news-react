@@ -29,7 +29,6 @@ export class Login extends Component {
   }
   
   render() {
-    console.log(this.props);
     return (
       <div className="login">
         <form className='loginFormContainer' onSubmit={this.loginUser}>
