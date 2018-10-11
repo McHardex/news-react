@@ -30,6 +30,12 @@ const loginError = (error) => {
   }
 }
 
+const logOutSuccess = () => {
+  return {
+    type: actionTypes.LOG_OUT_SUCCESS
+  }
+}
+
 export function signUpUser(userDetails) {
   return (dispatch) => {
     return (
@@ -64,27 +70,8 @@ export function loginUser(userDetails) {
   }
 }
 
-// export const editUser = () => {
-//   return(dispatch) => {
-//     return (
-//       userRequests
-//       .editUser()
-//       .then(response => response.json())
-//       .then(response => dispatch(editUserSuccess(response)))
-//       .catch(err => console.log(error))
-//     )
-//   }
-// }
-
-// export const removeUser = () => {
-//   return(dispatch) => {
-//     return (
-//       userRequests
-//         .deleteUser()
-//         .then(response => response.json())
-//         .then(response => dispatch(deleteUserSuccess(response)))
-//         .catch(err => console.log(error))
-//     )
-//   }
-// }
-
+export function logOutUser() {
+  return(dispatch) => {
+    dispatch(logOutSuccess())
+  }
+}

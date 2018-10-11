@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getArticles } from '../actions/articleApiActionCreator'
+import { logOutUser } from '../actions/authActionCreator'
+import { Link } from 'react-router'
 
 export class Articles extends Component {
   constructor(props) {
@@ -9,20 +11,20 @@ export class Articles extends Component {
     this.state= { 
       articles: {},
     }
-    this.logoutUser = this.logoutUser.bind(this)
+    this.logOutUser = this.logOutUser.bind(this)
   }
 
-  logoutUser = () => {
+  logOutUser = () => {
+    this.props.logOutUser()
     localStorage.removeItem('user-token');
-    if (localStorage.getItem("username") === null) {
-      window.location = '#/login' 
-    }
+    
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
       articles: nextProps.articles.articles,
     })
+    if (!nextProps.auth.user.token) window.location = '#/login' 
   }
   
   componentWillMount() {
@@ -32,7 +34,8 @@ export class Articles extends Component {
   render() {
     return (
       <div className="articles">
-      <button onClick={this.logoutUser}>log out</button>
+      <button onClick={this.logOutUser}>log out</button>
+      <Link to='article/post-article'>Create Article</Link>
         {Object.keys(this.state.articles).map((article)=> {
           const articleList = this.state.articles[article]
           const date = new Date(articleList.datePublished)
@@ -53,4 +56,4 @@ export class Articles extends Component {
 }
 
 const mapStateToProps = ({ articles, auth }) => ({ articles, auth })
-export default connect(mapStateToProps, { getArticles })(Articles)
+export default connect(mapStateToProps, { getArticles, logOutUser })(Articles)
