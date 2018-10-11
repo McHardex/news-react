@@ -6,7 +6,17 @@ export class Articles extends Component {
   constructor(props) {
     super(props);
 
-    this.state= { articles: {}}
+    this.state= { 
+      articles: {},
+    }
+    this.logoutUser = this.logoutUser.bind(this)
+  }
+
+  logoutUser = () => {
+    localStorage.removeItem('user-token');
+    if (localStorage.getItem("username") === null) {
+      window.location = '#/login' 
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -14,7 +24,7 @@ export class Articles extends Component {
       articles: nextProps.articles.articles,
     })
   }
-
+  
   componentWillMount() {
     this.props.getArticles()
   }
@@ -22,6 +32,7 @@ export class Articles extends Component {
   render() {
     return (
       <div className="articles">
+      <button onClick={this.logoutUser}>log out</button>
         {Object.keys(this.state.articles).map((article)=> {
           const articleList = this.state.articles[article]
           const date = new Date(articleList.datePublished)
@@ -41,5 +52,5 @@ export class Articles extends Component {
   }
 }
 
-const mapStateToProps = ({ articles }) => ({ articles })
+const mapStateToProps = ({ articles, auth }) => ({ articles, auth })
 export default connect(mapStateToProps, { getArticles })(Articles)

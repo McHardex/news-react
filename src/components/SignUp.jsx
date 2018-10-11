@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signUpUser } from '../actions/authActionCreator'
+import { Link } from 'react-router'
 
 export class SignUp extends Component {
   constructor(props) {
@@ -23,9 +24,10 @@ export class SignUp extends Component {
   }
   
   render() {
-    // console.log(this.props.auth);
     return (
       <div className="signUp">
+        { this.props.auth.signUpSuccess && <p>Account successfully created</p> }
+        <p>{ this.props.auth.signUpError }</p>
         <form className='signupFormContainer' onSubmit={this.signUpUser}>
           <div className='nameContainer'>
             <label>Name</label>
@@ -48,8 +50,8 @@ export class SignUp extends Component {
           </div>
           <button type='submit'>Sign Up</button>
         </form>
-        { this.props.auth.signUpSuccess && <p>Account successfully created</p> }
-        <p>{ this.props.auth.signUpError }</p>
+        <p>Already have an account? <Link to='login'>Log in</Link></p>
+        
       </div>
     )
   }

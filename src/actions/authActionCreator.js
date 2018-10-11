@@ -53,10 +53,10 @@ export function loginUser(userDetails) {
       userRequests.login(userDetails)
         .then(response => response.json())
         .then(res => {
-          console.log(res)
           if(res.errors){
             dispatch(loginError(strip(res.errors)))
           } else {
+            localStorage.setItem('user-token', JSON.stringify(res.token));
             dispatch(loginSuccess(res.token))
           }
         })

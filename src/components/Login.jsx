@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from '../actions/authActionCreator'
+import { Link } from 'react-router'
 
 export class Login extends Component {
   constructor(props) {
@@ -8,9 +9,9 @@ export class Login extends Component {
     this.loginUser = this.loginUser.bind(this)
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.user.token) {
-      window.location = '/home'
+  componentWillReceiveProps() {
+    if (localStorage.getItem("user-token") !== null) {
+      window.location = '#/articles'
     }
   }
 
@@ -25,12 +26,12 @@ export class Login extends Component {
     }
 
     this.props.loginUser(data)
-
   }
   
   render() {
     return (
       <div className="login">
+        <p>{ this.props.auth.loginError }</p>
         <form className='loginFormContainer' onSubmit={this.loginUser}>
           <div className='emailContainer'>
             <label>email</label>
@@ -43,7 +44,7 @@ export class Login extends Component {
           </div>
           <button type='submit'>Log in</button>
         </form>
-        <p>{ this.props.auth.loginError }</p>
+        <p>don't have an account? <Link to='/'>Sign Up</Link></p>
       </div>
     )
   }

@@ -22,7 +22,6 @@ export function getArticles() {
       articleRequests.getArticles()
         .then(response => response.json())
         .then(res => {
-          console.log(res)
           if(res.errors){
             dispatch(getArticlesError(strip(res.errors)))
           } else {
