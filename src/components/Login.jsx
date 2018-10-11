@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loginUser } from '../actions/authActionCreator'
+import { clearFormErrors } from '../actions/formActionCreator'
 import { Link } from 'react-router'
 
 export class Login extends Component {
@@ -9,9 +10,9 @@ export class Login extends Component {
     this.loginUser = this.loginUser.bind(this)
   }
 
-  componentWillReceiveProps() {
-    if (localStorage.getItem("user-token") !== null) {
-      window.location = '#/articles'
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.user.token) {
+      window.location = '/#/articles'
     }
   }
 
@@ -44,11 +45,11 @@ export class Login extends Component {
           </div>
           <button type='submit'>Log in</button>
         </form>
-        <p>don't have an account? <Link to='/'>Sign Up</Link></p>
+        <p>don't have an account?<Link to='/' onClick={this.props.clearFormErrors}>Sign Up</Link></p>
       </div>
     )
   }
 }
 
 const mapStateToProps = ({ auth }) => ({ auth })
-export default connect(mapStateToProps, { loginUser })(Login)
+export default connect(mapStateToProps, { loginUser, clearFormErrors })(Login)

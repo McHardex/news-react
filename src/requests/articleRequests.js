@@ -18,11 +18,11 @@ export default {
 
   // edit an article
   editArticle(articleId, accessToken) {
-    return getApi('PUT', `https://mchnews.herokuapp.com/api/articles${articleId}`, {}, accessToken)
+    return getApi('PUT', `https://mchnews.herokuapp.com/api/articles/${articleId}`, {}, accessToken)
   },
   
   // delete an article
   deleteArticle(articleId, accessToken) {
-    return getApi('DELETE', `https://mchnews.herokuapp.com/api/articles${articleId}`, {}, accessToken)
+    return getApi('DELETE', `https://mchnews.herokuapp.com/api/articles/${articleId}`, {}, accessToken)
   }
 }

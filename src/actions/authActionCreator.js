@@ -42,7 +42,6 @@ export function signUpUser(userDetails) {
       userRequests.createUser(userDetails)
         .then(response => response.json())
         .then(res => {
-          console.log(res)
           if(res.errors){
             dispatch(signUpError(strip(res.errors)))
           } else {

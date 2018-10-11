@@ -2,6 +2,7 @@ import articleRequests from '../requests/articleRequests';
 import * as actionTypes from '../constants/actionTypes';
 import { strip } from '../lib/stringHelper'
 
+
 const getArticlesSuccess = (articles) => {
   return {
     type: actionTypes.FETCH_ARTICLES_SUCCESS,
@@ -12,6 +13,33 @@ const getArticlesSuccess = (articles) => {
 const getArticlesError = (error) => {
   return {
     type: actionTypes.FETCH_ARTICLES_ERROR,
+    error
+  }
+}
+
+const postArticleSuccess = (article) => {
+  return {
+    type: actionTypes.POST_ARTICLE_SUCCESS,
+    article
+  }
+}
+
+const postArticleError = (error) => {
+  return {
+    type: actionTypes.POST_ARTICLE_ERROR,
+    error
+  }
+}
+
+const deleteArticleSuccess = () => {
+  return {
+    type: actionTypes.DELETE_ARTICLE_SUCCESS,
+  }
+}
+
+const deleteArticleError = (error) => {
+  return {
+    type: actionTypes.DELETE_ARTICLE_ERROR,
     error
   }
 }
@@ -32,4 +60,36 @@ export function getArticles() {
   }
 }
 
+export function createArticle(articleData, accessToken) {
+  return (dispatch) => {
+    return (
+      articleRequests.postArticle(articleData, accessToken)
+        .then(response => response.json())
+        .then(res => {
+          if(res.errors){
+            dispatch(postArticleError(strip(res.errors)))
+          } else {
+            dispatch(postArticleSuccess(res.article))
+          }
+        })
+    )
+  }
+}
 
+
+export function removeArticle(articleId, accessToken) {
+  return (dispatch) => {
+    return (
+      articleRequests.deleteArticle(articleId, accessToken)
+        .then(response => response.json())
+        .then(res => {
+          console.log(res)
+          if(res.errors){
+            dispatch(deleteArticleError(strip(res.errors)))
+          } else {
+            dispatch(deleteArticleSuccess())
+          }
+        })
+    )
+  }
+}

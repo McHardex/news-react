@@ -1,60 +1,73 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { signUpUser } from '../actions/authActionCreator'
+import { getArticles, createArticle } from '../actions/articleApiActionCreator'
+import { clearFormErrors } from '../actions/formActionCreator'
 import { Link } from 'react-router'
 
 export class PostArticle extends Component {
   constructor(props) {
     super(props);
-    // this.signUpUser = this.signUpUser.bind(this)
+
+    this.createArticle = this.createArticle.bind(this)
   }
 
-  // signUpUser = (event) => {
-  //   event.preventDefault()
+  createArticle = (event) => {
+    event.preventDefault()
 
-  //   let data = {}
-  //   const formData = new FormData(event.target)
+    let data = {}
+    const formData = new FormData(event.target)
 
-  //   for (let entry of formData.entries()) {
-  //     data[entry[0]] = entry[1]
-  //   }
+    for (let entry of formData.entries()) {
+      data[entry[0]] = entry[1]
+    }
+    const token = JSON.parse(localStorage.getItem('user-token'))
 
-  //   this.props.signUpUser(data)
+    this.props.createArticle(data, token) 
+  }
 
-  // }
+  componentWillReceiveProps() {
+    this.props.getArticles()
+  }
+
   
   render() {
     return (
-      <div className="signUp">
-        { this.props.auth.signUpSuccess && <p>Account successfully created</p> }
-        <p>{ this.props.auth.signUpError }</p>
-        <form className='' onSubmit={}>
+      <div className="postArticles">
+      <Link to='articles' onClick={this.props.clearFormErrors}>Articles</Link>
+        <form className='' onSubmit={this.createArticle}>
           <div className=''>
-            <label>Title</label>
+            <label>Title </label>
             <input name='title' type='text'/><br/>
           </div>
           
-          <div className='leadParagraph'>
-            <label>Lead Paragraph</label>
-            <input name='leadParagraph' type='text' /><br/>
-          </div>
-
           <div className='subheading'>
-            <label>Sub-Heading</label>
-            <textarea name='subheading' type='text'/><br/>
+            <label>Sub-Heading </label>
+            <input name='subheading' type='text'/><br/>
           </div>
 
-          <div className='passwordContainer'>
-            <label>password</label>
-            <input name='password' type='password' placeholder='enter your password'/><br/>
+          <div className='leadParagraph'>
+            <label>Lead Paragraph </label>
+            <textarea name='leadParagraph' /><br/>
+          </div>
+
+          <div className='body'>
+            <label>Body </label>
+            <textarea name='body'/><br/>
+          </div>
+
+           <div className='imageUrl'>
+            <label>Image Url </label>
+            <input name='imageUrl' type='url' alt={''}/><br/>
           </div>
           <button type='submit'>Submit Article</button>
         </form>
+        { this.props.articles.postArticleSuccess && <p>Article successfully created</p> }
+        <p>{ this.props.articles.articlesError }</p>
         
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ auth }) => ({ auth })
-export default connect(mapStateToProps, {  })(PostArticle)
+const mapStateToProps = ({ articles }) => ({ articles })
+export default connect(mapStateToProps, { createArticle, getArticles, clearFormErrors })(PostArticle)

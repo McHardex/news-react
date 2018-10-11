@@ -19,6 +19,8 @@ export const auth = (state = initialAuthState, action) => {
       return {...state, loginError: action.error}
     case actionTypes.LOG_OUT_SUCCESS:
       return {...state, user: {}, loginError: null, signUpError: null}
+    case actionTypes.CLEAR_FORM_ERRORS:
+      return {...state, loginError: null, signUpError: null, signUpSuccess: false}
     default:
       return state
   }
