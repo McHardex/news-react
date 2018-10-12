@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getArticles, createArticle } from '../actions/articleApiActionCreator'
+import { createArticle } from '../actions/articleActionCreator'
 import { clearFormErrors } from '../actions/formActionCreator'
-import { Link } from 'react-router'
 
 export class PostArticle extends Component {
   constructor(props) {
@@ -24,16 +23,10 @@ export class PostArticle extends Component {
 
     this.props.createArticle(data, token) 
   }
-
-  componentWillReceiveProps() {
-    this.props.getArticles()
-  }
-
   
   render() {
     return (
       <div className="postArticles">
-      <Link to='articles' onClick={this.props.clearFormErrors}>Articles</Link>
         <form className='' onSubmit={this.createArticle}>
           <div className=''>
             <label>Title </label>
@@ -61,7 +54,6 @@ export class PostArticle extends Component {
           </div>
           <button type='submit'>Submit Article</button>
         </form>
-        { this.props.articles.postArticleSuccess && <p>Article successfully created</p> }
         <p>{ this.props.articles.articlesError }</p>
         
       </div>
@@ -70,4 +62,4 @@ export class PostArticle extends Component {
 }
 
 const mapStateToProps = ({ articles }) => ({ articles })
-export default connect(mapStateToProps, { createArticle, getArticles, clearFormErrors })(PostArticle)
+export default connect(mapStateToProps, { createArticle, clearFormErrors })(PostArticle)

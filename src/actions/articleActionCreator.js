@@ -17,13 +17,6 @@ const getArticlesError = (error) => {
   }
 }
 
-const postArticleSuccess = (article) => {
-  return {
-    type: actionTypes.POST_ARTICLE_SUCCESS,
-    article
-  }
-}
-
 const postArticleError = (error) => {
   return {
     type: actionTypes.POST_ARTICLE_ERROR,
@@ -31,15 +24,9 @@ const postArticleError = (error) => {
   }
 }
 
-const deleteArticleSuccess = () => {
-  return {
-    type: actionTypes.DELETE_ARTICLE_SUCCESS,
-  }
-}
-
 const deleteArticleError = (error) => {
   return {
-    type: actionTypes.DELETE_ARTICLE_ERROR,
+    type: actionTypes.UNAUTHORIZED,
     error
   }
 }
@@ -69,7 +56,7 @@ export function createArticle(articleData, accessToken) {
           if(res.errors){
             dispatch(postArticleError(strip(res.errors)))
           } else {
-            dispatch(postArticleSuccess(res.article))
+            dispatch(getArticles())
           }
         })
     )
@@ -81,13 +68,11 @@ export function removeArticle(articleId, accessToken) {
   return (dispatch) => {
     return (
       articleRequests.deleteArticle(articleId, accessToken)
-        .then(response => response.json())
         .then(res => {
-          console.log(res)
-          if(res.errors){
-            dispatch(deleteArticleError(strip(res.errors)))
+          if(res.statusText){
+            dispatch(deleteArticleError(strip(res.statusText)))
           } else {
-            dispatch(deleteArticleSuccess())
+            dispatch(getArticles())
           }
         })
     )

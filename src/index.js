@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, hashHistory } from 'react-router';
 
-import App from './App';
+import {App} from './App';
 import SignUp from '../src/components/SignUp'
 import Login from '../src/components/Login'
 import Articles from '../src/components/Articles'
-import PostArticle from '../src/components/PostArticle'
+import Users from '../src/components/Users'
 import * as serviceWorker from './serviceWorker';
 
 import store from './lib/store'
@@ -19,7 +19,7 @@ ReactDOM.render((
         <Route path='/' component={SignUp} />
         <Route path="login" component={Login} />
         <Route path="articles" component={Articles} />
-        <Route path="post-article" component={PostArticle} />
+        <Route path="users" component={Users} />
       </Route>
     </Router>
   </Provider>

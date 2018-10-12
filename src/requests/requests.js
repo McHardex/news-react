@@ -1,10 +1,7 @@
 import getApi from '../lib/api';
 
 export default {
-  // get all articles
-  getArticles() {
-    return getApi('GET', 'https://mchnews.herokuapp.com/api/articles')
-  },
+ 
 //   // get a single article
 //    getSingleArticle(articleId, accessToken) {
 //     return getApi('GET', `https://mchnews.herokuapp.com/api/articles$/${articleId}`, {}, accessToken)
@@ -49,12 +46,4 @@ export default {
 //   deleteUser(userId, accessToken) {
 //     return getApi('DELETE', `https://mchnews.herokuapp.com/api/users${writerId}`, {}, accessToken)
 //   },
-
-  // login
-  login(loginData, accessToken) {
-    return getApi('POST', 'https://mchnews.herokuapp.com/api/auth', loginData, accessToken)
-  },
-  createUser(userData) {
-    return getApi('POST', 'https://mchnews.herokuapp.com/api/users', userData)
-  }
 }

@@ -1,4 +1,4 @@
-import userRequests from '../requests/requests';
+import authRequests from '../requests/authRequests';
 import * as actionTypes from '../constants/actionTypes';
 import { strip } from '../lib/stringHelper'
 
@@ -39,7 +39,7 @@ const logOutSuccess = () => {
 export function signUpUser(userDetails) {
   return (dispatch) => {
     return (
-      userRequests.createUser(userDetails)
+      authRequests.createUser(userDetails)
         .then(response => response.json())
         .then(res => {
           if(res.errors){
@@ -55,7 +55,7 @@ export function signUpUser(userDetails) {
 export function loginUser(userDetails) {
   return (dispatch) => {
     return (
-      userRequests.login(userDetails)
+      authRequests.login(userDetails)
         .then(response => response.json())
         .then(res => {
           if(res.errors){
