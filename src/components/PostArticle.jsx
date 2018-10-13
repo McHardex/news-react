@@ -8,21 +8,29 @@ export class PostArticle extends Component {
     super(props);
 
     this.createArticle = this.createArticle.bind(this)
+    this.resetForm = this.resetForm.bind(this)
   }
 
+  resetForm = (target) => { 
+    console.log(target, 'reset')
+    target.reset()
+  }
+  
   createArticle = (event) => {
     event.preventDefault()
-
+    
+    const target = event.target
     let data = {}
-    const formData = new FormData(event.target)
+    const formData = new FormData(target)
+    const token = JSON.parse(localStorage.getItem('user-token'))
 
     for (let entry of formData.entries()) {
       data[entry[0]] = entry[1]
     }
-    const token = JSON.parse(localStorage.getItem('user-token'))
 
-    this.props.createArticle(data, token) 
+    this.props.createArticle(data, token, () => this.resetForm(target)) 
   }
+
   
   render() {
     return (

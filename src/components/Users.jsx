@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getUsers } from '../actions/userActionCreator'
 import { Link } from 'react-router'
+import UserArticle from './UserArticle'
 
 export class Users extends Component {
   constructor(props) {
@@ -10,41 +11,37 @@ export class Users extends Component {
     this.state= { isOpen : false }
 
     this.toggleDiv = this.toggleDiv.bind(this)
+    // this.showUserArticles = this.showUserArticles.bind(this)
   }
 
   toggleDiv = (e) => {
     e.preventDefault()
-
     this.setState({ isOpen : !this.state.isOpen})
   }
   
   componentWillMount() {
     this.props.getUsers()
   }
+
+  
   
   render() {
+    const users = this.props.users.users
     return (
-      <div className="articles">
-        <Link to='articles'>Back</Link>
-        {this.props.users.users.map((users)=> {
-          return (
-            <div className="usersBody" key={users._id}>
-              <p>{users.name}</p>
-              <p>{users.email}</p>
-              <p>{users.bio}</p>
-              {users.articles.length <= 0? 
-              <p onClick={this.toggleDiv}>{users.articles.length} article</p>
-                : 
-              <p onClick={this.toggleDiv}>{users.articles.length} articles</p>}
-              
-              {/* {users.articles.filter(articles => articles._id (
-                <div key={articles._id}>
-                  {this.state.isOpen && <p>{ articles.body }</p> }
-                </div>
-              ))} */}
-            </div>
-          )
-          })}
+      <div className="users">
+      <Link to='articles'>Articles</Link>
+        {
+          users.map(user => {
+            return (
+              <div key={user._id}>
+                <p>{user.name}</p>
+                <p>{user.email}</p>
+                <p>{user.bio}</p>
+                <UserArticle articles={user.articles} />
+              </div>
+            )
+          })
+        }
       </div>
     )
   }

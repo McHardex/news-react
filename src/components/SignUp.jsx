@@ -9,18 +9,22 @@ export class SignUp extends Component {
     this.signUpUser = this.signUpUser.bind(this)
   }
 
+  resetForm = (target) => {
+    target.reset()
+  }
+
   signUpUser = (event) => {
     event.preventDefault()
 
     let data = {}
-    const formData = new FormData(event.target)
+    const target = event.target
+    const formData = new FormData(target)
 
     for (let entry of formData.entries()) {
       data[entry[0]] = entry[1]
     }
 
-    this.props.signUpUser(data)
-
+    this.props.signUpUser(data, () => this.resetForm(target))
   }
   
   render() {

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getArticles, removeArticle } from '../actions/articleActionCreator'
 import { logOutUser } from '../actions/authActionCreator'
-// import { Link } from 'react-router'
+import { Link } from 'react-router'
 import PostArticle from './PostArticle'
 
 export class Articles extends Component {
@@ -30,7 +30,7 @@ export class Articles extends Component {
     }
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
     if (!localStorage.getItem('user-token')) window.location = '/#/login' 
   }
   
@@ -39,9 +39,9 @@ export class Articles extends Component {
   }
   
   render() {
-    // console.log(this.props.auth.deleteArticleError)
     return (
       <div className="articles">
+        <Link to='users'>View Users</Link>
         <button onClick={this.logOutUser}>log out</button>
         <PostArticle/>
         {this.props.articles.articles.map(articles => {

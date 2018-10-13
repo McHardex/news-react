@@ -47,7 +47,7 @@ export function getArticles() {
   }
 }
 
-export function createArticle(articleData, accessToken) {
+export function createArticle(articleData, accessToken, successCallback) {
   return (dispatch) => {
     return (
       articleRequests.postArticle(articleData, accessToken)
@@ -57,6 +57,7 @@ export function createArticle(articleData, accessToken) {
             dispatch(postArticleError(strip(res.errors)))
           } else {
             dispatch(getArticles())
+            successCallback()
           }
         })
     )

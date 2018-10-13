@@ -36,7 +36,7 @@ const logOutSuccess = () => {
   }
 }
 
-export function signUpUser(userDetails) {
+export function signUpUser(userDetails, succesCallBack) {
   return (dispatch) => {
     return (
       authRequests.createUser(userDetails)
@@ -46,6 +46,7 @@ export function signUpUser(userDetails) {
             dispatch(signUpError(strip(res.errors)))
           } else {
             dispatch(signUpSuccess(res.user))
+            succesCallBack()
           }
         })
     )
