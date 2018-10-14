@@ -17,8 +17,8 @@ export default {
   },
 
   // edit an article
-  editArticle(articleId, accessToken) {
-    return getApi('PUT', `https://mchnews.herokuapp.com/api/articles/${articleId}`, {}, accessToken)
+  editArticle(articleId, articleData, accessToken) {
+    return getApi('PUT', `https://mchnews.herokuapp.com/api/articles/${articleId}`, articleData, accessToken)
   },
   
   // delete an article
