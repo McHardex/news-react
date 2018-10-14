@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Comments extends Component {
+export default class WriterArticle extends Component {
   constructor(props) {
     super(props)
     this.state= { isOpen : false }
@@ -30,13 +30,12 @@ export default class Comments extends Component {
   render() {
     return (
       <div>
-      {
-      this.props.articles.length === 1 ? 
-      <p onClick={this.toggleArticle}>{this.props.articles.length} article</p>
-        : 
-      <p onClick={this.toggleArticle}>{this.props.articles.length} articles</p>
-      }
-        {this.state.isOpen && this.showUserArticle()}
+        { 
+          this.props.articles.length === 1 ? 
+          <p onClick={this.toggleArticle}>{this.props.articles.length} article</p> : 
+          <p onClick={this.toggleArticle}>{this.props.articles.length} articles</p> 
+        }
+        { this.state.isOpen && this.showUserArticle() }
       </div>
     )
   }

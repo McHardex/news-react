@@ -19,15 +19,7 @@ export default {
 //     return getApi('DELETE', `https://mchnews.herokuapp.com/api/articles${articleId}`, {}, accessToken)
 //   },
 
-//   // get all writers
-//   getWriters() {
-//     return getApi('GET', 'https://mchnews.herokuapp.com/api/writers')
-//   },
-//   // get a singe writer
-//   getSingleWriters(writersID, accessToken) {
-//     return getApi('GET', `https://mchnews.herokuapp.com/api/writers${writerId}`)
-//   },
-
+//   
 //   // get all users
 //   getUsers() {
 //     return getApi('GET', 'https://mchnews.herokuapp.com/api/users')

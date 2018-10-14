@@ -8,6 +8,7 @@ export default function getApi(method, url, data, access_token){
       'x-auth-token': access_token
     },
     method: method,
+    mode: 'CORS',
     body: JSON.stringify(data),
   })
 }

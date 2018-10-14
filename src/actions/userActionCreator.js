@@ -23,7 +23,6 @@ export function getUsers() {
       userRequests.getUsers()
         .then(response => response.json())
         .then(res => {
-          // console.log(res)
           if(res.errors){
             dispatch(getUsersError(strip(res.errors)))
           } else {

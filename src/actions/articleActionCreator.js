@@ -24,9 +24,28 @@ const postArticleError = (error) => {
   }
 }
 
+const deleteArticleSuccess = () => {
+  return {
+    type: actionTypes.DELETE_ARTICLE_SUCCESS,
+  }
+}
+
 const deleteArticleError = (error) => {
   return {
     type: actionTypes.UNAUTHORIZED,
+    error
+  }
+}
+
+const updateArticleSuccess = () => {
+  return {
+    type: actionTypes.UPDATE_ARTICLE_SUCCESS,
+  }
+}
+
+const updateArticleError = (error) => {
+  return {
+    type: actionTypes.UPDATE_ARTICLE_ERROR,
     error
   }
 }
@@ -64,16 +83,30 @@ export function createArticle(articleData, accessToken, successCallback) {
   }
 }
 
-
 export function removeArticle(articleId, accessToken) {
   return (dispatch) => {
     return (
       articleRequests.deleteArticle(articleId, accessToken)
         .then(res => {
-          if(res.statusText){
-            dispatch(deleteArticleError(strip(res.statusText)))
+          if(res.error){
+            dispatch(deleteArticleError(strip(res.error)))
           } else {
-            dispatch(getArticles())
+            dispatch(getArticles(), updateArticleSuccess)
+          }
+        })
+    )
+  }
+}
+
+export function updateArticle(articleId, accessToken) {
+  return (dispatch) => {
+    return (
+      articleRequests.editArticle(articleId, accessToken)
+        .then(res => {
+          if(res.error){
+            dispatch(updateArticleError(strip(res.statusText)))
+          } else {
+            dispatch(getArticles(), deleteArticleSuccess)
           }
         })
     )
