@@ -32,9 +32,9 @@ export class Articles extends Component {
 
   
   render() {
-    if(this.props.auth.unauthorized && this.props.articles.unauthorized){
-      alert('you are not authorized to perform this action')
-    }
+    // if(this.props.auth.unauthorized && this.props.articles.unauthorized){
+    //   alert('you are not authorized to perform this action')
+    // }
     return (
       <div className="articles">
         <div>

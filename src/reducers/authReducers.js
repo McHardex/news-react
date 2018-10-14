@@ -5,7 +5,7 @@ const initialState = {
   loginError: null,
   signUpError: null,
   signUpSuccess: false,
-  unauthorized: false,
+  // unauthorized: false,
   deleteArticleError: null
 }
 
@@ -16,15 +16,15 @@ export const auth = (state = initialState, action) => {
     case actionTypes.SIGN_UP_ERROR:
       return {...state, signUpError: action.error}
     case actionTypes.LOGIN_SUCCESS:
-      return {...state, user: {token: action.token}, loginError: false,  unauthorized: false}
+      return {...state, user: {token: action.token}, loginError: false }
     case actionTypes.LOGIN_ERROR:
       return {...state, loginError: action.error}
     case actionTypes.LOG_OUT_SUCCESS:
-      return {...state, user: {}, loginError: null, signUpError: null, unauthorized: false}
+      return {...state, user: {}, loginError: null, signUpError: null }
     case actionTypes.CLEAR_FORM_ERRORS:
       return {...state, loginError: null, signUpError: null, signUpSuccess: false}
     case actionTypes.UNAUTHORIZED:
-      return {...state, deleteArticleError: action.error, unauthorized: true}
+      return {...state, deleteArticleError: action.error }
     default:
       return state
   }

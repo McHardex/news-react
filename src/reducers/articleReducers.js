@@ -5,7 +5,7 @@ const initialState = {
   articlesError: null,
   postArticleSuccess: false,
   deleteArticleError: null,
-  unauthorized: false,
+  // unauthorized: false,
   updateArticleError: null,
 }
 
@@ -18,15 +18,15 @@ export const articles = (state = initialState, action) => {
     case actionTypes.POST_ARTICLE_ERROR:
       return {...state, articlesError: action.error}
     case actionTypes.DELETE_ARTICLE_SUCCESS:
-      return {...state, unauthorized: false }
+      return {...state }
     case actionTypes.UNAUTHORIZED:
-      return {...state, deleteArticleError: action.error, unauthorized: true}
+      return {...state, deleteArticleError: action.error }
     case actionTypes.CLEAR_FORM_ERRORS:
       return {...state, articlesError: null, deleteArticleError: null, postArticleSuccess: false}
     case actionTypes.UPDATE_ARTICLE_SUCCESS:
-      return {...state, unauthorized: false}
+      return {...state }
     case actionTypes.UPDATE_ARTICLE_ERROR:
-      return {...state, updateArticleError: action.error}
+      return {...state, updateArticleError: action.error }
     default:
       return state
   }
