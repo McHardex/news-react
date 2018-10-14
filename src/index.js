@@ -8,6 +8,7 @@ import SignUp from '../src/components/SignUp'
 import Login from '../src/components/Login'
 import Articles from '../src/components/Articles'
 import Users from '../src/components/Users'
+import Writers from '../src/components/Writers'
 import * as serviceWorker from './serviceWorker';
 
 import store from './lib/store'
@@ -20,6 +21,7 @@ ReactDOM.render((
         <Route path="login" component={Login} />
         <Route path="articles" component={Articles} />
         <Route path="users" component={Users} />
+        <Route path="writers" component={Writers} />
       </Route>
     </Router>
   </Provider>

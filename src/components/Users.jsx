@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getUsers } from '../actions/userActionCreator'
 import { Link } from 'react-router'
-import UserArticle from './UserArticle'
 
 export class Users extends Component {
   constructor(props) {
@@ -11,7 +10,6 @@ export class Users extends Component {
     this.state= { isOpen : false }
 
     this.toggleDiv = this.toggleDiv.bind(this)
-    // this.showUserArticles = this.showUserArticles.bind(this)
   }
 
   toggleDiv = (e) => {
@@ -22,14 +20,13 @@ export class Users extends Component {
   componentWillMount() {
     this.props.getUsers()
   }
-
-  
   
   render() {
     const users = this.props.users.users
     return (
       <div className="users">
       <Link to='articles'>Articles</Link>
+      <Link to='writers'>Writers</Link>
         {
           users.map(user => {
             return (
@@ -37,7 +34,6 @@ export class Users extends Component {
                 <p>{user.name}</p>
                 <p>{user.email}</p>
                 <p>{user.bio}</p>
-                <UserArticle articles={user.articles} />
               </div>
             )
           })

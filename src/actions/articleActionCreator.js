@@ -24,6 +24,12 @@ const postArticleError = (error) => {
   }
 }
 
+const deleteArticleSuccess = () => {
+  return {
+    type: actionTypes.DELETE_ARTICLE_SUCCESS,
+  }
+}
+
 const deleteArticleError = (error) => {
   return {
     type: actionTypes.UNAUTHORIZED,
@@ -64,16 +70,15 @@ export function createArticle(articleData, accessToken, successCallback) {
   }
 }
 
-
 export function removeArticle(articleId, accessToken) {
   return (dispatch) => {
     return (
       articleRequests.deleteArticle(articleId, accessToken)
         .then(res => {
-          if(res.statusText){
+          if(res.statusText === "Unauthorized"){
             dispatch(deleteArticleError(strip(res.statusText)))
           } else {
-            dispatch(getArticles())
+            dispatch(getArticles(), deleteArticleSuccess)
           }
         })
     )

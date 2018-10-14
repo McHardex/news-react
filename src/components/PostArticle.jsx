@@ -12,7 +12,6 @@ export class PostArticle extends Component {
   }
 
   resetForm = (target) => { 
-    console.log(target, 'reset')
     target.reset()
   }
   

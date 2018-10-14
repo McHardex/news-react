@@ -23,14 +23,11 @@ export class Articles extends Component {
   deleteArticle = (event) => {
     event.preventDefault();
 
-    const result = window.confirm('Are you sure you want to delete this contact?');
-    if (result) {
       const token = JSON.parse(localStorage.getItem('user-token'))
       this.props.removeArticle(event.target.id, token)
-    }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps() {
     if (!localStorage.getItem('user-token')) window.location = '/#/login' 
   }
   
@@ -39,9 +36,15 @@ export class Articles extends Component {
   }
   
   render() {
+    if(this.props.auth.unauthorized && this.props.articles.unauthorized){
+      alert('you are not authorized to perform this action')
+    }
     return (
       <div className="articles">
-        <Link to='users'>View Users</Link>
+      <div>
+        <Link to='users'>view users</Link>
+        <Link to='writers'>view writers</Link>
+      </div>
         <button onClick={this.logOutUser}>log out</button>
         <PostArticle/>
         {this.props.articles.articles.map(articles => {
@@ -56,10 +59,7 @@ export class Articles extends Component {
               <p><span>Date Published: </span>{date.toTimeString()}</p>
               <button onClick={this.deleteArticle} id={articles._id}>Delete</button>
 
-              { this.props.auth.unauthorized && alert('You are not authorized to perform this action') }
-
               <button id={articles._id}>Edit</button>
-              {/* <img src={articles.imageUrl} alt={articles.title}/> */}
             </div>
           )
         })}
