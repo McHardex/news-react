@@ -4,10 +4,13 @@ import { getArticles, removeArticle } from '../actions/articleActionCreator'
 import { logOutUser } from '../actions/authActionCreator'
 import { Link } from 'react-router'
 import PostArticle from './PostArticle'
+import ArticleComponent from './ArticleComponent'
 
 export class Articles extends Component {
   constructor(props) {
     super(props);
+
+    this.state = { isInEditMode: false}
 
     this.logOutUser = this.logOutUser.bind(this)
     this.deleteArticle = this.deleteArticle.bind(this)
@@ -23,8 +26,8 @@ export class Articles extends Component {
   deleteArticle = (event) => {
     event.preventDefault();
 
-      const token = JSON.parse(localStorage.getItem('user-token'))
-      this.props.removeArticle(event.target.id, token)
+    const token = JSON.parse(localStorage.getItem('user-token'))
+    this.props.removeArticle(event.target.id, token)
   }
 
   componentWillReceiveProps() {
@@ -34,6 +37,7 @@ export class Articles extends Component {
   componentDidMount() {
     this.props.getArticles()
   }
+
   
   render() {
     if(this.props.auth.unauthorized && this.props.articles.unauthorized){
@@ -41,28 +45,17 @@ export class Articles extends Component {
     }
     return (
       <div className="articles">
-      <div>
-        <Link to='users'>view users</Link>
-        <Link to='writers'>view writers</Link>
-      </div>
+        <div>
+          <Link to='users'>view users</Link>
+          <Link to='writers'>view writers</Link>
+        </div>
         <button onClick={this.logOutUser}>log out</button>
         <PostArticle/>
-        {this.props.articles.articles.map(articles => {
-          const date = new Date(articles.datePublished)
-          return (
-            <div className="articleBody" key={articles._id}>
-              <h2>{articles.title}</h2>
-              <p>{articles.leadParagraph}</p>
-              <h3>{articles.subheading}</h3>
-              <p>{articles.body}</p>
-              <p><span>Author: </span>{articles.user.name}</p>
-              <p><span>Date Published: </span>{date.toTimeString()}</p>
-              <button onClick={this.deleteArticle} id={articles._id}>Delete</button>
-
-              <button id={articles._id}>Edit</button>
-            </div>
-          )
-        })}
+        {
+          this.props.articles.articles.map(article => {
+            return <ArticleComponent article={article} key={article._id}/>
+          })
+        }
       </div>
     )
   }
