@@ -30,10 +30,12 @@ export default class WriterArticle extends Component {
   render() {
     return (
       <div>
-        { this.props.articles.length === 1 ? 
-        <p onClick={this.toggleArticle}>{this.props.articles.length} article</p> : 
-        <p onClick={this.toggleArticle}>{this.props.articles.length} articles</p> }
-        {this.state.isOpen && this.showUserArticle()}
+        { 
+          this.props.articles.length === 1 ? 
+          <p onClick={this.toggleArticle}>{this.props.articles.length} article</p> : 
+          <p onClick={this.toggleArticle}>{this.props.articles.length} articles</p> 
+        }
+        { this.state.isOpen && this.showUserArticle() }
       </div>
     )
   }
