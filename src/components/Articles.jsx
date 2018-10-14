@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getArticles, removeArticle } from '../actions/articleActionCreator'
+import { getArticles, removeArticle, updateArticle } from '../actions/articleActionCreator'
 import { logOutUser } from '../actions/authActionCreator'
 import { Link } from 'react-router'
 import PostArticle from './PostArticle'
@@ -13,7 +13,6 @@ export class Articles extends Component {
     this.state = { isInEditMode: false}
 
     this.logOutUser = this.logOutUser.bind(this)
-    this.deleteArticle = this.deleteArticle.bind(this)
   }
 
   logOutUser = (event) => {
@@ -21,13 +20,6 @@ export class Articles extends Component {
 
     this.props.logOutUser()
     localStorage.removeItem('user-token');
-  }
-
-  deleteArticle = (event) => {
-    event.preventDefault();
-
-    const token = JSON.parse(localStorage.getItem('user-token'))
-    this.props.removeArticle(event.target.id, token)
   }
 
   componentWillReceiveProps() {
@@ -53,7 +45,8 @@ export class Articles extends Component {
         <PostArticle/>
         {
           this.props.articles.articles.map(article => {
-            return <ArticleComponent article={article} key={article._id}/>
+            return <ArticleComponent article={article} key={article._id} 
+            updateArticle={this.props.updateArticle} removeArticle={this.props.removeArticle}/>
           })
         }
       </div>
@@ -62,4 +55,4 @@ export class Articles extends Component {
 }
 
 const mapStateToProps = ({ articles, auth }) => ({ articles, auth })
-export default connect(mapStateToProps, { getArticles, logOutUser, removeArticle })(Articles)
+export default connect(mapStateToProps, { getArticles, logOutUser, removeArticle, updateArticle })(Articles)

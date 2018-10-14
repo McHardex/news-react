@@ -8,19 +8,35 @@ export default class ArticleComponent extends Component {
     this.toggleArticle = this.toggleArticle.bind(this)
     this.changeEditMode = this.changeEditMode.bind(this)
     this.submitEdit = this.submitEdit.bind(this)
+    this.deleteArticle = this.deleteArticle.bind(this)
+  }
+
+  deleteArticle = (event) => {
+    event.preventDefault();
+
+    const token = JSON.parse(localStorage.getItem('user-token'))
+    this.props.removeArticle(event.target.id, token)
   }
 
   submitEdit = (event) => {
-    console.log(event)
+    event.preventDefault();
+    this.setState({ edit: false })
+
+    let data = {}
+    const formData = new FormData(event.target)
+    const token = JSON.parse(localStorage.getItem('user-token'))
+    for (let entry of formData.entries()) {
+      data[entry[0]] = entry[1]
+    }
+    this.props.updateArticle(event.target.id, data, token)
   }
 
   toggleArticle = () => {
     this.setState({ isOpen: !this.state.isOpen })
   }
 
-  changeEditMode = (id) => {
+  changeEditMode = () => {
     this.setState({ edit: !this.state.edit })
-    console.log('should go to edit mode now')
   }
   
   renderEditMode() {
@@ -28,26 +44,27 @@ export default class ArticleComponent extends Component {
     const date = new Date(article.datePublished)
     return(
       this.state.edit ?
-        <div className="articleBody" key={article._id}>
-          <input type='text' defaultValue={article.title} /> <br/>
-          <textarea type='text' defaultValue={article.leadParagraph} /> <br/>
-          <input type='text' defaultValue={article.subheading} /> <br/>
-          <textarea type='text' defaultValue={article.body}/> <br/>
-          <button onClick={this.submitEdit}>Save</button>
+        <form className="articleBody" id={article._id} onSubmit={this.submitEdit}>
+          title: <input name='title' type='text' defaultValue={article.title} /><br/>
+          leadParagraph: <textarea name='leadParagraph' type='text' defaultValue={article.leadParagraph} /> <br/>
+          subheading: <input name='subheading' type='text' defaultValue={article.subheading} /> <br/>
+          body: <textarea name='body' type='text' defaultValue={article.body}/> <br/>
+          imageUrl: <input name='imageUrl' type='text' defaultValue={article.imageUrl} /> <br/>
+          <button id={article._id} type='submit'>Save</button>
           <button onClick={this.changeEditMode}>Cancel</button>
-          <button onClick={this.toggleArticle}>Close</button>
-        </div> :
+        </form> :
         <div className="articleBody" key={article._id}>
+        <button id={article._id} onClick={this.toggleArticle}>Close</button>
           <h2>{article.title}</h2>
           <p>{article.leadParagraph}</p>
           <h3>{article.subheading}</h3>
           <p>{article.body}</p>
           <p><span>Author: </span>{article.user.name}</p>
           <p><span>Date Published: </span>{date.toTimeString()}</p>
+
           <button onClick={this.deleteArticle} id={article._id}>Delete</button>
 
-          <button id={article._id} onClick={this.changeEditMode}>Edit</button>
-          <button id={article._id} onClick={this.toggleArticle}>Close</button>
+          <button onClick={this.changeEditMode}>Edit</button>
         </div>
     )
   }
