@@ -37,6 +37,19 @@ const deleteArticleError = (error) => {
   }
 }
 
+const updateArticleSuccess = () => {
+  return {
+    type: actionTypes.UPDATE_ARTICLE_SUCCESS,
+  }
+}
+
+const updateArticleError = (error) => {
+  return {
+    type: actionTypes.UPDATE_ARTICLE_ERROR,
+    error
+  }
+}
+
 export function getArticles() {
   return (dispatch) => {
     return (
@@ -75,8 +88,24 @@ export function removeArticle(articleId, accessToken) {
     return (
       articleRequests.deleteArticle(articleId, accessToken)
         .then(res => {
-          if(res.statusText === "Unauthorized"){
-            dispatch(deleteArticleError(strip(res.statusText)))
+          console.log(res)
+          if(res.error){
+            dispatch(deleteArticleError(strip(res.error)))
+          } else {
+            dispatch(getArticles(), updateArticleSuccess)
+          }
+        })
+    )
+  }
+}
+
+export function updateArticle(articleId, accessToken) {
+  return (dispatch) => {
+    return (
+      articleRequests.editArticle(articleId, accessToken)
+        .then(res => {
+          if(res.error){
+            dispatch(updateArticleError(strip(res.statusText)))
           } else {
             dispatch(getArticles(), deleteArticleSuccess)
           }
