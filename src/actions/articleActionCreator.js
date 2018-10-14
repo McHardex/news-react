@@ -88,7 +88,6 @@ export function removeArticle(articleId, accessToken) {
     return (
       articleRequests.deleteArticle(articleId, accessToken)
         .then(res => {
-          console.log(res)
           if(res.error){
             dispatch(deleteArticleError(strip(res.error)))
           } else {
