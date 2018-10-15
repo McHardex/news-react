@@ -40,6 +40,7 @@ export class Articles extends Component {
         <div>
           <Link to='users'>view users</Link>
           <Link to='writers'>view writers</Link>
+          <Link to='profile'>my profile</Link>
         </div>
         <button onClick={this.logOutUser}>log out</button>
         <PostArticle/>
