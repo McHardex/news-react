@@ -7,8 +7,8 @@ export default {
   },
 
   // get personal data
-  getSingleUsers() {
-    return getApi('GET', 'https://mchnews.herokuapp.com/api/users/me')
+  getUserProfile(accessToken) {
+    return getApi('GET', 'https://mchnews.herokuapp.com/api/users/me', {}, accessToken)
   },
   
   // edit a user

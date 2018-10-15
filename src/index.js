@@ -9,6 +9,7 @@ import Login from '../src/components/Login'
 import Articles from '../src/components/Articles'
 import Users from '../src/components/Users'
 import Writers from '../src/components/Writers'
+import Profile from '../src/components/Profile'
 import * as serviceWorker from './serviceWorker';
 
 import store from './lib/store'
@@ -22,6 +23,7 @@ ReactDOM.render((
         <Route path="articles" component={Articles} />
         <Route path="users" component={Users} />
         <Route path="writers" component={Writers} />
+        <Route path="profile" component={Profile} />
       </Route>
     </Router>
   </Provider>
