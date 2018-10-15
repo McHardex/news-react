@@ -49,15 +49,15 @@ export function getUsers() {
     return (
       userRequests.getUsers()
         .then(response => response.json())
-        .then(res => {
-          console.log(res)
-          if(res.errors){
-            dispatch(getUsersError(strip(res.errors)))
-          } else {
-            console.log('got here')
-            dispatch(getUsersSuccess(res.users))
-          }
-        })
+          .then(res => {
+            console.log(res)
+            if(res.errors){
+              dispatch(getUsersError(strip(res.errors)))
+            } else {
+              console.log('got here')
+              dispatch(getUsersSuccess(res.users))
+            }
+          })
     )
   }
 }
@@ -68,13 +68,13 @@ export function getUserProfile() {
     return (
       userRequests.getUserProfile(accessToken)
         .then(response => response.json())
-        .then(res => {
-          if(res.error){
-            dispatch(getProfileError(strip(res.error)))
-          } else {
-            dispatch(getProfileSuccess(res.user))
-          }
-        })
+          .then(res => {
+            if(res.error){
+              dispatch(getProfileError(strip(res.error)))
+            } else {
+              dispatch(getProfileSuccess(res.user))
+            }
+          })
     )
   }
 }
@@ -84,13 +84,13 @@ export function updateUserProfile(id, userData, accessToken) {
     return (
       userRequests.editUser(id, userData, accessToken)
         .then(response => response.json())
-        .then(res => {
-          if(res.errors){
-            dispatch(updateUserError(strip(res.errors)))
-          } else {
-            dispatch(getUserProfile(), updateUserSuccess)
-          }
-        })
+          .then(res => {
+            if(res.errors){
+              dispatch(updateUserError(strip(res.errors)))
+            } else {
+              dispatch(getUserProfile(), updateUserSuccess)
+            }
+          })
     )
   }
 }
