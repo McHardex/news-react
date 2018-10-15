@@ -98,10 +98,10 @@ export function removeArticle(articleId, accessToken) {
   }
 }
 
-export function updateArticle(id, articleData, accessToken) {
+export function updateArticle(articleId, articleData, accessToken) {
   return (dispatch) => {
     return (
-      articleRequests.editArticle(id, articleData, accessToken)
+      articleRequests.editArticle(articleId, articleData, accessToken)
       .then(response => response.json())
       .then(res => {
         if(res.errors){

@@ -31,15 +31,22 @@ const getProfileError = (error) => {
   }
 }
 
-const updateUserSuccess = (user) => {
-  return {
-    type: actionTypes.UPDATE_USER_PROFILE_SUCCESS,
-  }
-}
-
 const updateUserError = (error) => {
   return {
     type: actionTypes.UPDATE_USER_PROFILE_ERROR,
+    error
+  }
+}
+
+const deleteUserSuccess = () => {
+  return {
+    type: actionTypes.DELETE_USER_SUCCESS,
+  }
+}
+
+const deleteUserError = (error) => {
+  return {
+    type: actionTypes.DELETE_USER_ERROR,
     error
   }
 }
@@ -50,11 +57,9 @@ export function getUsers() {
       userRequests.getUsers()
         .then(response => response.json())
           .then(res => {
-            console.log(res)
             if(res.errors){
               dispatch(getUsersError(strip(res.errors)))
             } else {
-              console.log('got here')
               dispatch(getUsersSuccess(res.users))
             }
           })
@@ -79,16 +84,31 @@ export function getUserProfile() {
   }
 }
 
-export function updateUserProfile(id, userData, accessToken) {
+export function updateUserProfile(userId, userData, accessToken) {
   return (dispatch) => {
     return (
-      userRequests.editUser(id, userData, accessToken)
+      userRequests.editUser(userId, userData, accessToken)
         .then(response => response.json())
           .then(res => {
             if(res.errors){
               dispatch(updateUserError(strip(res.errors)))
             } else {
-              dispatch(getUserProfile(), updateUserSuccess)
+              dispatch(getUserProfile())
+            }
+          })
+    )
+  }
+}
+
+export function deleteUser(userId, accessToken) {
+  return (dispatch) => {
+    return (
+      userRequests.deleteUser(userId, accessToken)
+          .then(res => {
+            if(res.statusText === 'No Content'){
+              dispatch(deleteUserError(strip(res.statusText)))
+            } else {
+              dispatch(deleteUserSuccess)
             }
           })
     )

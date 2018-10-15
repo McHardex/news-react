@@ -18,6 +18,6 @@ export default {
 
   // delete a user
   deleteUser(userId, accessToken) {
-    return getApi('DELETE', `https://mchnews.herokuapp.com/api/users${userId}`, {}, accessToken)
+    return getApi('DELETE', `https://mchnews.herokuapp.com/api/users/${userId}`, {}, accessToken)
   }
 }

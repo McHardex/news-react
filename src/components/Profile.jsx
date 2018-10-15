@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getUserProfile, updateUserProfile } from '../actions/userActionCreator'
+import { getUserProfile, updateUserProfile, deleteUser } from '../actions/userActionCreator'
 import { Link } from 'react-router'
 
 export class Profile extends Component {
@@ -11,6 +11,7 @@ export class Profile extends Component {
     }
     this.toggleEdit = this.toggleEdit.bind(this)
     this.submitEdit = this.submitEdit.bind(this)
+    this.deleteAccount = this.deleteAccount.bind(this)
   }
 
   toggleEdit = () => {
@@ -30,6 +31,19 @@ export class Profile extends Component {
     }
 
     this.props.updateUserProfile(event.target.id, data, token)
+    this.props.users.updateUserError = null
+  }
+
+  deleteAccount = (event) => {
+    event.preventDefault();
+
+    const token = JSON.parse(localStorage.getItem('user-token'))
+    this.props.deleteUser(event.target.id, token)
+    localStorage.removeItem('user-token');
+  }
+
+  componentWillReceiveProps() {
+    if (!localStorage.getItem('user-token')) window.location = '/#/' 
   }
 
   componentWillMount() {
@@ -43,12 +57,13 @@ export class Profile extends Component {
         <Link to='articles'>home</Link>
         <h1>MY PROFILE</h1>
         <button onClick={this.toggleEdit}>Edit Account</button>
+        <button id={profile._id} onClick={ this.deleteAccount }>Delete Account</button>
         { this.state.edit ? 
           <form className='profile' onSubmit={this.submitEdit} id={profile._id}>
             Name: <input name='name' defaultValue={profile.name} /><br/>
             Email: <input name='email' defaultValue={profile.email} /><br/>
             Bio: <textarea name='bio' defaultValue={profile.bio} /><br/>
-            Password: <input name='password' defaultValue={profile.password} /><br/>
+            Password: <input name='password' /><br/>
             <button id={profile._id} type='submit'>save</button>
             <button onClick={this.toggleEdit}>cancel</button>
           </form> :
@@ -60,6 +75,7 @@ export class Profile extends Component {
           </div>
         }
         <div>
+        <h1>MY ARTICLES</h1>
           { 
             profile.articles && profile.articles.length === 0 ? 
             <div><h1>You have not written any article</h1> </div> :
@@ -86,4 +102,4 @@ export class Profile extends Component {
 }
 
 const mapStateToProps = ({ users }) => ({ users })
-export default connect(mapStateToProps, { getUserProfile, updateUserProfile })(Profile)
+export default connect(mapStateToProps, { getUserProfile, updateUserProfile, deleteUser })(Profile)
