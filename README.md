@@ -1,4 +1,4 @@
-# Time Tracker React
+# News_Articles React
 
 
 # Installation
