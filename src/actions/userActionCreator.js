@@ -85,11 +85,9 @@ export function updateUserProfile(id, userData, accessToken) {
       userRequests.editUser(id, userData, accessToken)
         .then(response => response.json())
         .then(res => {
-          console.log(res)
           if(res.errors){
             dispatch(updateUserError(strip(res.errors)))
           } else {
-            console.log('got here')
             dispatch(getUserProfile(), updateUserSuccess)
           }
         })
