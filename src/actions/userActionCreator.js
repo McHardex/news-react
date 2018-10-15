@@ -56,7 +56,6 @@ export function getUserProfile() {
       userRequests.getUserProfile(accessToken)
         .then(response => response.json())
         .then(res => {
-          console.log(res)
           if(res.error){
             dispatch(getProfileError(strip(res.error)))
           } else {
