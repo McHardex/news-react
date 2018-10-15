@@ -26,7 +26,7 @@ export class Articles extends Component {
     if (!localStorage.getItem('user-token')) window.location = '/#/login' 
   }
   
-  componentDidMount() {
+  componentWillMount() {
     this.props.getArticles()
   }
 
