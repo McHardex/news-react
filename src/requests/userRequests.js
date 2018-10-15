@@ -12,8 +12,8 @@ export default {
   },
   
   // edit a user
-  editUser(userId, accessToken) {
-    return getApi('PUT', `https://mchnews.herokuapp.com/api/users${userId}`, {}, accessToken)
+  editUser(userId, userData, accessToken) {
+    return getApi('PUT', `https://mchnews.herokuapp.com/api/users/${userId}`, userData, accessToken)
   },
 
   // delete a user

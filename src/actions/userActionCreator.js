@@ -31,6 +31,19 @@ const getProfileError = (error) => {
   }
 }
 
+const updateUserSuccess = (user) => {
+  return {
+    type: actionTypes.UPDATE_USER_PROFILE_SUCCESS,
+  }
+}
+
+const updateUserError = (error) => {
+  return {
+    type: actionTypes.UPDATE_USER_PROFILE_ERROR,
+    error
+  }
+}
+
 export function getUsers() {
   return (dispatch) => {
     return (
@@ -60,6 +73,22 @@ export function getUserProfile() {
             dispatch(getProfileError(strip(res.error)))
           } else {
             dispatch(getProfileSuccess(res.user))
+          }
+        })
+    )
+  }
+}
+
+export function updateUserProfile(id, userData, accessToken) {
+  return (dispatch) => {
+    return (
+      userRequests.editUser(id, userData, accessToken)
+        .then(response => response.json())
+        .then(res => {
+          if(res.errors){
+            dispatch(updateUserError(strip(res.errors)))
+          } else {
+            dispatch(getUserProfile(), updateUserSuccess)
           }
         })
     )
