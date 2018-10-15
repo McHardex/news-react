@@ -4,7 +4,8 @@ const initialState = {
   users: [],
   userProfile: {},
   getUsersError: null,
-  getUserProfileError: null
+  getUserProfileError: null,
+  updateUserError: null
   // articlesError: null,
   // postArticleSuccess: false,
   // deleteArticleError: null
@@ -20,6 +21,10 @@ export const users = (state = initialState, action) => {
       return {...state, userProfile: action.user}
     case actionTypes.FETCH_USER_PROFILE_ERROR:
       return {...state, getUserProfileError: action.error}
+    case actionTypes.UPDATE_USER_PROFILE_SUCCESS:
+      return {...state }
+    case actionTypes.UPDATE_USER_PROFILE_ERROR:
+      return {...state, updateUserError: action.error }
     default:
       return state
   }
