@@ -108,7 +108,6 @@ export function deleteUser(userId, accessToken) {
             if(res.statusText === 'No Content'){
               dispatch(deleteUserError(strip(res.statusText)))
             } else {
-              console.log('got here')
               dispatch(deleteUserSuccess)
             }
           })
