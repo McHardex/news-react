@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Covered+By+Your+Grace');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+body {
+  margin: 0 0;
+  height: 100%
+}
+
+.container {
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background: #1a0054ed;
+  color: #fff;
+  height: 7vh;
+}
+
+.logo {
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 30px;
+  color: #d9e8f5;
+}
+
+.getstarted {
+  background: #ffffff;
+  padding: 5px 10px;
+  color: #28285d;
+  font-family: 'Comfortaa', cursive;
+  display: flex;
+  align-items: center;
+}
+
+.loginLink {
+  background: #28285d;
+  padding: 5px 10px;
+  color: #fff;
+  font-family: 'Comfortaa', cursive;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.loginLink:hover {
+  color: #28285d;
+  background: #d9e8f5
+}
+
+.section1 {
+  background: #9237650a;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.sectionContent {
+  text-align: center;
+  margin: 0
+}
+
+.move {
+  font-size: 35px;
+  color: #28285d;
+  margin-top: 0;
+}
+
+.create {
+  font-family: 'Comfortaa', cursive;
+}
+
+.create-acc {
+  background: #28285d;
+  padding: 5px 10px;
+  color: #fff;
+  font-family: 'Comfortaa', cursive;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+}
+
+.create-acc:hover {
+  color: #28285d;
+  background: #f7fbff71
+}
+
+footer {
+  font-family: 'Comfortaa', cursive;
+  background: #323279f5;
+  letter-spacing: 0.1em;
+  height: 33vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.footerText {
+  text-align: center;
+  color: #fff;
+}
+
+img {
+  width: 200px;
+  height: 204px;
+}
