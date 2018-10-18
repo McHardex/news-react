@@ -75,3 +75,4 @@ export function logOutUser() {
     dispatch(logOutSuccess())
   }
 }
+

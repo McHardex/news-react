@@ -2,11 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { signUpUser } from '../actions/authActionCreator'
 import { Link } from 'react-router'
+import '../assets/stylesheets/signUp.css'
+import { clearFormErrors } from '../actions/formActionCreator'
 
 export class SignUp extends Component {
   constructor(props) {
     super(props);
+
     this.signUpUser = this.signUpUser.bind(this)
+    this.resetForm = this.resetForm.bind(this)
+    this.closeModal = this.closeModal.bind(this)
   }
 
   resetForm = (target) => {
@@ -26,35 +31,43 @@ export class SignUp extends Component {
 
     this.props.signUpUser(data, () => this.resetForm(target))
   }
+
+  closeModal() {
+    this.props.clearFormErrors()
+    this.props.closeComponent()
+  }
   
   render() {
     return (
       <div className="signUp">
-        { this.props.auth.signUpSuccess && <p>Account successfully created</p> }
-        <p>{ this.props.auth.signUpError }</p>
+        <div className='signup-txt'>Sign Up</div>
+        { this.props.auth.signUpSuccess && <p className='succ-msg'>Account successfully created √</p> }
+        <p className='err-msg'>{ this.props.auth.signUpError }</p>
         <form className='signupFormContainer' onSubmit={this.signUpUser}>
+          <button className='topright' onClick={this.closeModal}>X</button>
           <div className='nameContainer'>
             <label>Name</label>
-            <input name='name' type='text' placeholder='enter fullname'/><br/>
+            <input name='name' type='text' /><br/>
           </div>
           
           <div className='emailContainer'>
-            <label>email</label>
-            <input name='email' type='text' placeholder='email'/><br/>
+            <label>Email</label>
+            <input name='email' type='text'/><br/>
+          </div>
+
+          <div className='passwordContainer'>
+            <label>Password</label>
+            <input name='password' type='password' /><br/>
           </div>
 
           <div className='bioContainer'>
             <label>Bio</label>
-            <textarea name='bio' placeholder='tell us about you' type='text'/><br/>
+            <textarea name='bio' type='text'/><br/>
           </div>
 
-          <div className='passwordContainer'>
-            <label>password</label>
-            <input name='password' type='password' placeholder='enter your password'/><br/>
-          </div>
-          <button type='submit'>Sign Up</button>
+          <button className='signup-Submit' type='submit'>Sign Up</button>
         </form>
-        <p>Already have an account? <Link to='login'>Log in</Link></p>
+        <p className='hve-acc'>Already have an account? <Link to='login' className='loginLink'>Log in</Link></p>
         
       </div>
     )
@@ -62,4 +75,4 @@ export class SignUp extends Component {
 }
 
 const mapStateToProps = ({ auth }) => ({ auth })
-export default connect(mapStateToProps, { signUpUser })(SignUp)
+export default connect(mapStateToProps, { signUpUser, clearFormErrors })(SignUp)
