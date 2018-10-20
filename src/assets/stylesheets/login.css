@@ -2,28 +2,52 @@
 @import url('https://fonts.googleapis.com/css?family=League+Script');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-.signUp {
-  border: 1px solid #36407c;
-  min-width: 38%;
-  background: #ffffff;
-  position: absolute;
-  top: 10%;
+.cont {
+  background: #222b56;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #4c4847f2;
   z-index: 1;
-  left: 30%;
+  opacity: 0.5;
 }
 
-.signup-txt {
-  font-family: 'League Script', cursive;
+.login-cont {
+  min-width: 30%;
+  border: 1px solid #252e5b;
+  margin: 0;
+  padding: 10px 0;
+  background: #fff;
+  z-index: 2;
+}
+
+.login-txt {
+  font-family: 'Covered By Your Grace', cursive;
   font-size: 40px;
-  color: #36407c;
+  color: #9ed2ff;
   text-align: center;
-  margin: 10px 0;
+  padding: 10px;
 }
 
-.nameContainer, .emailContainer, .bioContainer, .passwordContainer {
+form.loginFormContainer {
+  padding: 0 30px;
+}
+
+.email-cont, .pwd-cont {
   display: flex;
   flex-direction: column;
-  padding: 0 30px;
 }
 
 input[type="text"] {
@@ -32,8 +56,8 @@ input[type="text"] {
   font-family: 'Roboto', sans-serif;
   background: none;
   outline: none;
-  width: 90%;
-  color: #36407c;
+  width: 100%;
+  color: #36407cc4;
   padding: 5px 10px 10px 5px;
   border: none;
   border-radius: 0;
@@ -47,23 +71,8 @@ label {
   font-family: 'Comfortaa', cursive;
 }
 
-textarea {
-  box-sizing: border-box;
-  background: none;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  width: 90%;
-  color: #36407c;
-  padding: 5px 10px 10px 5px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #36407c;
-  resize: none;
-  outline: none;
-}
-
 input[type="password"] {
-  width: 90%;
+  width: 100%;
   box-sizing: border-box;
   font-size: 16px;
   background: none;
@@ -75,36 +84,30 @@ input[type="password"] {
   outline: none;
 }
 
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
-  -webkit-text-fill-color: #36407c98 !important;
-}
-
-.signup-Submit {
+.login-sub {
   background: #28285d;
   color: #fff;
   cursor: pointer;
   outline: none;
   text-decoration: none;
   font-size: 20px;
-  margin-left: 30px;
   padding: 5px 25px;
 }
 
-.signup-Submit:hover {
+.login-sub:hover {
   background: #fff; 
   color: #28285d;
 }
 
-.hve-acc {
-  padding: 0 30px;
+.hve-acct {
   color: #36407c;
   font-family: 'Comfortaa', cursive;
   display: flex;
   align-items: center;
+  padding: 0 30px;
 }
 
-.loginLink {
+.signupLink {
   background: #fff;
   padding: 5px 10px;
   color: #28285d;
@@ -117,37 +120,14 @@ input:-webkit-autofill {
   border: 1px solid #36407c;
 }
 
-.loginLink:hover {
+.signupLink:hover {
   text-decoration: underline;
   background: #252e5b;
   color: #fff
 }
 
-.loginErr {
+.err-msg {
   color: #ff0b0b;
   padding: 0 30px;
   font-family: 'Comfortaa', cursive;
-}
-
-.succ-msg {
-  color: rgb(0, 211, 28);
-  padding: 0 30px;
-  font-family: 'Comfortaa', cursive;
-}
-
-.topright {
-  position: absolute;
-  top: 0;
-  font-size: 25px;
-  cursor: pointer;
-  right: 0;
-  outline: none;
-  border: 1px solid #36407c;
-  border-top: none;
-  border-right: none;
-}
-
-.topright:hover {
-  color: #ff0b0b;
-  background: #36407c;
 }

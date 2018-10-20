@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { loginUser } from '../actions/authActionCreator'
 import { clearFormErrors } from '../actions/formActionCreator'
 import { Link } from 'react-router'
+import '../assets/stylesheets/login.css'
 
 export class Login extends Component {
   constructor(props) {
@@ -31,21 +32,25 @@ export class Login extends Component {
   
   render() {
     return (
-      <div className="login">
-        <p>{ this.props.auth.loginError }</p>
-        <form className='loginFormContainer' onSubmit={this.loginUser}>
-          <div className='emailContainer'>
-            <label>email</label>
-            <input name='email' type='text' placeholder='email'/><br/>
-          </div>
+      <div className='cont'>
+        <div id='overlay'></div>
+        <div className="login-cont">
+          <div className='login-txt'>Mchardex::</div>
+          <p className='loginErr'>{ this.props.auth.loginError }</p>
+          <form className='loginFormContainer' onSubmit={this.loginUser}>
+            <div className='email-cont'>
+              <label>Email</label>
+              <input name='email' type='text'/><br/>
+            </div>
 
-          <div className='passwordContainer'>
-            <label>password</label>
-            <input name='password' type='password' placeholder='enter your password'/><br/>
-          </div>
-          <button type='submit'>Log in</button>
-        </form>
-        <p>don't have an account?<Link to='/' onClick={this.props.clearFormErrors}>Sign Up</Link></p>
+            <div className='pwd-cont'>
+              <label>Password</label>
+              <input name='password' type='password'/><br/>
+            </div>
+            <button type='submit' className='login-sub'>Log in</button>
+          </form>
+          <p className='hve-acct'>don't have an account? <Link to='/' onClick={this.props.clearFormErrors} className='signupLink'>Sign Up</Link></p>
+        </div>
       </div>
     )
   }
