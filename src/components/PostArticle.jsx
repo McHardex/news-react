@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createArticle } from '../actions/articleActionCreator'
 import { clearFormErrors } from '../actions/formActionCreator'
+import '../assets/stylesheets/homepage.css'
+
 
 export class PostArticle extends Component {
   constructor(props) {
@@ -34,34 +36,34 @@ export class PostArticle extends Component {
   render() {
     return (
       <div className="postArticles">
-        <form className='' onSubmit={this.createArticle}>
-          <div className=''>
-            <label>Title </label>
-            <input name='title' type='text'/><br/>
+        <form className='pst-article' onSubmit={this.createArticle}>
+          <div className='pst-art-title'>
+            <label className='titleLb'>Title: </label>
+            <input className='title' name='title'/><br/>
           </div>
           
-          <div className='subheading'>
-            <label>Sub-Heading </label>
-            <input name='subheading' type='text'/><br/>
+          <div className='pst-art-subheading'>
+            <label className='subhLb'>Sub-Heading: </label>
+            <input className='subheading' name='subheading'/><br/>
           </div>
 
-          <div className='leadParagraph'>
-            <label>Lead Paragraph </label>
-            <textarea name='leadParagraph' /><br/>
+          <div className='pst-art-lparag'>
+            <label className='paragLb'>Lead Paragraph: </label>
+            <textarea className='leadParagraph' name='leadParagraph' /><br/>
           </div>
 
-          <div className='body'>
-            <label>Body </label>
-            <textarea name='body'/><br/>
+          <div className='pst-art-body'>
+            <label className='bodyLb'>Body: </label>
+            <textarea className='body' name='body'/><br/>
           </div>
 
-           <div className='imageUrl'>
-            <label>Image Url </label>
-            <input name='imageUrl' type='url' alt={''}/><br/>
+           <div className='pst-art-imgUrl'>
+            <label className='imgLb'>Image Url: </label>
+            <input name='imageUrl' className='img-url'/><br/>
           </div>
-          <button type='submit'>Submit Article</button>
+          <button className='sub-art' type='submit'>Submit Article</button>
         </form>
-        <p>{ this.props.articles.articlesError }</p>
+        <p className='err-msg'>{ this.props.articles.articlesError }</p>
         
       </div>
     )

@@ -45,39 +45,58 @@ export default class ArticleComponent extends Component {
     return(
       this.state.edit ?
         <form className="articleBody" id={article._id} onSubmit={this.submitEdit}>
-          title: <input name='title' type='text' defaultValue={article.title} /><br/>
-          leadParagraph: <textarea name='leadParagraph' type='text' defaultValue={article.leadParagraph} /> <br/>
-          subheading: <input name='subheading' type='text' defaultValue={article.subheading} /> <br/>
-          body: <textarea name='body' type='text' defaultValue={article.body}/> <br/>
-          imageUrl: <input name='imageUrl' type='text' defaultValue={article.imageUrl} /> <br/>
+          <div>
+            <label>title:</label>
+            <input name='title' type='text' defaultValue={article.title} />
+          </div>
+
+          <div>
+            <label>leadParagraph:</label>
+            <textarea name='leadParagraph' type='text' defaultValue={article.leadParagraph} />
+          </div>
+
+          <div>
+            <label>subheading:</label>
+            <input name='subheading' type='text' defaultValue={article.subheading} />
+          </div> 
+
+          <div>
+            <label>body:</label>
+            <textarea name='body' type='text' defaultValue={article.body}/>
+          </div> 
+
+          <div>
+            <label>imageUrl:</label>
+            <input name='imageUrl' type='text' defaultValue={article.imageUrl} />
+          </div> 
           <button id={article._id} type='submit'>Save</button>
           <button onClick={this.changeEditMode}>Cancel</button>
         </form> :
+
         <div className="articleBody" key={article._id}>
-        <button id={article._id} onClick={this.toggleArticle}>Close</button>
           <h2>{article.title}</h2>
           <p>{article.leadParagraph}</p>
           <h3>{article.subheading}</h3>
           <p>{article.body}</p>
-          <p><span>Author: </span>{article.user.name}</p>
-          <p><span>Date Published: </span>{date.toTimeString()}</p>
+          <p className='author'><span>Author: </span>{article.user.name}</p>
+          <p className='date-published'><span>Date Published: </span>{date.toTimeString()}</p>
 
           <button onClick={this.deleteArticle} id={article._id}>Delete</button>
-
           <button onClick={this.changeEditMode}>Edit</button>
+          <button id={article._id} onClick={this.toggleArticle}>Close</button>
         </div>
     )
   }
 
   render() {
     return (
-      <div>
+      <div className='initialArtDisplay'>
         {
           this.state.isOpen ? 
           this.renderEditMode() : 
-          <p>{ this.props.article.title }  
-            <button onClick={ this.toggleArticle }>Read more...</button>
-          </p>
+          <li className='title'>{ this.props.article.title }  
+            <button className='readMore' onClick={ this.toggleArticle }>read more...</button>
+          </li>
         }
       </div>
     )
