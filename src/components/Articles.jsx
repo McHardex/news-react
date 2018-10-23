@@ -6,11 +6,12 @@ import { Link } from 'react-router'
 import PostArticle from './PostArticle'
 import ArticleComponent from './ArticleComponent'
 
+
 export class Articles extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { isInEditMode: false}
+    this.state = { isInEditMode: false }
 
     this.logOutUser = this.logOutUser.bind(this)
   }
@@ -32,9 +33,6 @@ export class Articles extends Component {
 
   
   render() {
-    // if(this.props.auth.unauthorized && this.props.articles.unauthorized){
-    //   alert('you are not authorized to perform this action')
-    // }
     return (
       <div className="articles">
         <div>
