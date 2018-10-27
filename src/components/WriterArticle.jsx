@@ -18,11 +18,7 @@ export default class WriterArticle extends Component {
     return(
       this.props.articles.map(article => 
       <div key={article._id}>
-        <h2>{article.title}</h2>
-        <p>{article.leadParagraph}</p>
-        <h3>{article.subheading}</h3>
-        <p>{article.body}</p>
-        <p><span>Date Published: </span>{new Date(article.datePublished).toTimeString()}</p>
+        <h2 className='title-click'>{article.title}</h2>
       </div>)
     )
   }
@@ -32,8 +28,8 @@ export default class WriterArticle extends Component {
       <div>
         { 
           this.props.articles.length === 1 ? 
-          <p onClick={this.toggleArticle}>{this.props.articles.length} article</p> : 
-          <p onClick={this.toggleArticle}>{this.props.articles.length} articles</p> 
+          <p className='art-count' onClick={this.toggleArticle}><button>{this.props.articles.length}</button> article</p> : 
+          <p className='art-count' onClick={this.toggleArticle}><button>{this.props.articles.length}</button> articles</p> 
         }
         { this.state.isOpen && this.showUserArticle() }
       </div>
