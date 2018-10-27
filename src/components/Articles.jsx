@@ -12,35 +12,19 @@ export class Articles extends Component {
     super(props);
 
     this.state = { isInEditMode: false }
-
-    this.logOutUser = this.logOutUser.bind(this)
-  }
-
-  logOutUser = (event) => {
-    event.preventDefault()
-
-    this.props.logOutUser()
-    localStorage.removeItem('user-token');
-  }
-
-  componentWillReceiveProps() {
-    if (!localStorage.getItem('user-token')) window.location = '/#/login' 
   }
   
   componentWillMount() {
     this.props.getArticles()
   }
-
-  
   render() {
     return (
       <div className="articles">
-        <div>
-          <Link to='users'>view users</Link>
-          <Link to='writers'>view writers</Link>
-          <Link to='profile'>my profile</Link>
-        </div>
-        <button onClick={this.logOutUser}>log out</button>
+        <header className='homeHeader'>
+          <Link to='users'>users</Link>
+          <Link to='writers'>writers</Link>
+          <Link to='profile'>profile</Link>
+        </header>
         <PostArticle/>
         {
           this.props.articles.articles.map(article => {

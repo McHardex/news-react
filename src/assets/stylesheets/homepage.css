@@ -5,12 +5,50 @@
   background: #e1e1e117;
 }
 
+.homeHeader {
+  background: #272f5c;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.homeHeader a {
+  overflow: hidden;
+  padding: 5px 25px;
+  font-size: 14px;
+  border: 1px solid #fff;
+  color:#fff;
+  background-image: linear-gradient(to right, #fff 50%, #28285d 50%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+  outline: none;
+  /* font-family: 'Comfortaa', cursive; */
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.homeHeader a:hover {
+  -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+  background-position: bottom left;
+  color: #28285d;
+}
+
 form.pst-article {
   width: 70%;
   background: #28285dfc;
   padding: 15px;
-  margin: 0 auto;
-  margin-bottom: 5%;
+  margin: 10% auto;
+  margin-bottom: 0;
 }
 
 .pst-art-title, .pst-art-subheading, .pst-art-imgUrl, .pst-art-lparag, .pst-art-body {
@@ -30,7 +68,6 @@ input.title, input.subheading, input.img-url {
   font-family: 'Comfortaa', cursive;
   background: #fff;
   outline: none;
-  /* width: 100%; */
   color: #28285d;
   padding: 5px 10px 10px 5px;
 }
@@ -47,6 +84,7 @@ textarea.leadParagraph, textarea.body {
   outline: none;
   border: 1px solid;
   height: 150px;
+  padding: 5px;
 }
 
 button.sub-art {
@@ -81,11 +119,14 @@ button.sub-art:hover {
 .initialArtDisplay {
   width: 80%;
   color: #213ad6;
-  margin: 0 auto;
+  margin: 1% auto;
   font-family: 'Comfortaa', cursive;
   display: flex;
   line-height: 2;
+  background: #63696912;
   text-transform: capitalize;
+  padding: 5px;
+  box-shadow: 0 0 50px #63696912;
 }
 
 .readMore {
@@ -146,4 +187,33 @@ span {
   font-size: 10px;
   font-family: 'Comfortaa', cursive;
   box-shadow: 2px 5px 15px #5b5d63a6;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-text-fill-color: #36407c !important;
+}
+
+.err-msg {
+  color: #ff0b0b;
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+/* form edit div */
+.form-edit  {
+  display: flex;
+  flex-direction: column;
+  margin: 2% 0;
+}
+
+.label {
+  color: #af2f2f;
+  font-size: 14px;
+}
+
+li.title {
+  list-style-type: circle;
+  padding: 0 30px;
 }
