@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getWriters } from '../actions/writerActionCreator'
 import WriterArticle from './WriterArticle'
 import { Link } from 'react-router'
+import '../assets/stylesheets/writer.css'
 
 export class Writers extends Component {
   
@@ -13,14 +14,23 @@ export class Writers extends Component {
   render() {
     const writers = this.props.writers.writers
     return (
-      <div className="users">
-      <Link to='articles'>Articles</Link>
-      <Link to='users'>Users</Link>
+      <div>
+      <header className='homeHeader'>
+        <Link to='users'>users</Link>
+        <Link to='articles'>Articles</Link>
+        <Link to='profile'>profile</Link>
+      </header>
       {writers.map(writer => {
-        return (<div key={writer._id}>
-          <p>{writer.name}</p>
-          <p>{writer.email}</p>
-          <p>{writer.bio}</p>
+        return (<div className='writerBody' key={writer._id}>
+        <div className='writers'>
+          <label className='writer-label'>Name: </label><span>{writer.name}</span>
+        </div>
+        <div className='writers'>
+          <label className='writer-label'>Email: </label><span>{writer.email}</span>
+        </div>
+        <div className='writers'>
+          <label className='writer-label'>Bio: </label><span>{writer.bio}</span>
+        </div>
           <WriterArticle articles={writer.articles} />
         </div>
       )})}

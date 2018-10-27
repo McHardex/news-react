@@ -1,0 +1,61 @@
+.writerBody {
+  color: #272f5c;
+  margin: 5% auto;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1;
+  text-transform: none;
+  background: #25335a;
+  padding: 15px;
+  width: 70%;
+  margin-top: 8%;
+  margin-bottom: -7%;
+}
+  
+.writers {
+  display: flex;
+  align-items: baseline;
+}
+
+.writer-label {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #9ed2ff;
+}
+
+.writerBody span {
+  font-size: 14px;
+  font-family: monospace;
+  color: #fff;
+  margin: 0;
+  line-height: 2;
+  font-weight: 200;
+}
+
+.art-count button {
+  background: #253658;
+  color: #5da6e9;
+  border-radius: 10px;
+  margin-right: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+p.art-count {
+  display: flex;
+  align-items: center;
+  color: grey;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+
+p.art-count:hover {
+  color: floralwhite;
+}
+
+.title-click {
+  color: #ffe4c491;
+  text-transform: capitalize;
+  font-size: 14px;
+  -webkit-text-emphasis-style: triangle;
+  -webkit-text-emphasis-color: #9ed3fb94;
+}
