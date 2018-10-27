@@ -45,29 +45,29 @@ export default class ArticleComponent extends Component {
     return(
       this.state.edit ?
         <form className="articleBody" id={article._id} onSubmit={this.submitEdit}>
-          <div>
-            <label>title:</label>
-            <input name='title' type='text' defaultValue={article.title} />
+          <div className='form-edit'>
+            <label className='label'>Title:</label>
+            <input className='input-col' name='title' type='text' defaultValue={article.title} />
           </div>
 
-          <div>
-            <label>leadParagraph:</label>
-            <textarea name='leadParagraph' type='text' defaultValue={article.leadParagraph} />
+          <div className='form-edit'>
+            <label className='label'>Lead Paragraph:</label>
+            <textarea className='input-col' name='leadParagraph' type='text' defaultValue={article.leadParagraph} />
           </div>
 
-          <div>
-            <label>subheading:</label>
-            <input name='subheading' type='text' defaultValue={article.subheading} />
+          <div className='form-edit'>
+            <label className='label'>Sub-Heading:</label>
+            <input className='input-col' name='subheading' type='text' defaultValue={article.subheading} />
           </div> 
 
-          <div>
-            <label>body:</label>
-            <textarea name='body' type='text' defaultValue={article.body}/>
+          <div className='form-edit'>
+            <label className='label'>Body:</label>
+            <textarea className='input-col' name='body' type='text' defaultValue={article.body}/>
           </div> 
 
-          <div>
-            <label>imageUrl:</label>
-            <input name='imageUrl' type='text' defaultValue={article.imageUrl} />
+          <div className='form-edit'>
+            <label className='label'>Image Url:</label>
+            <input className='input-col' name='imageUrl' type='text' defaultValue={article.imageUrl} />
           </div> 
           <button id={article._id} type='submit'>Save</button>
           <button onClick={this.changeEditMode}>Cancel</button>
@@ -78,7 +78,7 @@ export default class ArticleComponent extends Component {
           <p>{article.leadParagraph}</p>
           <h3>{article.subheading}</h3>
           <p>{article.body}</p>
-          <p className='author'><span>Author: </span>{article.user.name}</p>
+          <p className='author'><span>Author: </span>{article.user.name || 'Anonymous'}</p>
           <p className='date-published'><span>Date Published: </span>{date.toTimeString()}</p>
 
           <button onClick={this.deleteArticle} id={article._id}>Delete</button>

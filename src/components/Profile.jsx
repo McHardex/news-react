@@ -12,7 +12,19 @@ export class Profile extends Component {
     this.toggleEdit = this.toggleEdit.bind(this)
     this.submitEdit = this.submitEdit.bind(this)
     this.deleteAccount = this.deleteAccount.bind(this)
+    this.logOutUser = this.logOutUser.bind(this)
   }
+
+  logOutUser = (event) => {
+    event.preventDefault()
+
+    this.props.logOutUser()
+    localStorage.removeItem('user-token');
+  }
+
+  // componentWillReceiveProps() {
+  //   if (!localStorage.getItem('user-token')) window.location = '/#/login' 
+  // }
 
   toggleEdit = () => {
     this.setState({edit: !this.state.edit})
@@ -56,6 +68,7 @@ export class Profile extends Component {
       <div className="articles">
         <Link to='articles'>home</Link>
         <h1>MY PROFILE</h1>
+        <button className='logout-btn' onClick={this.logOutUser}>log out</button>
         <button onClick={this.toggleEdit}>Edit Account</button>
         <button id={profile._id} onClick={ this.deleteAccount }>Delete Account</button>
         { this.state.edit ? 
