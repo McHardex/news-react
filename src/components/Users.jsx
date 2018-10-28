@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getUsers } from '../actions/userActionCreator'
 import { Link } from 'react-router'
+import '../assets/stylesheets/user.css'
 
 export class Users extends Component {
   constructor(props) {
@@ -24,16 +25,25 @@ export class Users extends Component {
   render() {
     const users = this.props.users.users
     return (
-      <div className="users">
-      <Link to='articles'>Articles</Link>
-      <Link to='writers'>Writers</Link>
+      <div className="userContainer">
+      <header className='homeHeader'>
+        <Link to='writers'>Writers</Link>
+        <Link to='articles'>Articles</Link>
+        <Link to='profile'>profile</Link>
+      </header>
         {
           users.map(user => {
             return (
-              <div key={user._id}>
-                <p>{user.name}</p>
-                <p>{user.email}</p>
-                <p>{user.bio}</p>
+              <div className='userBody' key={user._id}>
+                <div className='users'>
+                  <label className='users-label'>Name: </label><span>{user.name}</span>
+                </div>
+                <div className='users'>
+                  <label className='users-label'>Email: </label><span>{user.email}</span>
+                </div>
+                <div className='users'>
+                  <label className='users-label'>Bio: </label><span>{user.bio}</span>
+                </div>
               </div>
             )
           })
