@@ -23,9 +23,9 @@ export class Profile extends Component {
     localStorage.removeItem('user-token');
   }
 
-  componentWillReceiveProps() {
-    if (!localStorage.getItem('user-token')) window.location = '/#/login' 
-  }
+  // componentWillReceiveProps() {
+  //   if (!localStorage.getItem('user-token')) window.location = '/#/login' 
+  // }
 
   toggleEdit = () => {
     this.setState({edit: !this.state.edit})
@@ -55,13 +55,14 @@ export class Profile extends Component {
     localStorage.removeItem('user-token');
   }
 
-  // componentWillReceiveProps() {
-  //   if (!localStorage.getItem('user-token')) window.location = '/#/' 
-  // }
+  componentWillReceiveProps() {
+    if (!localStorage.getItem('user-token')) window.location = '/#/' 
+  }
 
   componentWillMount() {
     this.props.getUserProfile()
   }
+
 
   render() {
     const profile = this.props.users.userProfile
