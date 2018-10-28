@@ -1,0 +1,32 @@
+.userBody {
+    color: #272f5c;
+    margin: 5% auto;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1;
+    text-transform: none;
+    background: #25335a;
+    padding: 15px;
+    width: 70%;
+    margin-top: 8%;
+    margin-bottom: -7%;
+  }
+    
+  .users {
+    display: flex;
+    align-items: baseline;
+  }
+  
+  .users-label {
+    font-size: 16px;
+    margin-right: 10px;
+    color: #9ed2ff;
+  }
+  
+  .userBody span {
+    font-size: 14px;
+    font-family: monospace;
+    color: #fff;
+    margin: 0;
+    line-height: 2;
+    font-weight: 200;
+  }
