@@ -33,7 +33,6 @@ export class Profile extends Component {
 
   submitEdit = (event) => {
     event.preventDefault();
-    this.setState({ edit: false })
     
     let data = {}
     const token = JSON.parse(localStorage.getItem('user-token'))
@@ -43,7 +42,7 @@ export class Profile extends Component {
       data[entry[0]] = entry[1]
     }
 
-    this.props.updateUserProfile(event.target.id, data, token)
+    this.props.updateUserProfile(event.target.id, data, token, () => this.toggleEdit())
     this.props.users.updateUserError = null
   }
 
@@ -74,9 +73,13 @@ export class Profile extends Component {
         <Link to='profile'>Users</Link>
       </header>
         <h1 className='profile'>MY PROFILE</h1>
-        <button className='btn' onClick={this.logOutUser}>log out</button>
-        <button className='btn' onClick={this.toggleEdit}>Edit Profile</button>
-        <button className='btn' id={profile._id} onClick={ this.deleteAccount }>Delete Account</button>
+        <div className='pf-btn'>
+          <button className='btn' onClick={this.logOutUser}>log out</button>
+          <button className='btn' onClick={this.toggleEdit}>Edit Profile</button>
+          <button className='btn' id={profile._id} onClick={ this.deleteAccount }>Delete Account</button>
+        </div>
+
+        <span className='edit-err'>{this.props.users.updateUserError}</span>
         { this.state.edit ? 
           <form className='profileFormEdit' onSubmit={this.submitEdit} id={profile._id}>
             <div className='form-edit'>

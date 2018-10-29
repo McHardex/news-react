@@ -84,7 +84,7 @@ export function getUserProfile() {
   }
 }
 
-export function updateUserProfile(userId, userData, accessToken) {
+export function updateUserProfile(userId, userData, accessToken, succesCallBack) {
   return (dispatch) => {
     return (
       userRequests.editUser(userId, userData, accessToken)
@@ -94,6 +94,7 @@ export function updateUserProfile(userId, userData, accessToken) {
               dispatch(updateUserError(strip(res.errors)))
             } else {
               dispatch(getUserProfile())
+              succesCallBack()
             }
           })
     )
