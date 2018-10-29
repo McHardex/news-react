@@ -14,26 +14,28 @@ export class Writers extends Component {
   render() {
     const writers = this.props.writers.writers
     return (
-      <div>
-      <header className='homeHeader'>
-        <Link to='home'>Home</Link>
-        <Link to='users'>users</Link>
-        <Link to='profile'>profile</Link>
-      </header>
-      {writers.map(writer => {
-        return (<div className='writerBody' key={writer._id}>
-        <div className='writers'>
-          <label className='writer-label'>Name: </label><span>{writer.name}</span>
-        </div>
-        <div className='writers'>
-          <label className='writer-label'>Email: </label><span>{writer.email}</span>
-        </div>
-        <div className='writers'>
-          <label className='writer-label'>Bio: </label><span>{writer.bio}</span>
-        </div>
-          <WriterArticle articles={writer.articles} />
-        </div>
-      )})}
+      <div className='writer-cont'>
+        <header className='homeHeader'>
+          <button className='writr-title'>Writers</button>
+          <Link to='home'>Home</Link>
+          <Link to='users'>users</Link>
+          <Link to='profile'>profile</Link>
+        </header>
+        <div className='nav-head'>Writers</div>
+        {writers.map(writer => {
+          return (<div className='writerBody' key={writer._id}>
+          <div className='writers'>
+            <label className='writer-label'>Name: </label><span>{writer.name}</span>
+          </div>
+          <div className='writers'>
+            <label className='writer-label'>Email: </label><span>{writer.email}</span>
+          </div>
+          <div className='writers'>
+            <label className='writer-label'>Bio: </label><span>{writer.bio}</span>
+          </div>
+            <WriterArticle articles={writer.articles} />
+          </div>
+        )})}
       </div>
     )
   }

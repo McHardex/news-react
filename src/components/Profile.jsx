@@ -17,6 +17,7 @@ export class Profile extends Component {
   }
   toggleEdit = () => {
     this.setState({edit: !this.state.edit})
+    this.props.users.updateUserError = null
   }
 
   submitEdit = (event) => {
@@ -54,11 +55,12 @@ export class Profile extends Component {
   render() {
     const profile = this.props.users.userProfile
     return (
-      <div className="articles">
+      <div className="pf-cont">
         <header className='homeHeader'>
+        <button className='profile-title'>Profile</button>
         <Link to='home'>Home</Link>
         <Link to='writers'>Writers</Link>
-        <Link to='profile'>Users</Link>
+        <Link to='users'>Users</Link>
       </header>
         <h1 className='profile'>MY PROFILE</h1>
         <div className='pf-btn'>

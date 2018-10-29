@@ -26,28 +26,32 @@ export class Users extends Component {
     const users = this.props.users.users
     return (
       <div className="userContainer">
-      <header className='homeHeader'>
-        <Link to='home'>Home</Link>
-        <Link to='writers'>Writers</Link>
-        <Link to='profile'>profile</Link>
-      </header>
-        {
-          users.map(user => {
-            return (
-              <div className='userBody' key={user._id}>
-                <div className='users'>
-                  <label className='users-label'>Name: </label><span>{user.name}</span>
+        <header className='homeHeader'>
+          <button className='usr-title'>Users</button>
+          <Link to='home'>Home</Link>
+          <Link to='writers'>Writers</Link>
+          <Link to='profile'>profile</Link>
+        </header>
+        <div className='user-cont'>
+          <div className='nav-head'>Users</div>
+          {
+            users.map(user => {
+              return (
+                <div className='userBody' key={user._id}>
+                  <div className='users'>
+                    <label className='users-label'>Name: </label><span>{user.name}</span>
+                  </div>
+                  <div className='users'>
+                    <label className='users-label'>Email: </label><span>{user.email}</span>
+                  </div>
+                  <div className='users'>
+                    <label className='users-label'>Bio: </label><span>{user.bio}</span>
+                  </div>
                 </div>
-                <div className='users'>
-                  <label className='users-label'>Email: </label><span>{user.email}</span>
-                </div>
-                <div className='users'>
-                  <label className='users-label'>Bio: </label><span>{user.bio}</span>
-                </div>
-              </div>
-            )
-          })
-        }
+              )
+            })
+          }
+        </div>
       </div>
     )
   }

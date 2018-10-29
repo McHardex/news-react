@@ -1,5 +1,9 @@
+.pf-cont {
+  padding: 0 30px;
+}
+
 .profile {
-  margin-top: 8%;
+  margin-top: 7%;
   color: #253658;
 }
 
@@ -27,7 +31,7 @@ button.btn {
   background: #25335a;
   width: 50%;
   margin-top: 2%;
-  padding: 30px 0;
+  padding: 10px;
 }
   
 .profiles-div {
@@ -135,5 +139,16 @@ textarea.input-col {
 .edit-err {
   color: #ff0b0b;
   font-family: 'Comfortaa', cursive;
-  margin-top: 3%;
+  margin-top: 2%;
+  text-transform: capitalize;
+}
+
+.profile-title {
+  padding: 5px 25px;
+  font-size: 14px;
+  border: 1px solid #fff;
+  color:#25335a;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
 }
