@@ -1,15 +1,18 @@
-.writerBody {
-  color: #272f5c;
-  margin: 5% auto;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1;
-  text-transform: none;
-  background: #25335a;
-  padding: 15px;
-  width: 70%;
-  margin-top: 8%;
-  margin-bottom: -7%;
-}
+.writer-cont {
+  color: #272f5c; 
+   margin: 0 auto; 
+   width: 70%;
+   margin-top: 7%;
+ }
+ 
+ .writerBody {
+   font-family: 'Roboto', sans-serif;
+   line-height: 1;
+   text-transform: none;
+   background: #25335a;
+   padding: 15px;
+   margin: 5px;
+ }
   
 .writers {
   display: flex;
@@ -58,4 +61,14 @@ p.art-count:hover {
   font-size: 14px;
   -webkit-text-emphasis-style: triangle;
   -webkit-text-emphasis-color: #9ed3fb94;
+}
+
+.writr-title {
+  padding: 5px 25px;
+  font-size: 14px;
+  border: 1px solid #fff;
+  color:#25335a;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
 }

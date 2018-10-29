@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-.articles {
+body {
   background: #e1e1e117;
+}
+
+.cont-art {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 7%;
 }
 
 .homeHeader {
@@ -42,12 +48,15 @@
   color: #28285d;
 }
 
+.nav-head {
+  font-size: 30px;
+  font-family: 'Comfortaa', cursive;
+  color: #25335a;
+}
+
 form.pst-article {
-  width: 70%;
   background: #28285dfc;
   padding: 15px;
-  margin: 10% auto;
-  margin-bottom: 0;
 }
 
 .pst-art-title, .pst-art-subheading, .pst-art-imgUrl, .pst-art-lparag, .pst-art-body {
@@ -116,16 +125,13 @@ button.sub-art:hover {
 }
 
 .initialArtDisplay {
-  width: 80%;
   color: #213ad6;
-  margin: 1% auto;
   font-family: 'Comfortaa', cursive;
   display: flex;
   line-height: 2;
-  background: #63696912;
   text-transform: capitalize;
   padding: 5px;
-  box-shadow: 0 0 50px #63696912;
+  flex-direction: column;
 }
 
 .readMore {
@@ -215,7 +221,7 @@ input:-webkit-autofill {
 li.title {
   list-style-type: circle;
   padding: 0 30px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .logout {
@@ -238,4 +244,14 @@ li.title {
   transition: all 0.25s ease-in;
   background-position: bottom left;
   color: red;
+}
+
+.home-title {
+  padding: 5px 25px;
+  font-size: 14px;
+  border: 1px solid #fff;
+  color:#25335a;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
 }
