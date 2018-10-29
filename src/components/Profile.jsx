@@ -56,8 +56,8 @@ export class Profile extends Component {
     return (
       <div className="articles">
         <header className='homeHeader'>
+        <Link to='home'>Home</Link>
         <Link to='writers'>Writers</Link>
-        <Link to='articles'>Articles</Link>
         <Link to='profile'>Users</Link>
       </header>
         <h1 className='profile'>MY PROFILE</h1>

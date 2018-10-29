@@ -4,10 +4,10 @@ import { getArticles, removeArticle, updateArticle } from '../actions/articleAct
 import { logOutUser } from '../actions/authActionCreator'
 import { Link } from 'react-router'
 import PostArticle from './PostArticle'
-import ArticleComponent from './ArticleComponent'
+import HomePageComponent from './HomePageComponent';
 
 
-export class Articles extends Component {
+export class HomePage extends Component {
   constructor(props) {
     super(props);
 
@@ -41,7 +41,7 @@ export class Articles extends Component {
         <PostArticle/>
         {
           this.props.articles.articles.map(article => {
-            return <ArticleComponent article={article} key={article._id} 
+            return <HomePageComponent article={article} key={article._id} 
             updateArticle={this.props.updateArticle} removeArticle={this.props.removeArticle}/>
           })
         }
@@ -51,4 +51,4 @@ export class Articles extends Component {
 }
 
 const mapStateToProps = ({ articles, auth }) => ({ articles, auth })
-export default connect(mapStateToProps, { getArticles, logOutUser, removeArticle, updateArticle })(Articles)
+export default connect(mapStateToProps, { getArticles, logOutUser, removeArticle, updateArticle })(HomePage)
