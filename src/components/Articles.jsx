@@ -12,11 +12,23 @@ export class Articles extends Component {
     super(props);
 
     this.state = { isInEditMode: false }
+    this.logOutUser = this.logOutUser.bind(this)
   }
-  
+  logOutUser = (event) => {
+    event.preventDefault()
+
+    this.props.logOutUser()
+    localStorage.removeItem('user-token');
+  }
+
+  componentWillReceiveProps() {
+    if (!localStorage.getItem('user-token')) window.location = '/#/login' 
+  }
+
   componentWillMount() {
     this.props.getArticles()
   }
+
   render() {
     return (
       <div className="articles">
@@ -24,6 +36,7 @@ export class Articles extends Component {
           <Link to='users'>users</Link>
           <Link to='writers'>writers</Link>
           <Link to='profile'>profile</Link>
+          <button className='logout' onClick={this.logOutUser}>log out</button>
         </header>
         <PostArticle/>
         {

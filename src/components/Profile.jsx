@@ -4,6 +4,7 @@ import { getUserProfile, updateUserProfile, deleteUser } from '../actions/userAc
 import { Link } from 'react-router'
 import '../assets/stylesheets/profile.css'
 
+
 export class Profile extends Component {
   constructor(props) {
     super(props);
@@ -13,20 +14,7 @@ export class Profile extends Component {
     this.toggleEdit = this.toggleEdit.bind(this)
     this.submitEdit = this.submitEdit.bind(this)
     this.deleteAccount = this.deleteAccount.bind(this)
-    this.logOutUser = this.logOutUser.bind(this)
   }
-
-  logOutUser = (event) => {
-    event.preventDefault()
-
-    this.props.logOutUser()
-    localStorage.removeItem('user-token');
-  }
-
-  // componentWillReceiveProps() {
-  //   if (!localStorage.getItem('user-token')) window.location = '/#/login' 
-  // }
-
   toggleEdit = () => {
     this.setState({edit: !this.state.edit})
   }
@@ -74,7 +62,6 @@ export class Profile extends Component {
       </header>
         <h1 className='profile'>MY PROFILE</h1>
         <div className='pf-btn'>
-          <button className='btn' onClick={this.logOutUser}>log out</button>
           <button className='btn' onClick={this.toggleEdit}>Edit Profile</button>
           <button className='btn' id={profile._id} onClick={ this.deleteAccount }>Delete Account</button>
         </div>
