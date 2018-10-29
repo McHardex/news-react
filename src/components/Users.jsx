@@ -27,8 +27,8 @@ export class Users extends Component {
     return (
       <div className="userContainer">
       <header className='homeHeader'>
+        <Link to='home'>Home</Link>
         <Link to='writers'>Writers</Link>
-        <Link to='articles'>Articles</Link>
         <Link to='profile'>profile</Link>
       </header>
         {

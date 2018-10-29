@@ -5,7 +5,7 @@ import { Router, Route, hashHistory } from 'react-router';
 
 import {App} from './App';
 import Login from '../src/components/Login'
-import Articles from '../src/components/Articles'
+import HomePage from '../src/components/HomePage'
 import Users from '../src/components/Users'
 import Writers from '../src/components/Writers'
 import Profile from '../src/components/Profile'
@@ -20,7 +20,7 @@ ReactDOM.render((
       <Route component={App}>
         <Route path='/' component={LandingPage} />
         <Route path="login" component={Login} />
-        <Route path="/articles" component={Articles} />
+        <Route path="/home" component={HomePage} />
         <Route path="users" component={Users} />
         <Route path="writers" component={Writers} />
         <Route path="profile" component={Profile} />

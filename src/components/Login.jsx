@@ -13,7 +13,7 @@ export class Login extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.user.token) {
-      window.location = '/#/articles'
+      window.location = '/#/home'
     }
   }
 

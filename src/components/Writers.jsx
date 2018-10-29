@@ -16,8 +16,8 @@ export class Writers extends Component {
     return (
       <div>
       <header className='homeHeader'>
+        <Link to='home'>Home</Link>
         <Link to='users'>users</Link>
-        <Link to='articles'>Articles</Link>
         <Link to='profile'>profile</Link>
       </header>
       {writers.map(writer => {

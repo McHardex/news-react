@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class ArticleComponent extends Component {
+export default class HomePageComponent extends Component {
   constructor(props) {
     super(props)
     this.state = { edit: false, isOpen: false }
