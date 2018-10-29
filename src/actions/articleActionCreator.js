@@ -24,22 +24,10 @@ const postArticleError = (error) => {
   }
 }
 
-// const deleteArticleSuccess = () => {
-//   return {
-//     type: actionTypes.DELETE_ARTICLE_SUCCESS,
-//   }
-// }
-
 const deleteArticleError = (error) => {
   return {
     type: actionTypes.UNAUTHORIZED,
     error
-  }
-}
-
-const updateArticleSuccess = () => {
-  return {
-    type: actionTypes.UPDATE_ARTICLE_SUCCESS,
   }
 }
 
@@ -107,7 +95,7 @@ export function updateArticle(articleId, articleData, accessToken) {
         if(res.errors){
           dispatch(updateArticleError(strip(res.errors)))
         } else {
-          dispatch(getArticles(), updateArticleSuccess)
+          dispatch(getArticles())
         }
       })
     )

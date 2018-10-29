@@ -5,7 +5,6 @@ const initialState = {
   loginError: null,
   signUpError: null,
   signUpSuccess: false,
-  // unauthorized: false,
   deleteArticleError: null
 }
 
