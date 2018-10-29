@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getUserProfile, updateUserProfile, deleteUser } from '../actions/userActionCreator'
 import { Link } from 'react-router'
 
+
 export class Profile extends Component {
   constructor(props) {
     super(props);
