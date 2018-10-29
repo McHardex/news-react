@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-export default class HomePageComponent extends Component {
+class HomePageComponent extends Component {
   constructor(props) {
     super(props)
     this.state = { edit: false, isOpen: false }
@@ -13,22 +14,30 @@ export default class HomePageComponent extends Component {
 
   deleteArticle = (event) => {
     event.preventDefault();
-
-    const token = JSON.parse(localStorage.getItem('user-token'))
-    this.props.removeArticle(event.target.id, token)
+    const result = window.confirm("Want to delete?");
+    if (result) {
+      if(this.props.articles.deleteArticleError === 'Unauthorized') {
+        alert('You are not authorized to perform this action')
+      } else {
+        const token = JSON.parse(localStorage.getItem('user-token'))
+        this.props.removeArticle(event.target.id, token)
+      }
+    }
   }
 
   submitEdit = (event) => {
     event.preventDefault();
-    this.setState({ edit: false })
-
-    let data = {}
-    const formData = new FormData(event.target)
-    const token = JSON.parse(localStorage.getItem('user-token'))
-    for (let entry of formData.entries()) {
-      data[entry[0]] = entry[1]
+    if(this.props.articles.updateArticleError === 'Unauthorized') {
+      alert('You are not authorized to perform this action')
+    } else {
+      let data = {}
+      const formData = new FormData(event.target)
+      const token = JSON.parse(localStorage.getItem('user-token'))
+      for (let entry of formData.entries()) {
+        data[entry[0]] = entry[1]
+      }
+      this.props.updateArticle(event.target.id, data, token)
     }
-    this.props.updateArticle(event.target.id, data, token)
   }
 
   toggleArticle = () => {
@@ -102,3 +111,6 @@ export default class HomePageComponent extends Component {
     )
   }
 }
+
+const mapStateToProps = ({ articles }) => ({ articles })
+export default connect(mapStateToProps)(HomePageComponent)
