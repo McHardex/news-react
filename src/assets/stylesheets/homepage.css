@@ -30,7 +30,6 @@
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
   outline: none;
-  /* font-family: 'Comfortaa', cursive; */
   text-decoration: none;
   text-transform: capitalize;
 }
@@ -216,4 +215,27 @@ input:-webkit-autofill {
 li.title {
   list-style-type: circle;
   padding: 0 30px;
+  font-size: 12px;
+}
+
+.logout {
+  overflow: hidden;
+  color:#fff;
+  background-image: linear-gradient(to right, #28285d 50%,#c00404a2 50%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+  outline: none;
+  cursor: pointer;
+}
+
+.logout:hover {
+  -webkit-transition: all 0.25s ease-in;
+  -moz-transition: all 0.25s ease-in;
+  transition: all 0.25s ease-in;
+  background-position: bottom left;
+  color: red;
 }
