@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 .signUp {
-  border: 1px solid #36407c;
+  border: 1px solid #121a42;
   min-width: 38%;
   background: #ffffff;
   position: absolute;
@@ -13,9 +13,9 @@
 }
 
 .signup-txt {
-  font-family: 'League Script', cursive;
+  /* font-family: 'League Script', cursive; */
   font-size: 40px;
-  color: #36407c;
+  color: #121a42;
   text-align: center;
   margin: 10px 0;
 }
@@ -37,7 +37,7 @@ input[type="text"] {
   background: none;
   outline: none;
   width: 90%;
-  color: #36407c;
+  color: #36417c;
   padding: 5px 10px 10px 5px;
   border: none;
   border-radius: 0;
@@ -45,7 +45,7 @@ input[type="text"] {
 }
 
 label {
-  color: #36407c;
+  color: #121a42;
   font-size: 14px;
   font-weight: bolder;
   font-family: 'Comfortaa', cursive;
@@ -57,7 +57,7 @@ textarea {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   width: 90%;
-  color: #36407c;
+  color: #36417c;
   padding: 5px 10px 10px 5px;
   border: none;
   border-radius: 0;
@@ -71,7 +71,7 @@ input[type="password"] {
   box-sizing: border-box;
   font-size: 16px;
   background: none;
-  color: #36407c;
+  color: #36417c;
   padding: 5px 10px 10px 5px;
   border: none;
   border-radius: 0;
@@ -80,12 +80,12 @@ input[type="password"] {
 }
 
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
-  -webkit-text-fill-color: #36407c98 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #E9E9FD inset;
+  -webkit-text-fill-color: #013ef5 !important;
 }
 
 .signup-Submit {
-  background: #28285d;
+  background: #121a42;
   color: #fff;
   cursor: pointer;
   outline: none;
@@ -97,12 +97,12 @@ input:-webkit-autofill {
 
 .signup-Submit:hover {
   background: #fff; 
-  color: #28285d;
+  color: #121a42;
 }
 
 .hve-acc {
   padding: 0 30px;
-  color: #36407c;
+  color: #121a42;
   font-family: 'Comfortaa', cursive;
   display: flex;
   align-items: center;
@@ -118,7 +118,7 @@ input:-webkit-autofill {
   text-decoration: none;
   font-size: 14px;
   margin-left: 5px;
-  border: 1px solid #36407c;
+  border: 1px solid #121a42;
 }
 
 .loginLink:hover {
@@ -134,7 +134,7 @@ input:-webkit-autofill {
 }
 
 .succ-msg {
-  color: rgb(0, 211, 28);
+  color: rgba(0, 165, 22, 0.829);
   padding: 0 30px;
   font-family: 'Comfortaa', cursive;
 }
@@ -146,28 +146,40 @@ input:-webkit-autofill {
   cursor: pointer;
   right: 0;
   outline: none;
-  border: 1px solid #36407c;
+  border: 1px solid #121a42;
   border-top: none;
   border-right: none;
 }
 
 .topright:hover {
   color: #ff0b0b;
-  background: #36407c;
+  background: #121a42;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
   .signUp {
-    width: 100%;
-    left: 0;
+    width: 96%;
+    left: 5px;
+    background: #dde3fff5;
   }
+
+  .signupFormContainer {
+    margin: 0;
+    padding: 10px;
+}
   
   .signup-txt {
     font-size: 25px;
   }
 
   .loginLink, .hve-acc, .signup-Submit {
-    font-size: 12px;
+    font-size: 14px;
+  }
+
+  .signup-Submit {
+    font-size: 20px;
+    outline: none;
+    border: none;
   }
 
   textarea {
@@ -177,5 +189,26 @@ input:-webkit-autofill {
   .err-msg {
     padding: 0;
     font-size: 12px;
+  }
+
+  .nameContainer, .emailContainer, .bioContainer, .passwordContainer {
+    padding: 0;
+  }
+
+  .input, input.input {
+    width: 100%;
+  }
+
+  .topright {
+    color: #ff0b0b;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .signUp {
+    background: #dde3fff5;
+  }
+
+  .topright {
+    color: #ff0b0b;
   }
 }

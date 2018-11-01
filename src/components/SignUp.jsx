@@ -47,22 +47,22 @@ export class SignUp extends Component {
           <button className='topright' onClick={this.closeModal}>X</button>
           <div className='nameContainer'>
             <label>Name</label>
-            <input name='name' type='text' /><br/>
+            <input className='input' name='name' type='text' /><br/>
           </div>
           
           <div className='emailContainer'>
             <label>Email</label>
-            <input name='email' type='text'/><br/>
+            <input className='input' name='email' type='text'/><br/>
           </div>
 
           <div className='passwordContainer'>
             <label>Password</label>
-            <input name='password' type='password' /><br/>
+            <input  className='input' name='password' type='password' /><br/>
           </div>
 
           <div className='bioContainer'>
             <label>Bio</label>
-            <textarea name='bio' type='text'/><br/>
+            <textarea className='input' name='bio' type='text'/><br/>
           </div>
 
           <button className='signup-Submit' type='submit'>Sign Up</button>

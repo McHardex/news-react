@@ -35,17 +35,17 @@ export class Login extends Component {
       <div className='cont'>
         <div id='overlay'></div>
         <div className="login-cont">
-          <div className='login-txt'>Mchardex::</div>
+          <div className='login-txt'>Log In</div>
           <p className='loginErr'>{ this.props.auth.loginError }</p>
           <form className='loginFormContainer' onSubmit={this.loginUser}>
             <div className='email-cont'>
-              <label>Email</label>
-              <input name='email' type='text'/><br/>
+              <label className='label-col'>Email</label>
+              <input className='input-style' name='email' type='text'/><br/>
             </div>
 
             <div className='pwd-cont'>
-              <label>Password</label>
-              <input name='password' type='password'/><br/>
+              <label className='label-col'>Password</label>
+              <input className='input-style' name='password' type='password'/><br/>
             </div>
             <button type='submit' className='login-sub'>Log in</button>
           </form>
