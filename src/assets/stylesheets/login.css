@@ -7,8 +7,10 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   z-index: 0;
+  overflow: hidden;
 }
 
 #overlay {
@@ -19,31 +21,49 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #4c4847f2;
+  background-color: #4c484729;
+  opacity: 0.8;
   z-index: 1;
-  opacity: 0.5;
 }
 
 .login-cont {
   min-width: 30%;
+  box-sizing: border-box;
   border: 1px solid #252e5b;
   margin: 0;
   padding: 10px 0;
   background: #fff;
   z-index: 2;
+  min-height: fit-content;
 }
 
 .login-txt {
-  font-family: 'Covered By Your Grace', cursive;
   font-size: 40px;
-  color: #9ed2ff;
+  color: #1d2f88;
   text-align: center;
   padding: 10px;
 }
 
-form.loginFormContainer {
-  padding: 0 30px;
+.loginFormContainer {
+  width: 100%;
+  padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 2;
 }
+
+.email-cont, .pwd-cont {
+  width: 100%;
+  align-items: center;
+  margin: 5px;
+}
+
+input.input-style {
+  text-align: center;
+}
+
 
 .email-cont, .pwd-cont {
   display: flex;
@@ -57,14 +77,15 @@ input[type="text"] {
   background: none;
   outline: none;
   width: 100%;
-  color: #36407cc4;
+  text-transform: lowercase;
+  color: #E9E9FD;
   padding: 5px 10px 10px 5px;
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #36407c;
 }
 
-label {
+.label-col {
   color: #36407c;
   font-size: 14px;
   font-weight: bolder;
@@ -76,7 +97,7 @@ input[type="password"] {
   box-sizing: border-box;
   font-size: 16px;
   background: none;
-  color: #36407c;
+  color: #E9E9FD;
   padding: 5px 10px 10px 5px;
   border: none;
   border-radius: 0;
@@ -85,7 +106,7 @@ input[type="password"] {
 }
 
 .login-sub {
-  background: #28285d;
+  background: #121a42;
   color: #fff;
   cursor: pointer;
   outline: none;
@@ -130,4 +151,88 @@ input[type="password"] {
   color: #ff0b0b;
   padding: 0 30px;
   font-family: 'Comfortaa', cursive;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .hve-acct, .signupLink {
+    font-size: 14px;
+  }
+
+  .signupLink {
+    font-size: 20px;
+  }
+
+  .login-cont {
+    width: 100%;
+    height: 100vh;
+    background: #121a42;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-txt {
+    color: #fff;
+  }
+
+  .cont {
+    display: block;
+    height: 100vh;
+    overflow: scroll;
+  }
+
+  #overlay {
+    display: none;
+  }
+
+  .label-col, .hve-acct {
+    color: #fff;
+  }
+
+  .loginErr {
+    text-align: center;
+
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .hve-acct, .signupLink {
+    font-size: 14px;
+  }
+
+  .signupLink {
+    font-size: 20px;
+  }
+
+  .login-cont {
+    width: 100%;
+    height: 100vh;
+    background: #121a42;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-txt {
+    color: #fff;
+  }
+
+  .cont {
+    display: block;
+    height: 100vh;
+    overflow: scroll;
+  }
+
+  #overlay {
+    display: none;
+  }
+
+  .label-col, .hve-acct {
+    color: #fff;
+  }
+
+  .loginErr {
+    text-align: center;
+
+  }
 }

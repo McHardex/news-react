@@ -7,7 +7,6 @@ body {
 }
 
 .container {
-  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -21,7 +20,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 3px 30px;
-  background: #1a0054ed;
+  background: #121a42;
   color: #fff;
 }
 
@@ -34,14 +33,14 @@ header {
 .getstarted {
   background: #ffffff;
   padding: 5px 10px;
-  color: #28285d;
+  color: #121a42;
   font-family: 'Comfortaa', cursive;
   display: flex;
   align-items: center;
 }
 
 .loginLink {
-  background: #28285d;
+  background: #121a42;
   padding: 5px 10px;
   color: #fff;
   font-family: 'Comfortaa', cursive;
@@ -61,7 +60,8 @@ header {
   height: 60vh;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  overflow: hidden;
 }
 
 .sectionContent {
@@ -84,13 +84,14 @@ header {
 }
 
 .create-acc {
-  background: #28285d;
+  background: #121a42;
   padding: 5px 10px;
   color: #fff;
   font-family: 'Comfortaa', cursive;
   cursor: pointer;
   outline: none;
   font-size: 18px;
+  border: none;
 }
 
 .create-acc:hover {
@@ -100,16 +101,15 @@ header {
 
 footer {
   font-family: 'Comfortaa', cursive;
-  background: #323279f5;
+  background: #121a42;
   letter-spacing: 0.1em;
   height: 33vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  position: fixed;
+  position: relative;
   left: 0;
   right: 0;
-  bottom: 0;
 }
 
 .footerText {
@@ -122,7 +122,44 @@ img {
   height: 204px;
 }
 
+
+/* portrait mobile */
 @media (min-width: 320px) and (max-width: 480px) {
+  .getstarted {
+    font-size: 12px;
+    padding: 2px;
+  }
+
+  .sectionContent {
+    line-height: 1.8;
+  }
+
+  .move {
+    font-size: 20px;
+  }
+
+  .footerText {
+    font-size: 12px;
+    padding: 5px;
+    margin-bottom: 15%;
+  }
+
+  .foot-logo {
+    font-size: 18px;
+  }
+
+  .container {
+    overflow: scroll;
+  }
+}
+
+
+/* landscape mobile */
+@media (min-width: 481px) and (max-width: 767px) {
+  .container {
+    overflow: scroll;
+  }
+
   .getstarted {
     font-size: 10px;
     padding: 2px;
@@ -139,6 +176,7 @@ img {
   .footerText {
     font-size: 12px;
     padding: 5px;
+    margin-bottom: 5%;
   }
 
   .foot-logo {
