@@ -20,6 +20,10 @@
   margin: 10px 0;
 }
 
+.signupFormContainer {
+  margin: 0;
+}
+
 .nameContainer, .emailContainer, .bioContainer, .passwordContainer {
   display: flex;
   flex-direction: column;
@@ -150,4 +154,28 @@ input:-webkit-autofill {
 .topright:hover {
   color: #ff0b0b;
   background: #36407c;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .signUp {
+    width: 100%;
+    left: 0;
+  }
+  
+  .signup-txt {
+    font-size: 25px;
+  }
+
+  .loginLink, .hve-acc, .signup-Submit {
+    font-size: 12px;
+  }
+
+  textarea {
+    padding: 0;
+  }
+
+  .err-msg {
+    padding: 0;
+    font-size: 12px;
+  }
 }

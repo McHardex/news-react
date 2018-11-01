@@ -41,7 +41,7 @@ export class LandingPage extends Component {
         </div>
         {this.state.isOpen && <SignUp closeComponent={this.closeComponent} /> }
         <footer>
-          <span className='footerText'>become the face of <span className='logo'> Mchardex:: </span> by writing exciting articles</span>
+          <span className='footerText'>become the face of <span className='foot-logo'> Mchardex:: </span> by writing exciting articles</span>
         </footer>
       </div>
     )
