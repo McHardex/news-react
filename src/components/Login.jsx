@@ -40,7 +40,7 @@ export class Login extends Component {
           <form className='loginFormContainer' onSubmit={this.loginUser}>
             <div className='email-cont'>
               <label className='label-col'>Email</label>
-              <input className='input-style' name='email' type='text'/><br/>
+              <input className='input-style transform-text' name='email' type='text'/><br/>
             </div>
 
             <div className='pwd-cont'>

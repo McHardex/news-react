@@ -52,7 +52,7 @@ export class SignUp extends Component {
           
           <div className='emailContainer'>
             <label>Email</label>
-            <input className='input' name='email' type='text'/><br/>
+            <input className='input transform-text' name='email' type='text'/><br/>
           </div>
 
           <div className='passwordContainer'>
