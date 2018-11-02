@@ -32,8 +32,7 @@ export class Users extends Component {
           <Link to='writers'>Writers</Link>
           <Link to='profile'>profile</Link>
         </header>
-        <div className='user-cont'>
-          <div className='nav-head'>Users</div>
+          <span className='nav-head'>Users</span>
           {
             users.map(user => {
               return (
@@ -52,7 +51,6 @@ export class Users extends Component {
             })
           }
         </div>
-      </div>
     )
   }
 }

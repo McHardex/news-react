@@ -1,17 +1,16 @@
-.user-cont {
- color: #272f5c; 
-  margin: 0 auto; 
+.userContainer {
   width: 70%;
+  margin: 0 auto; 
   margin-top: 7%;
 }
 
 .userBody {
-  font-family: 'Roboto', sans-serif;
   line-height: 1;
   text-transform: none;
-  background: #25335a;
+  background: #121a42;
+  margin: 1px;
+  font-family: 'Roboto', sans-serif;
   padding: 15px;
-  margin: 5px;
 }
     
 .users {
@@ -42,4 +41,15 @@
   background: #fff;
   outline: none;
   cursor: pointer;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .userContainer {
+    margin-top: 14%;
+    width: 100%;
+  }
+
+  .userBody {
+    border-radius: 5px
+  }
 }
