@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+
 class HomePageComponent extends Component {
   constructor(props) {
     super(props)
@@ -53,10 +54,10 @@ class HomePageComponent extends Component {
     const date = new Date(article.datePublished)
     return(
       this.state.edit ?
-        <form className="articleBody" id={article._id} onSubmit={this.submitEdit}>
+        <form className="articleForm-edit" id={article._id} onSubmit={this.submitEdit}>
           <div className='form-edit'>
             <label className='label'>Title:</label>
-            <input className='input-col' name='title' type='text' defaultValue={article.title} />
+            <input className='input-col input-edit' name='title' type='text' defaultValue={article.title} />
           </div>
 
           <div className='form-edit'>
@@ -66,7 +67,7 @@ class HomePageComponent extends Component {
 
           <div className='form-edit'>
             <label className='label'>Sub-Heading:</label>
-            <input className='input-col' name='subheading' type='text' defaultValue={article.subheading} />
+            <input className='input-col input-edit' name='subheading' type='text' defaultValue={article.subheading} />
           </div> 
 
           <div className='form-edit'>
@@ -76,18 +77,18 @@ class HomePageComponent extends Component {
 
           <div className='form-edit'>
             <label className='label'>Image Url:</label>
-            <input className='input-col' name='imageUrl' type='text' defaultValue={article.imageUrl} />
+            <input className='input-col input-edit' name='imageUrl' type='text' defaultValue={article.imageUrl} />
           </div> 
           <button id={article._id} type='submit'>Save</button>
           <button onClick={this.changeEditMode}>Cancel</button>
         </form> :
 
         <div className="articleBody" key={article._id}>
-          <h2>{article.title}</h2>
+          <h2 className='article-title'>{article.title}</h2>
           <p>{article.leadParagraph}</p>
           <h3>{article.subheading}</h3>
           <p>{article.body}</p>
-          <p className='author'><span>Author: </span>{article.user.name || 'Anonymous'}</p>
+          <p className='author'><span>Author: </span>{this.props.article.user? article.user.name : 'anonymous'}</p>
           <p className='date-published'><span>Date Published: </span>{date.toTimeString()}</p>
 
           <button onClick={this.deleteArticle} id={article._id}>Delete</button>
@@ -103,9 +104,9 @@ class HomePageComponent extends Component {
         {
           this.state.isOpen ? 
           this.renderEditMode() : 
-          <li className='title'>{ this.props.article.title }  
+          <span className='title'>{ this.props.article.title }  
             <button className='readMore' onClick={ this.toggleArticle }>read more...</button>
-          </li>
+          </span>
         }
       </div>
     )
