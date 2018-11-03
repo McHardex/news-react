@@ -29,7 +29,13 @@ export class HomePage extends Component {
     this.props.getArticles()
   }
 
+  componentDidUpdate(){
+    this.props.articles.unauthorized = false
+  }
+
   render() {
+    this.props.articles.unauthorized && alert('You are not authorized to perform this action')
+    console.log(this.props.articles.unauthorized)
     return (
       <div className="articles">
         <header className='homeHeader'>

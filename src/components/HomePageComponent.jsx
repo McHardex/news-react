@@ -14,31 +14,21 @@ class HomePageComponent extends Component {
   }
 
   deleteArticle = (event) => {
+    window.confirm('Are you sure you want to delete?')
     event.preventDefault();
-    const result = window.confirm("Want to delete?");
-    if (result) {
-      if(this.props.articles.deleteArticleError === 'Unauthorized') {
-        alert('You are not authorized to perform this action')
-      } else {
-        const token = JSON.parse(localStorage.getItem('user-token'))
-        this.props.removeArticle(event.target.id, token)
-      }
-    }
+      const token = JSON.parse(localStorage.getItem('user-token'))
+      this.props.removeArticle(event.target.id, token)
   }
 
   submitEdit = (event) => {
     event.preventDefault();
-    if(this.props.articles.updateArticleError === 'Unauthorized') {
-      alert('You are not authorized to perform this action')
-    } else {
-      let data = {}
-      const formData = new FormData(event.target)
-      const token = JSON.parse(localStorage.getItem('user-token'))
-      for (let entry of formData.entries()) {
-        data[entry[0]] = entry[1]
-      }
-      this.props.updateArticle(event.target.id, data, token)
+    let data = {}
+    const formData = new FormData(event.target)
+    const token = JSON.parse(localStorage.getItem('user-token'))
+    for (let entry of formData.entries()) {
+      data[entry[0]] = entry[1]
     }
+    this.props.updateArticle(event.target.id, data, token)
   }
 
   toggleArticle = () => {
