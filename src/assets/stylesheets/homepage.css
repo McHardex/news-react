@@ -151,6 +151,8 @@ button.sub-art:hover {
   border-radius: 10px;
   cursor: pointer;
   margin-left: 5px;
+  border: none;
+  font-size: 12px;
 }
 
 .readMore:hover {
