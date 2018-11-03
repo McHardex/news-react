@@ -67,8 +67,6 @@ export class Profile extends Component {
           <button className='btn' onClick={this.toggleEdit}>Edit Profile</button>
           <button className='btn' id={profile._id} onClick={ this.deleteAccount }>Delete Account</button>
         </div>
-
-        <span className='edit-err'>{this.props.users.updateUserError}</span>
         { this.state.edit ? 
           <form className='profileFormEdit' onSubmit={this.submitEdit} id={profile._id}>
             <div className='form-edit'>
@@ -91,6 +89,7 @@ export class Profile extends Component {
               <button className='save-btn' id={profile._id} type='submit'>save</button>
               <button className='cancel-btn' onClick={this.toggleEdit}>cancel</button>
             </div>
+              <p className='edit-err'>{this.props.users.updateUserError}</p>
           </form> :
           <div className='profileBody' key={profile._id}>
             <div className='profiles-div'>
