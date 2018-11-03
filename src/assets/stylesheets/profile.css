@@ -1,36 +1,30 @@
 .pf-cont {
   padding: 0 30px;
+  margin-top: 7%;
 }
 
 .profile {
   margin-top: 7%;
-  color: #253658;
-}
-
-button.btn {
-  background: #25335a;
-  color: #fff;
-  padding: 5px;
-  outline: none;
-  cursor: pointer;
+  color: #121a42;
 }
 
 .articlesHeader {
-  color: #253658;
+  color: #121a42;
+  font-family: 'Comfortaa', cursive;
+  margin-top: 5%;
 }
 
 .no-art {
   color: #e60707;
+  font-family: 'Comfortaa', cursive;
 }
 
 .profileBody {
-  color: #272f5c;
   font-family: 'Roboto', sans-serif;
   line-height: 1;
   text-transform: none;
-  background: #25335a;
+  background: #121a42;
   width: 50%;
-  margin-top: 2%;
   padding: 10px;
 }
   
@@ -63,6 +57,7 @@ button.btn {
   background: #63696912;
   padding: 15px;
   width: 50%;
+  margin: 5px 0;
 }
 
 .articleBody p {
@@ -123,17 +118,30 @@ textarea.input-col {
   width: 50%;
 }
 
-.profileFormEdit button {
+.profileFormEdit button, .pf-btn button {
   border-radius: 5px;
-  margin: 8px 0;
-  padding: 5px 10px;
+  padding: 10px 20px;
   color: #fff;
-  background: #25335a;
+  margin: 1px;
+  background: #121a42;
   cursor: pointer;
   outline: none;
-  font-size: 10px;
+  font-size: 14px;
   font-family: 'Comfortaa', cursive;
   box-shadow: 2px 5px 15px #5b5d63a6;
+  border: none;
+}
+
+button.cancel-btn {
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: #fff;
+  background: #d4381c;
+  cursor: pointer;
+  outline: none;
+  font-size: 14px;
+  font-family: 'Comfortaa', cursive;
+  border: none;
 }
 
 .edit-err {
@@ -147,8 +155,180 @@ textarea.input-col {
   padding: 5px 25px;
   font-size: 14px;
   border: 1px solid #fff;
-  color:#25335a;
+  color:#121a42;
   background: #fff;
   outline: none;
   cursor: pointer;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .pf-cont {
+    margin-top: 15%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .nav-head {
+    padding: 0;
+  }
+
+  .profileFormEdit {
+    background: #121a42;
+    border-radius: 8px;
+    padding: 6px 0;
+  }
+
+  .profileBody, .profileFormEdit {
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .profiles-div {
+    padding: 2px 5px;
+  }
+
+  .pf-btn {
+    margin-top: 3%;
+  }
+
+  .articlesHeader, .no-art {
+    font-size: 20px;
+  }
+
+  .form-edit {
+    padding: 4px;
+  }
+
+  .label {
+    color: #fff;
+    padding: 5px;
+  }
+
+  input.input-col {
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #121a42;
+    padding: 15px;
+  }
+
+  .btn-wrap, .pf-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .profileFormEdit button, .pf-btn button {
+    box-shadow: none;
+  }
+
+  button.save-btn {
+    background: #fff;
+    text-decoration: underline;
+    color: #121a42;
+    font-weight: bolder;
+  }
+
+  .profileArtBody {
+    width: 96%;
+    padding: 6px;
+    text-align: left;
+    margin: 5px auto;
+  }
+
+  .profileArtBody h2 {
+    font-size: 18px;
+  }
+
+  .profileArtBody p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .pf-cont {
+    margin-top: 15%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .nav-head {
+    padding: 0;
+  }
+
+  .profileFormEdit {
+    background: #121a42;
+    border-radius: 8px;
+    padding: 6px 0;
+  }
+
+  .profileBody, .profileFormEdit {
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .profiles-div {
+    padding: 2px 5px;
+  }
+
+  .pf-btn {
+    margin-top: 3%;
+  }
+
+  .articlesHeader, .no-art {
+    font-size: 20px;
+  }
+
+  .form-edit {
+    padding: 4px;
+  }
+
+  .label {
+    color: #fff;
+    padding: 5px;
+  }
+
+  input.input-col {
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #121a42;
+    padding: 15px;
+  }
+
+  .btn-wrap, .pf-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .profileFormEdit button, .pf-btn button {
+    box-shadow: none;
+  }
+
+  button.save-btn {
+    background: #fff;
+    text-decoration: underline;
+    color: #121a42;
+    font-weight: bolder;
+  }
+
+  .profileArtBody {
+    width: 96%;
+    padding: 6px;
+    text-align: left;
+    margin: 5px auto;
+  }
+
+  .profileArtBody h2 {
+    font-size: 18px;
+  }
+
+  .profileArtBody p {
+    font-size: 14px;
+  }
 }

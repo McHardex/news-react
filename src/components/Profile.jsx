@@ -62,7 +62,7 @@ export class Profile extends Component {
         <Link to='writers'>Writers</Link>
         <Link to='users'>Users</Link>
       </header>
-        <h1 className='profile'>MY PROFILE</h1>
+        <span className='nav-head'>My Profile</span>
         <div className='pf-btn'>
           <button className='btn' onClick={this.toggleEdit}>Edit Profile</button>
           <button className='btn' id={profile._id} onClick={ this.deleteAccount }>Delete Account</button>
@@ -87,8 +87,10 @@ export class Profile extends Component {
               <label className='label'>Password:</label>
               <input className='input-col' name='password' />
             </div>
-            <button id={profile._id} type='submit'>save</button>
-            <button onClick={this.toggleEdit}>cancel</button>
+            <div className='btn-wrap'>
+              <button className='save-btn' id={profile._id} type='submit'>save</button>
+              <button className='cancel-btn' onClick={this.toggleEdit}>cancel</button>
+            </div>
           </form> :
           <div className='profileBody' key={profile._id}>
             <div className='profiles-div'>
