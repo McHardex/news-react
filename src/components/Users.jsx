@@ -18,7 +18,7 @@ export class Users extends Component {
     this.setState({ isOpen : !this.state.isOpen})
   }
   
-  componentWillMount() {
+  componentDidMount() {
     this.props.getUsers()
   }
   

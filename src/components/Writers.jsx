@@ -7,7 +7,7 @@ import '../assets/stylesheets/writer.css'
 
 export class Writers extends Component {
   
-  componentWillMount() {
+  componentDidMount() {
     this.props.getWriters()
   }
 

@@ -70,7 +70,7 @@ class HomePageComponent extends Component {
             <input className='input-col input-edit' name='imageUrl' type='text' defaultValue={article.imageUrl} />
           </div> 
           <button id={article._id} type='submit'>Save</button>
-          <button onClick={this.changeEditMode}>Cancel</button>
+          <button className='cancelDiv-btn' onClick={this.changeEditMode}>Cancel</button>
         </form> :
 
         <div className="articleBody" key={article._id}>
