@@ -47,7 +47,7 @@ export class Profile extends Component {
     if (!localStorage.getItem('user-token')) window.location = '/#/' 
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getUserProfile()
   }
 
