@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import '../assets/stylesheets/landingPage.css'
 import {Link} from 'react-router'
 import SignUp from '../components/SignUp'
-import { connect } from 'react-redux'
 
 export class LandingPage extends Component {
   constructor(props) {
@@ -48,5 +47,4 @@ export class LandingPage extends Component {
   }
 }
 
-const mapStateToProps = ({ auth }) => ({ auth })
-export default connect(mapStateToProps, {})(LandingPage)
+export default LandingPage
