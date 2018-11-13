@@ -7,9 +7,6 @@ const initialState = {
   getUserProfileError: null,
   updateUserError: null,
   deleteUserError: null
-  // articlesError: null,
-  // postArticleSuccess: false,
-  // deleteArticleError: null
 }
 
 export const users = (state = initialState, action) => {

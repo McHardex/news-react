@@ -2,35 +2,35 @@ import authRequests from '../requests/authRequests';
 import * as actionTypes from '../constants/actionTypes';
 import { strip } from '../lib/stringHelper'
 
-const signUpSuccess = (user) => {
+export const signUpSuccess = (user) => {
   return {
     type: actionTypes.SIGN_UP_SUCCESS,
     user
   }
 }
 
-const signUpError = (error) => {
+export const signUpError = (error) => {
   return {
     type: actionTypes.SIGN_UP_ERROR,
     error
   }
 }
 
-const loginSuccess = (token) => {
+export const loginSuccess = (token) => {
   return {
     type: actionTypes.LOGIN_SUCCESS,
     token
   }
 }
 
-const loginError = (error) => {
+export const loginError = (error) => {
   return {
     type: actionTypes.LOGIN_ERROR,
     error
   }
 }
 
-const logOutSuccess = () => {
+export const logOutSuccess = () => {
   return {
     type: actionTypes.LOG_OUT_SUCCESS
   }
