@@ -3,14 +3,14 @@ import * as actionTypes from '../constants/actionTypes';
 import { strip } from '../lib/stringHelper'
 
 
-const getWritersSuccess = (writers) => {
+export const getWritersSuccess = (writers) => {
   return {
     type: actionTypes.FETCH_WRITERS_SUCCESS,
     writers
   }
 }
 
-const getWritersError = (error) => {
+export const getWritersError = (error) => {
   return {
     type: actionTypes.FETCH_WRITERS_ERROR,
     error

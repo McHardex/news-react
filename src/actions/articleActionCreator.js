@@ -3,35 +3,35 @@ import * as actionTypes from '../constants/actionTypes';
 import { strip } from '../lib/stringHelper'
 
 
-const getArticlesSuccess = (articles) => {
+export const getArticlesSuccess = (articles) => {
   return {
     type: actionTypes.FETCH_ARTICLES_SUCCESS,
     articles
   }
 }
 
-const getArticlesError = (error) => {
+export const getArticlesError = (error) => {
   return {
     type: actionTypes.FETCH_ARTICLES_ERROR,
     error
   }
 }
 
-const postArticleError = (error) => {
+export const postArticleError = (error) => {
   return {
     type: actionTypes.POST_ARTICLE_ERROR,
     error
   }
 }
 
-const deleteArticleError = (error) => {
+export const deleteArticleError = (error) => {
   return {
     type: actionTypes.UNAUTHORIZED,
     error
   }
 }
 
-const updateArticleError = (error) => {
+export const updateArticleError = (error) => {
   return {
     type: actionTypes.UPDATE_ARTICLE_ERROR,
     error

@@ -3,48 +3,48 @@ import * as actionTypes from '../constants/actionTypes';
 import { strip } from '../lib/stringHelper'
 
 
-const getUsersSuccess = (users) => {
+export const getUsersSuccess = (users) => {
   return {
     type: actionTypes.FETCH_USERS_SUCCESS,
     users
   }
 }
 
-const getUsersError = (error) => {
+export const getUsersError = (error) => {
   return {
     type: actionTypes.FETCH_USERS_ERROR,
     error
   }
 }
 
-const getProfileSuccess = (user) => {
+export const getProfileSuccess = (user) => {
   return {
     type: actionTypes.FETCH_USER_PROFILE_SUCCESS,
     user
   }
 }
 
-const getProfileError = (error) => {
+export const getProfileError = (error) => {
   return {
     type: actionTypes.FETCH_USER_PROFILE_ERROR,
     error
   }
 }
 
-const updateUserError = (error) => {
+export const updateUserError = (error) => {
   return {
     type: actionTypes.UPDATE_USER_PROFILE_ERROR,
     error
   }
 }
 
-const deleteUserSuccess = () => {
+export const deleteUserSuccess = () => {
   return {
     type: actionTypes.DELETE_USER_SUCCESS,
   }
 }
 
-const deleteUserError = (error) => {
+export const deleteUserError = (error) => {
   return {
     type: actionTypes.DELETE_USER_ERROR,
     error
