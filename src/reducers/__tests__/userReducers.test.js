@@ -1,4 +1,4 @@
-import * as actionTypes from '../../constants actionTypes'
+import * as actionTypes from '../../constants/actionTypes'
 import {users} from '../userReducers'
 
 describe('user reducers', () => {

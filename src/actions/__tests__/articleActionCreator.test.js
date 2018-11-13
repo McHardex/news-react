@@ -1,6 +1,16 @@
 import * as actions from '../articleActionCreator'
 import * as actionTypes from '../../constants/actionTypes'
 
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+import axios from 'axios'
+import MockAdapter from 'axios-mock-adapter'
+import expect from 'expect'
+
+const middlewares = [thunk]
+const mockStore = configureMockStore(middlewares)
+const mock = new MockAdapter(axios)
+
 describe('article action creators', () => {
   describe('article action creators success and failure call', () => {
     it('should create an action to get articles', () => {
@@ -48,4 +58,50 @@ describe('article action creators', () => {
       expect(actions.updateArticleError(error)).toEqual(expectedAction)
     })
   })
+
+  // describe('asyn article actions', () => {
+  //   afterEach(() => {
+  //     mock.reset()
+  //   })
+
+  //   it('should dispatch get all articles action', () => {
+  //     mock.onGet('https://mchardex.herokuapp.com/articles').reply(200, {
+  //       articles: [
+  //         {
+  //           title: "when the river is blue",
+  //           subheading: "we can never anticipate",
+  //           leadParagraph: "the accidental call of joshua",
+  //           body: "fight for me",
+  //           imageUrl: "https://imageurl.com",
+  //           article_id: 1,
+  //           user_id: 3
+  //         }
+  //       ]
+  //     });
+
+  //     const expectedActions = [
+  //       {
+  //         type: actionTypes.FETCH_ARTICLES_SUCCESS,
+  //         type: actionTypes.FETCH_ARTICLES_ERROR,
+  //         articles:
+  //         [
+  //           {
+  //             title: "when the river is blue",
+  //             subheading: "we can never anticipate",
+  //             leadParagraph: "the accidental call of joshua",
+  //             body: "fight for me",
+  //             imageUrl: "https://imageurl.com",
+  //             article_id: 1,
+  //             user_id: 3
+  //           }
+  //         ]
+  //       }
+  //     ];
+  //     const store = mockStore({ data: [] })
+  //     store.dispatch(actions.getArticles())
+  //     .then(() => {
+  //       expect(store.getActions()).toBe(expectedActions);
+  //     })
+  //   })
+  // })
 })
