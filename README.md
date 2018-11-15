@@ -1,30 +1,49 @@
-# News_Articles React
+# Mchardex::
+
+An Article writing application that gives you the priviledge of creating personal articles as well as viewing articles from other users of the application from around the globe.
 
 
-# Installation
+<!-- The App is hosted on heroku [ here ](https://my-ridemyway.herokuapp.com/). -->
 
-- Clone the repo
+<!-- The endpoints are hosted on heroku [ here ](https://ayo-ride-my-way-v1.herokuapp.com/api/v1). -->
 
-```
-$ git clone git@github.com:McHardex/news-react.git
-```
+## Made With
+  ### UI
+    * HTML for writing the webpage
+    * CSS for styling
+    * Javascript to add some behaviour
+  
+  ### Server
+    * Nodejs for server-side logic
+    * Express for api routes implementation
+    * MongoDb for the App database
 
-- Install Dependences
+  ### Continuous Integration
+    * Travis CI & Codeclimate for test automation
+    * Coveralls for test coverage report
+  
+  ### Test-Driven Development
+    * jest and enzyme for api route testing
 
-```
-$ yarn install
-```
+## Installation.
+  * Install [Nodejs](https://nodejs.org/en/download/)
+  * Clone this repo ``` git clone https://github.com/McHardex/news-react.git ```
+  * Run ```npm install``` to install the required dependencies
+  * Run ```npm test``` to fireup the tests
+  * include ```--coverage``` flag to the test key in package.json to get code coverage and then run ```npm test```
 
-- Make sure that the API is running correctly, see the API and how to set it up [here](https://github.com/McHardex/newsRestApi).
+## Features of the template
+* Users can Signup and log in on the app.
+* Users can write articles..
+* Users can view all available articles.
+* Writers are users who have written a minimum of 1 article or more.
+* Users can view all writers
+* User can view all users
+* User can view own profile
 
-- Start the Application
+<!-- For more details on how to use this API, check the **Documentation** out [ here ](https://ayo-ride-my-way-v1.herokuapp.com/api-docs). -->
 
-```
-$ npm start
-```
+## License and Copyright
+&copy; Bukunmi Adebisi
 
-# Running Tests
-
-```
-$ npm run-script test
-```
+Licensed under the [MIT License](LICENSE).

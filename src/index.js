@@ -19,11 +19,11 @@ ReactDOM.render((
     <Router history={hashHistory}>
       <Route component={App}>
         <Route path='/' component={LandingPage} />
-        <Route path="login" component={Login} />
+        <Route path="/login" component={Login} />
         <Route path="/home" component={HomePage} />
-        <Route path="users" component={Users} />
-        <Route path="writers" component={Writers} />
-        <Route path="profile" component={Profile} />
+        <Route path="/users" component={Users} />
+        <Route path="/writers" component={Writers} />
+        <Route path="/profile" component={Profile} />
       </Route>
     </Router>
   </Provider>
