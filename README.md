@@ -17,10 +17,6 @@ An Article writing application that gives you the priviledge of creating persona
     * Nodejs for server-side logic
     * Express for api routes implementation
     * MongoDb for the App database
-
-  ### Continuous Integration
-    * Travis CI & Codeclimate for test automation
-    * Coveralls for test coverage report
   
   ### Test-Driven Development
     * jest and enzyme for api route testing
