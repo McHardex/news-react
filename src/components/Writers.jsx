@@ -6,7 +6,6 @@ import { Link } from 'react-router'
 import '../assets/stylesheets/writer.css'
 
 export class Writers extends Component {
-  
   componentDidMount() {
     this.props.getWriters()
   }
