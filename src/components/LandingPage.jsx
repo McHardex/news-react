@@ -12,9 +12,7 @@ export class LandingPage extends Component {
     this.closeComponent = this.closeComponent.bind(this)
   }
 
-  openComponent = (event) => {
-    event.preventDefault();
-
+  openComponent = () => {
     this.setState({ isOpen: true})
   }
 

@@ -5,19 +5,6 @@ import { Link } from 'react-router'
 import '../assets/stylesheets/user.css'
 
 export class Users extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state= { isOpen : false }
-
-    this.toggleDiv = this.toggleDiv.bind(this)
-  }
-
-  toggleDiv = (e) => {
-    e.preventDefault()
-    this.setState({ isOpen : !this.state.isOpen})
-  }
-  
   componentDidMount() {
     this.props.getUsers()
   }
