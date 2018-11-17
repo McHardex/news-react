@@ -5,36 +5,37 @@ import { logOutUser } from '../actions/authActionCreator'
 import { Link } from 'react-router'
 import PostArticle from './PostArticle'
 import HomePageComponent from './HomePageComponent';
+import SweetAlert from 'react-bootstrap-sweetalert'
 
 
 export class HomePage extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { isInEditMode: false }
+    
+    this.state = { toggle: null}
     this.logOutUser = this.logOutUser.bind(this)
+    this.toggleAlert = this.toggleAlert.bind(this)
   }
-  logOutUser = (event) => {
-    event.preventDefault()
 
+  logOutUser = () => {
     this.props.logOutUser()
-    localStorage.removeItem('user-token');
   }
 
-  componentWillReceiveProps() {
-    if (!localStorage.getItem('user-token')) window.location = '/#/login' 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ toggle: nextProps.articles.unauthorized })
+    nextProps.articles.unauthorized = false
   }
 
   componentDidMount() {
     this.props.getArticles()
   }
 
-  componentDidUpdate(){
-    this.props.articles.unauthorized = false
+  toggleAlert = () => {
+    this.setState({ toggle: !this.state.toggle })
   }
 
+
   render() {
-    this.props.articles.unauthorized && alert('You are not authorized to perform this action')
     return (
       <div className="articles">
         <header className='homeHeader'>
@@ -53,11 +54,21 @@ export class HomePage extends Component {
               updateArticle={this.props.updateArticle} removeArticle={this.props.removeArticle}/>
             })
           }
+          {this.state.toggle && 
+          <SweetAlert 
+            danger
+            title="Sorry!" 
+            customClass={'unauthorized'}
+            onConfirm={() => this.toggleAlert()}
+            confirmBtnCssClass={'cancel'}
+            closeOnClickOutside={true}>
+            You are not authorized to perform this action
+          </SweetAlert>}
         </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ articles, auth }) => ({ articles, auth })
+const mapStateToProps = ({ articles }) => ({ articles })
 export default connect(mapStateToProps, { getArticles, logOutUser, removeArticle, updateArticle })(HomePage)

@@ -1,23 +1,44 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import SweetAlert from 'react-bootstrap-sweetalert'
 
 
 class HomePageComponent extends Component {
   constructor(props) {
     super(props)
-    this.state = { edit: false, isOpen: false }
+    this.state = { 
+      edit: false, 
+      isOpen: false,
+      showAlert: false,
+      eventState: null
+    }
 
     this.toggleArticle = this.toggleArticle.bind(this)
     this.changeEditMode = this.changeEditMode.bind(this)
     this.submitEdit = this.submitEdit.bind(this)
     this.deleteArticle = this.deleteArticle.bind(this)
+    this.showAlert = this.showAlert.bind(this)
+    this.showAlert = this.showAlert.bind(this)
+    this.hideAlert = this.hideAlert.bind(this)
   }
 
-  deleteArticle = (event) => {
-    window.confirm('Are you sure you want to delete?')
-    event.preventDefault();
-      const token = JSON.parse(localStorage.getItem('user-token'))
-      this.props.removeArticle(event.target.id, token)
+  deleteArticle = () => {
+    const token = JSON.parse(localStorage.getItem('user-token'))
+    this.props.removeArticle(this.state.eventState, token)
+    this.setState({ showAlert: false})
+  }
+
+  showAlert = (event) => {
+    this.setState(
+      { 
+        showAlert: true,
+        eventState: event.target.id
+      }
+    )
+  }
+
+  hideAlert = () => {
+    this.setState({ showAlert: false })
   }
 
   submitEdit = (event) => {
@@ -81,7 +102,7 @@ class HomePageComponent extends Component {
           <p className='author'><span>Author: </span>{this.props.article.user? article.user.name : 'anonymous'}</p>
           <p className='date-published'><span>Date Published: </span>{date.toTimeString()}</p>
 
-          <button onClick={this.deleteArticle} id={article._id}>Delete</button>
+          <button onClick={this.showAlert} id={article._id}>Delete</button>
           <button onClick={this.changeEditMode}>Edit</button>
           <button id={article._id} onClick={this.toggleArticle}>Close</button>
         </div>
@@ -98,6 +119,21 @@ class HomePageComponent extends Component {
             <button className='readMore' onClick={ this.toggleArticle }>read more...</button>
           </span>
         }
+        {this.state.showAlert && <SweetAlert
+          danger
+          showCancel
+          confirmBtnText="Yes, delete it!"
+          confirmBtnCssClass={'delete'}
+          cancelBtnCssClass={'cancel'}
+          title="Are you sure you want to delete this Article?"
+          onConfirm={() => this.deleteArticle()}
+          onCancel={() => this.hideAlert()}
+          closeOnClickOutside={true}
+          customClass={'sweetAlert'}
+          focusConfirmBtn={true}
+        >
+        You Will not be able to recover this Article
+        </SweetAlert>}
       </div>
     )
   }

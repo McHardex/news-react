@@ -5,6 +5,40 @@
   background: #fff;
 }
 
+.sweetAlert {
+  font-size: 12px;
+}
+
+.unauthorized {
+  width: 100%;
+}
+
+.delete {
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #fff;
+  color:#fff;
+  background: #c00404;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Comfortaa', cursive;
+}
+
+.cancel {
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #fff;
+  color:#fff;
+  background: #121a42;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Comfortaa', cursive;
+}
+
 .articles {
   display: flex;
   flex-direction: column;
