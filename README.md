@@ -3,9 +3,8 @@
 An Article writing application that gives you the priviledge of creating personal articles as well as viewing articles from other users of the application from around the globe.
 
 
-<!-- The App is hosted on heroku [ here ](https://my-ridemyway.herokuapp.com/). -->
+The App is hosted on github-pages [ here ](https://mchardex.github.io/news-react/).
 
-<!-- The endpoints are hosted on heroku [ here ](https://ayo-ride-my-way-v1.herokuapp.com/api/v1). -->
 
 ## Made With
   ### UI
