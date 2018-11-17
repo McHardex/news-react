@@ -72,7 +72,7 @@ export function loginUser(userDetails) {
 
 export function logOutUser() {
   localStorage.removeItem('user-token');
-  if (!localStorage.getItem('user-token')) window.location = '/#/login' 
+  if (!localStorage.getItem('user-token')) window.location = "/#/login" 
   return(dispatch) => {
     dispatch(logOutSuccess())
   }

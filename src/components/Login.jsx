@@ -6,14 +6,14 @@ import { Link } from 'react-router'
 import '../assets/stylesheets/login.css'
 
 export class Login extends Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.loginUser = this.loginUser.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.user.token) {
-      window.location = 'home'
+      window.location = "/#/home"
     }
   }
 
@@ -55,6 +55,7 @@ export class Login extends Component {
     )
   }
 }
+
 
 const mapStateToProps = ({ auth }) => ({ auth })
 export default connect(mapStateToProps, { loginUser, clearFormErrors })(Login)
