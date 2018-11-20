@@ -118,7 +118,7 @@ textarea.input-col {
   width: 50%;
 }
 
-.profileFormEdit button, .pf-btn button {
+.edit-btn, .save-btn {
   border-radius: 5px;
   padding: 10px 20px;
   color: #fff;
@@ -132,15 +132,17 @@ textarea.input-col {
   border: none;
 }
 
-button.cancel-btn {
+.delete-btn, .cancel-btn{
   border-radius: 5px;
   padding: 10px 20px;
   color: #fff;
+  margin: 1px;
   background: #9e190f;
   cursor: pointer;
   outline: none;
   font-size: 14px;
   font-family: 'Comfortaa', cursive;
+  box-shadow: 2px 5px 15px #5b5d63a6;
   border: none;
 }
 

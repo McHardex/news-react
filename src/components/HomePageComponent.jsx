@@ -90,8 +90,8 @@ class HomePageComponent extends Component {
             <label className='label'>Image Url:</label>
             <input className='input-col input-edit' name='imageUrl' type='text' defaultValue={article.imageUrl} />
           </div> 
-          <button id={article._id} type='submit'>Save</button>
-          <button className='cancelDiv-btn' onClick={this.changeEditMode}>Cancel</button>
+          <button className='article-save-btn' id={article._id} type='submit'>Save</button>
+          <button className='article-cancel-btn' onClick={this.changeEditMode}>Cancel</button>
         </form> :
 
         <div className="articleBody" key={article._id}>
@@ -102,9 +102,9 @@ class HomePageComponent extends Component {
           <p className='author'><span>Author: </span>{this.props.article.user? article.user.name : 'anonymous'}</p>
           <p className='date-published'><span>Date Published: </span>{date.toTimeString()}</p>
 
-          <button onClick={this.showAlert} id={article._id}>Delete</button>
-          <button onClick={this.changeEditMode}>Edit</button>
-          <button id={article._id} onClick={this.toggleArticle}>Close</button>
+          <button className='article-delete-btn' onClick={this.showAlert} id={article._id}>Delete</button>
+          <button className='article-edit-btn' onClick={this.changeEditMode}>Edit</button>
+          <button className='article-close-btn' id={article._id} onClick={this.toggleArticle}>X</button>
         </div>
     )
   }
@@ -115,9 +115,9 @@ class HomePageComponent extends Component {
         {
           this.state.isOpen ? 
           this.renderEditMode() : 
-          <span className='title'>{ this.props.article.title }  
-            <button className='readMore' onClick={ this.toggleArticle }>read more...</button>
-          </span>
+          <p className='art-lists-title'>{ this.props.article.title }  
+            <span className='readMore' onClick={ this.toggleArticle }> read more...</span>
+          </p>
         }
         {this.state.showAlert && <SweetAlert
           danger

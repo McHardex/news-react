@@ -64,8 +64,8 @@ export class Profile extends Component {
       </header>
         <span className='nav-head'>My Profile</span>
         <div className='pf-btn'>
-          <button className='btn' onClick={this.toggleEdit}>Edit Profile</button>
-          <button className='btn' id={profile._id} onClick={ this.deleteAccount }>Delete Account</button>
+          <button className='edit-btn' onClick={this.toggleEdit}>Edit Profile</button>
+          <button className='delete-btn' id={profile._id} onClick={ this.deleteAccount }>Delete Account</button>
         </div>
         { this.state.edit ? 
           <form className='profileFormEdit' onSubmit={this.submitEdit} id={profile._id}>

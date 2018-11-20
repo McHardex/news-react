@@ -6,6 +6,7 @@ import { Link } from 'react-router'
 import PostArticle from './PostArticle'
 import HomePageComponent from './HomePageComponent';
 import SweetAlert from 'react-bootstrap-sweetalert'
+import logoutIcon from '../assets/images/logout-icon.png'
 
 
 export class HomePage extends Component {
@@ -43,7 +44,7 @@ export class HomePage extends Component {
           <Link to='users'>users</Link>
           <Link to='writers'>writers</Link>
           <Link to='profile'>profile</Link>
-          <button className='logout' onClick={this.logOutUser}>log out</button>
+          <img src={logoutIcon} className='logout' onClick={this.logOutUser} alt='logout-icon' title='logout' />
         </header>
         <div className='cont-art'>
           <div className='nav-head'>Post Article </div>
