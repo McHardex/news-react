@@ -68,8 +68,8 @@ export class SignUp extends Component {
           </div>
 
           <button className='signup-Submit' type='submit'>{this.props.auth.isLoading ? <Loader 
-            type="Puff"
-            color="#121a42"
+            type="Bars"
+            color="#fff"
             height="30"	
             width="30"/> : 'Sign Up'}
           </button>

@@ -15,13 +15,13 @@ export const auth = (state = initialState, action) => {
     case actionTypes.SIGN_UP_ERROR:
       return {...state, signUpError: action.error, isLoading: false}
     case actionTypes.LOGIN_SUCCESS:
-      return {...state, user: {token: action.token}, loginError: false }
+      return {...state, user: {token: action.token}, loginError: false, isLoading: false }
     case actionTypes.LOGIN_ERROR:
-      return {...state, loginError: action.error}
+      return {...state, loginError: action.error, isLoading: false}
     case actionTypes.LOG_OUT_SUCCESS:
       return {...state, user: {}, loginError: null, signUpError: null }
     case actionTypes.CLEAR_FORM_ERRORS:
-      return {...state, loginError: null, signUpError: null, signUpSuccess: false}
+      return {...state, loginError: null, signUpError: null, signUpSuccess: false, isLoading: false}
     case actionTypes.LOADING_CONTENT:
       return {...state, isLoading: true }
     default:

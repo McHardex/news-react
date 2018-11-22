@@ -92,13 +92,14 @@ input:-webkit-autofill {
   font-size: 20px;
   margin-left: 30px;
   padding: 5px 25px;
+  border: none;
   min-width: 40%;
 }
 
-.signup-Submit:hover {
+/* .signup-Submit:hover {
   background: #fff; 
   color: #121a42;
-}
+} */
 
 .hve-acc {
   padding: 0 30px;
@@ -125,12 +126,6 @@ input:-webkit-autofill {
   text-decoration: underline;
   background: #252e5b;
   color: #fff
-}
-
-.loginErr {
-  color: #ff0b0b;
-  padding: 0 30px;
-  font-family: 'Comfortaa', cursive;
 }
 
 .succ-msg {

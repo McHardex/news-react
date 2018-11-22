@@ -116,12 +116,14 @@ input[type="password"] {
   text-decoration: none;
   font-size: 20px;
   padding: 5px 25px;
+  border: 1px solid #fffcfcfa;
+  min-width: 40%;
 }
 
-.login-sub:hover {
+/* .login-sub:hover {
   background: #fff; 
   color: #28285d;
-}
+} */
 
 .hve-acct {
   color: #36407c;
@@ -151,7 +153,7 @@ input[type="password"] {
 }
 
 .loginErr {
-  color: #ff0b0b;
+  color: #cc0000;
   padding: 0 30px;
   font-family: 'Comfortaa', cursive;
   text-align: center;
@@ -177,6 +179,10 @@ input[type="password"] {
 
   .login-txt {
     color: #fff;
+  }
+
+  .login-sub {
+    font-size: 25px;
   }
 
   .cont {
