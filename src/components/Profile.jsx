@@ -70,19 +70,19 @@ export class Profile extends Component {
         { this.state.edit ? 
           <form className='profileFormEdit' onSubmit={this.submitEdit} id={profile._id}>
             <div className='form-edit'>
-              <label className='label'>Name:</label>
+              <label className='prof-label'>Name:</label>
               <input className='input-col' name='name' defaultValue={profile.name} />
             </div>
             <div className='form-edit'>
-              <label className='label'>Email:</label>
+              <label className='prof-label'>Email:</label>
               <input className='input-col' name='email' defaultValue={profile.email} />
             </div>
             <div className='form-edit'>
-              <label className='label'>Bio:</label>
+              <label className='prof-label'>Bio:</label>
               <textarea className='input-col' name='bio' defaultValue={profile.bio} />
             </div>
             <div className='form-edit'>
-              <label className='label'>Password:</label>
+              <label className='prof-label'>Password:</label>
               <input className='input-col' name='password' />
             </div>
             <div className='btn-wrap'>
