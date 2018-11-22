@@ -38,8 +38,21 @@ export const updateArticleError = (error) => {
   }
 }
 
+export const contentLoading = () => {
+  return {
+    type: actionTypes.LOADING_CONTENT,
+  }
+}
+
+export const articlesLoading = () => {
+  return {
+    type: actionTypes.LOADING_ARTICLES,
+  }
+}
+
 export function getArticles() {
   return (dispatch) => {
+    dispatch(articlesLoading())
     return (
       articleRequests.getArticles()
         .then(response => response.json())
@@ -56,6 +69,7 @@ export function getArticles() {
 
 export function createArticle(articleData, accessToken, successCallback) {
   return (dispatch) => {
+    dispatch(contentLoading())
     return (
       articleRequests.postArticle(articleData, accessToken)
         .then(response => response.json())
@@ -86,16 +100,19 @@ export function removeArticle(articleId, accessToken) {
   }
 }
 
-export function updateArticle(articleId, articleData, accessToken) {
+export function updateArticle(articleId, articleData, accessToken, successCallback) {
   return (dispatch) => {
+    dispatch(contentLoading())
     return (
       articleRequests.editArticle(articleId, articleData, accessToken)
       .then(response => response.json())
       .then(res => {
         if(res.errors){
           dispatch(updateArticleError(strip(res.errors)))
+          successCallback()
         } else {
           dispatch(getArticles())
+          successCallback()
         }
       })
     )

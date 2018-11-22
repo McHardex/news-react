@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import SweetAlert from 'react-bootstrap-sweetalert'
+import Loader from 'react-loader-spinner'
 
 
 class HomePageComponent extends Component {
@@ -41,6 +42,7 @@ class HomePageComponent extends Component {
     this.setState({ showAlert: false })
   }
 
+
   submitEdit = (event) => {
     event.preventDefault();
     let data = {}
@@ -49,7 +51,7 @@ class HomePageComponent extends Component {
     for (let entry of formData.entries()) {
       data[entry[0]] = entry[1]
     }
-    this.props.updateArticle(event.target.id, data, token)
+    this.props.updateArticle(event.target.id, data, token, () => this.changeEditMode())
   }
 
   toggleArticle = () => {
@@ -58,6 +60,7 @@ class HomePageComponent extends Component {
 
   changeEditMode = () => {
     this.setState({ edit: !this.state.edit })
+    this.props.articles.isLoadingArticles = false
   }
   
   renderEditMode() {
@@ -90,7 +93,11 @@ class HomePageComponent extends Component {
             <label className='label'>Image Url:</label>
             <input className='input-col input-edit' name='imageUrl' type='text' defaultValue={article.imageUrl} />
           </div> 
-          <button className='article-save-btn' id={article._id} type='submit'>Save</button>
+          <button className='article-save-btn' id={article._id} type='submit'>{this.props.articles.isLoading ? <Loader 
+            type="Bars"
+            color="#fff"
+            height="25"	
+            width="25"/> : 'Save'}</button>
           <button className='article-cancel-btn' onClick={this.changeEditMode}>Cancel</button>
         </form> :
 
