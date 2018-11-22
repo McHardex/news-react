@@ -19,7 +19,7 @@ export const auth = (state = initialState, action) => {
     case actionTypes.LOGIN_ERROR:
       return {...state, loginError: action.error, isLoading: false}
     case actionTypes.LOG_OUT_SUCCESS:
-      return {...state, user: {}, loginError: null, signUpError: null }
+      return {...state, user: {}, loginError: null, signUpError: null, isLoading: false}
     case actionTypes.CLEAR_FORM_ERRORS:
       return {...state, loginError: null, signUpError: null, signUpSuccess: false, isLoading: false}
     case actionTypes.LOADING_CONTENT:

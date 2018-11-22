@@ -21,6 +21,8 @@ export class HomePage extends Component {
 
   logOutUser = () => {
     this.props.logOutUser()
+    this.props.articles.isLoadingArticles = false
+    this.props.articles.isLoading = false
   }
 
   componentWillReceiveProps(nextProps) {
