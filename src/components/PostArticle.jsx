@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { createArticle } from '../actions/articleActionCreator'
 import { clearFormErrors } from '../actions/formActionCreator'
 import '../assets/stylesheets/homepage.css'
+import Loader from 'react-loader-spinner'
 
 
 export class PostArticle extends Component {
@@ -20,6 +21,8 @@ export class PostArticle extends Component {
   createArticle = (event) => {
     event.preventDefault()
     
+    this.props.articles.articlesError = null
+
     const target = event.target
     let data = {}
     const formData = new FormData(target)
@@ -61,7 +64,12 @@ export class PostArticle extends Component {
             <label className='imgLb'>Image Url: </label>
             <input name='imageUrl' className='img-url'/><br/>
           </div>
-          <button className='sub-art' type='submit'>Submit Article</button>
+          <button className='sub-art' type='submit'>{this.props.articles.isLoading ? <Loader 
+            type="Bars"
+            color="#fff"
+            height="25"	
+            width="30"/> : 'Submit Article'}
+          </button>
         </form>
         <p className='err-msg'>{ this.props.articles.articlesError }</p>
         

@@ -6,8 +6,8 @@ export const contentLoading = () => {
   return {
     type: actionTypes.LOADING_CONTENT,
   }
-
 }
+
 export const signUpSuccess = (user) => {
   return {
     type: actionTypes.SIGN_UP_SUCCESS,

@@ -13,6 +13,10 @@
   width: 100%;
 }
 
+.loadingArticles {
+  text-align: center;
+}
+
 .delete {
   padding: 5px;
   border-radius: 10px;
@@ -114,6 +118,7 @@ form.pst-article {
 
 label.titleLb, label.subhLb, label.paragLb, label.bodyLb, label.imgLb {
   color: #fff;
+  padding: 5px 0;
 }
 
 input.title, input.subheading, input.img-url {
@@ -142,32 +147,19 @@ textarea.leadParagraph, textarea.body {
 }
 
 button.sub-art {
-  height: auto;
-  overflow: hidden;
-  display: block;
   text-align: center;
-  padding: 10px 25px;
-  font-size: 14px;
+  padding: 8px 25px;
+  font-size: 20px;
   border: 1px solid #fff;
   color:#fff;
-  background-image: linear-gradient(to right, #fff 50%, #121a42 50%);
-  background-size: 200% 100%;
-  background-repeat: no-repeat;
-  background-position: bottom right;
+  background: #121a42;
   -webkit-transition: all 0.25s ease-in;
   -moz-transition: all 0.25s ease-in;
   transition: all 0.25s ease-in;
   cursor: pointer;
   outline: none;
   font-family: 'Comfortaa', cursive;
-}
-
-button.sub-art:hover {
-  -webkit-transition: all 0.25s ease-in;
-  -moz-transition: all 0.25s ease-in;
-  transition: all 0.25s ease-in;
-  background-position: bottom left;
-  color: #121a42;
+  width: 40%;
 }
 
 .initialArtDisplay {
@@ -271,7 +263,7 @@ input:-webkit-autofill {
 }
 
 .err-msg {
-  color: #ff0b0b;
+  color: #cc0000;
   font-family: 'Comfortaa', cursive;
   text-align: center;
   padding-bottom: 10px;
@@ -387,7 +379,10 @@ input.input-col.input-edit {
     background: none;
     border: none;
     color: #121a42;
-    /* margin-left: 0 */
+  }
+
+  button.sub-art {
+    width: 60%;
   }
 }
 

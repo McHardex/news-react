@@ -7,6 +7,7 @@ import PostArticle from './PostArticle'
 import HomePageComponent from './HomePageComponent';
 import SweetAlert from 'react-bootstrap-sweetalert'
 import logoutIcon from '../assets/images/logout-icon.png'
+import Loader from 'react-loader-spinner'
 
 
 export class HomePage extends Component {
@@ -49,6 +50,7 @@ export class HomePage extends Component {
         <div className='cont-art'>
           <div className='nav-head'>Post Article </div>
           <PostArticle/>
+          <span className='loadingArticles'>{this.props.articles.isLoadingArticles && <Loader type="ThreeDots" color="#121a42" height="80" width="80"/>}</span>
           {
             this.props.articles.articles.map(article => {
               return <HomePageComponent article={article} key={article._id} 
