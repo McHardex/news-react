@@ -4,6 +4,7 @@ import { loginUser } from '../actions/authActionCreator'
 import { clearFormErrors } from '../actions/formActionCreator'
 import { Link } from 'react-router'
 import '../assets/stylesheets/login.css'
+import Loader from 'react-loader-spinner'
 
 export class Login extends Component {
   constructor(props, context) {
@@ -19,6 +20,8 @@ export class Login extends Component {
 
   loginUser = (event) => {
     event.preventDefault()
+
+    this.props.auth.loginError = null
 
     let data = {}
     const formData = new FormData(event.target)
@@ -47,7 +50,12 @@ export class Login extends Component {
               <label className='label-col'>Password</label>
               <input className='input-style' name='password' type='password'/><br/>
             </div>
-            <button type='submit' className='login-sub'>Log in</button>
+            <button type='submit' className='login-sub'>{this.props.auth.isLoading ? <Loader 
+              type="Bars"
+              color="#fff"
+              height="30"	
+              width="30"/> : 'Log In'}
+            </button>
           </form>
           <p className='hve-acct'>don't have an account? <Link to='/' onClick={this.props.clearFormErrors} className='signupLink'>Sign Up</Link></p>
         </div>

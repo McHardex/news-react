@@ -2,7 +2,7 @@ import authRequests from '../requests/authRequests';
 import * as actionTypes from '../constants/actionTypes';
 import { strip } from '../lib/stringHelper'
 
-export const signUpUserLoading = (isLoading) => {
+export const contentLoading = () => {
   return {
     type: actionTypes.LOADING_CONTENT,
   }
@@ -44,7 +44,7 @@ export const logOutSuccess = () => {
 
 export function signUpUser(userDetails, succesCallBack) {
   return (dispatch) => {
-    dispatch(signUpUserLoading())
+    dispatch(contentLoading())
     return (
       authRequests.createUser(userDetails)
         .then(response => response.json())
@@ -62,6 +62,7 @@ export function signUpUser(userDetails, succesCallBack) {
 
 export function loginUser(userDetails) {
   return (dispatch) => {
+    dispatch(contentLoading())
     return (
       authRequests.login(userDetails)
         .then(response => response.json())
