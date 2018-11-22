@@ -2,6 +2,12 @@ import authRequests from '../requests/authRequests';
 import * as actionTypes from '../constants/actionTypes';
 import { strip } from '../lib/stringHelper'
 
+export const signUpUserLoading = (isLoading) => {
+  return {
+    type: actionTypes.LOADING_CONTENT,
+  }
+
+}
 export const signUpSuccess = (user) => {
   return {
     type: actionTypes.SIGN_UP_SUCCESS,
@@ -38,6 +44,7 @@ export const logOutSuccess = () => {
 
 export function signUpUser(userDetails, succesCallBack) {
   return (dispatch) => {
+    dispatch(signUpUserLoading())
     return (
       authRequests.createUser(userDetails)
         .then(response => response.json())

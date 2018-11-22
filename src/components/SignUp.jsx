@@ -4,6 +4,7 @@ import { signUpUser } from '../actions/authActionCreator'
 import { Link } from 'react-router'
 import '../assets/stylesheets/signUp.css'
 import { clearFormErrors } from '../actions/formActionCreator'
+import Loader from 'react-loader-spinner'
 
 export class SignUp extends Component {
   constructor(props) {
@@ -20,6 +21,7 @@ export class SignUp extends Component {
 
   signUpUser = (event) => {
     event.preventDefault()
+    this.props.auth.signUpError = null
 
     let data = {}
     const target = event.target
@@ -41,7 +43,7 @@ export class SignUp extends Component {
     return (
       <div className="signUp">
         <div className='signup-txt'>Sign Up</div>
-        { this.props.auth.signUpSuccess && <p className='succ-msg'>Account successfully created √</p> }
+        { this.props.auth.signUpSuccess && <p className='succ-msg'>Account successfully created</p> }
         <p className='err-msg'>{ this.props.auth.signUpError }</p>
         <form className='signupFormContainer' onSubmit={this.signUpUser}>
           <button className='topright' onClick={this.closeModal}>X</button>
@@ -65,7 +67,12 @@ export class SignUp extends Component {
             <textarea className='input' name='bio' type='text'/><br/>
           </div>
 
-          <button className='signup-Submit' type='submit'>Sign Up</button>
+          <button className='signup-Submit' type='submit'>{this.props.auth.isLoading ? <Loader 
+            type="Puff"
+            color="#121a42"
+            height="30"	
+            width="30"/> : 'Sign Up'}
+          </button>
         </form>
         <p className='hve-acc'>Already have an account? <Link to='login' className='loginLink'>Log in</Link></p>
         
