@@ -85,10 +85,6 @@ input.login-input {
   border-bottom: 1px solid #36407c;
 }
 
-.transform-text {
-  text-transform: lowercase;
-}
-
 .label-col {
   color: #36407c;
   font-size: 14px;
