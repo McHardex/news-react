@@ -50,6 +50,18 @@ export const articlesLoading = () => {
   }
 }
 
+export const editLoading = () => {
+  return {
+    type: actionTypes.EDIT_LOADING,
+  }
+}
+
+export const deleteArticleLoading = () => {
+  return {
+    type: actionTypes.DELETE_ARTICLE_LOADING
+  }
+}
+
 export function getArticles() {
   return (dispatch) => {
     dispatch(articlesLoading())
@@ -87,6 +99,7 @@ export function createArticle(articleData, accessToken, successCallback) {
 
 export function removeArticle(articleId, accessToken) {
   return (dispatch) => {
+    dispatch(deleteArticleLoading())
     return (
       articleRequests.deleteArticle(articleId, accessToken)
       .then(res => {
@@ -102,7 +115,7 @@ export function removeArticle(articleId, accessToken) {
 
 export function updateArticle(articleId, articleData, accessToken, successCallback) {
   return (dispatch) => {
-    dispatch(contentLoading())
+    dispatch(editLoading())
     return (
       articleRequests.editArticle(articleId, articleData, accessToken)
       .then(response => response.json())

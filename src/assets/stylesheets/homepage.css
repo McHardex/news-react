@@ -13,7 +13,7 @@
   width: 100%;
 }
 
-.loadingArticles {
+.loading {
   text-align: center;
 }
 
@@ -383,6 +383,16 @@ input.input-col.input-edit {
 
   button.sub-art {
     width: 60%;
+  }
+
+  .sweetAlert {
+    width: 400px;
+  }
+
+  .article-close-btn {
+    font-size: 40px;
+    font-weight: bolder;
+    color: #F44336;
   }
 }
 

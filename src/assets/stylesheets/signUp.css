@@ -29,18 +29,19 @@
   padding: 0 30px;
 }
 
-input[type="text"] {
+input.signup-input, textarea.signup-input {
   font-size: 16px;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   background: none;
   outline: none;
-  width: 90%;
+  width: 100%;
   color: #36417c;
   padding: 5px 10px 10px 5px;
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #36407c;
+  resize: none;
 }
 
 label {
@@ -48,34 +49,6 @@ label {
   font-size: 14px;
   font-weight: bolder;
   font-family: 'Comfortaa', cursive;
-}
-
-textarea {
-  box-sizing: border-box;
-  background: none;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  width: 90%;
-  color: #36417c;
-  padding: 5px 10px 10px 5px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #36407c;
-  resize: none;
-  outline: none;
-}
-
-input[type="password"] {
-  width: 90%;
-  box-sizing: border-box;
-  font-size: 16px;
-  background: none;
-  color: #36417c;
-  padding: 5px 10px 10px 5px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #36407c;
-  outline: none;
 }
 
 input:-webkit-autofill {
@@ -95,11 +68,6 @@ input:-webkit-autofill {
   border: none;
   min-width: 40%;
 }
-
-/* .signup-Submit:hover {
-  background: #fff; 
-  color: #121a42;
-} */
 
 .hve-acc {
   padding: 0 30px;

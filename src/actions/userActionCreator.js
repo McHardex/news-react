@@ -51,8 +51,27 @@ export const deleteUserError = (error) => {
   }
 }
 
+export const userLoading = () => {
+  return {
+    type: actionTypes.USER_LOADING
+  }
+}
+
+export const loadingProfile = () => {
+  return {
+    type: actionTypes.USER_PROFILE_LOADING
+  }
+}
+
+export const loadingProfileEdit = () => {
+  return {
+    type: actionTypes.USER_EDIT_PROFILE_LOADING
+  }
+}
+
 export function getUsers() {
   return (dispatch) => {
+    dispatch(userLoading())
     return (
       userRequests.getUsers()
         .then(response => response.json())
@@ -69,6 +88,7 @@ export function getUsers() {
 
 export function getUserProfile() {
   return (dispatch) => {
+    dispatch(loadingProfile())
     const accessToken = JSON.parse(localStorage.getItem('user-token'))
     return (
       userRequests.getUserProfile(accessToken)
@@ -86,6 +106,7 @@ export function getUserProfile() {
 
 export function updateUserProfile(userId, userData, accessToken, succesCallBack) {
   return (dispatch) => {
+    dispatch(loadingProfileEdit())
     return (
       userRequests.editUser(userId, userData, accessToken)
         .then(response => response.json())
@@ -105,13 +126,14 @@ export function deleteUser(userId, accessToken) {
   return (dispatch) => {
     return (
       userRequests.deleteUser(userId, accessToken)
-          .then(res => {
-            if(res.statusText === 'No Content'){
-              dispatch(deleteUserError(strip(res.statusText)))
-            } else {
-              dispatch(deleteUserSuccess)
-            }
-          })
+        .then(res => {
+          if(res.statusText === 'No Content'){
+            dispatch(deleteUserError(strip(res.statusText)))
+          } else {
+            dispatch(deleteUserSuccess)
+          }
+        }
+      )
     )
   }
 }

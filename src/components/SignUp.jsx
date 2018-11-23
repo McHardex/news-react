@@ -49,22 +49,22 @@ export class SignUp extends Component {
           <button className='topright' onClick={this.closeModal}>X</button>
           <div className='nameContainer'>
             <label>Name</label>
-            <input className='input' name='name' type='text' /><br/>
+            <input className='signup-input' name='name' type='text' /><br/>
           </div>
           
           <div className='emailContainer'>
             <label>Email</label>
-            <input className='input transform-text' name='email' type='text'/><br/>
+            <input className='signup-input transform-text' name='email' type='text'/><br/>
           </div>
 
           <div className='passwordContainer'>
             <label>Password</label>
-            <input  className='input' name='password' type='password' /><br/>
+            <input  className='signup-input' name='password' type='password' /><br/>
           </div>
 
           <div className='bioContainer'>
             <label>Bio</label>
-            <textarea className='input' name='bio' type='text'/><br/>
+            <textarea className='signup-input' name='bio' type='text'/><br/>
           </div>
 
           <button className='signup-Submit' type='submit'>{this.props.auth.isLoading ? <Loader 

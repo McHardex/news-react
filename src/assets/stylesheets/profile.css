@@ -3,6 +3,21 @@
   margin-top: 7%;
 }
 
+.deleteLoader {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  right: 0;
+  justify-content: center;
+}
+
 .profile {
   margin-top: 7%;
   color: #121a42;
@@ -131,6 +146,22 @@ textarea.input-col {
   box-shadow: 2px 5px 15px #5b5d63a6;
   border: none;
 }
+.save-btn {
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 1px;
+  cursor: pointer;
+  outline: none;
+  font-size: 14px;
+  font-family: 'Comfortaa', cursive;
+  box-shadow: 2px 5px 15px #5b5d63a6;
+  border: none;
+  background: #fff;
+  text-decoration: underline;
+  color: #121a42;
+  font-weight: bolder;
+  min-width: 18%;
+}
 
 .delete-btn, .cancel-btn{
   border-radius: 5px;
@@ -209,7 +240,7 @@ textarea.input-col {
     padding: 5px;
   }
 
-  input.input-col {
+  input.input-col, textarea.input-col {
     text-align: center;
     border: none;
     border-bottom: 1px solid #121a42;
