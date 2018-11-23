@@ -3,14 +3,15 @@ import { connect } from 'react-redux'
 import { getUsers } from '../actions/userActionCreator'
 import { Link } from 'react-router'
 import '../assets/stylesheets/user.css'
+import Loader from 'react-loader-spinner'
+import UserList from './UserList'
 
-export class Users extends Component {
+class Users extends Component {
   componentDidMount() {
     this.props.getUsers()
   }
   
   render() {
-    const users = this.props.users.users
     return (
       <div className="userContainer">
         <header className='homeHeader'>
@@ -19,25 +20,15 @@ export class Users extends Component {
           <Link to='writers'>Writers</Link>
           <Link to='profile'>profile</Link>
         </header>
-          <span className='nav-head'>Users</span>
-          {
-            users.map(user => {
-              return (
-                <div className='userBody' key={user._id}>
-                  <div className='users'>
-                    <label className='users-label'>Name: </label><span>{user.name}</span>
-                  </div>
-                  <div className='users'>
-                    <label className='users-label'>Email: </label><span>{user.email}</span>
-                  </div>
-                  <div className='users'>
-                    <label className='users-label'>Bio: </label><span>{user.bio}</span>
-                  </div>
-                </div>
-              )
-            })
-          }
-        </div>
+        { this.props.users.userLoading ? <span className='loading'><Loader 
+            type="ThreeDots" 
+            color="#121a42" 
+            height="80" 
+            width="80"/></span>
+            : 
+          <UserList usersList={this.props.users.users}/>
+        }
+      </div>
     )
   }
 }

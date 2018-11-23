@@ -52,7 +52,7 @@ export class HomePage extends Component {
         <div className='cont-art'>
           <div className='nav-head'>Post Article </div>
           <PostArticle/>
-          <span className='loadingArticles'>{this.props.articles.isLoadingArticles && <Loader type="ThreeDots" color="#121a42" height="80" width="80"/>}</span>
+          <span className='loading'>{this.props.articles.isLoadingArticles && <Loader type="ThreeDots" color="#121a42" height="80" width="80"/>}</span>
           {
             this.props.articles.articles.map(article => {
               return <HomePageComponent article={article} key={article._id} 
@@ -69,6 +69,14 @@ export class HomePage extends Component {
             closeOnClickOutside={true}>
             You are not authorized to perform this action
           </SweetAlert>}
+          { this.props.articles.isLoadingDelete && 
+          <span className='deleteLoader'><Loader 
+            type="Plane" 
+            color="#121a42" 
+            height="80" 
+            width="80"/>
+          </span>
+        }
         </div>
       </div>
     )

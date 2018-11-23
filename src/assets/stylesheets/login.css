@@ -70,14 +70,15 @@ input.input-style {
   flex-direction: column;
 }
 
-input[type="text"] {
+input.login-input {
   font-size: 16px;
+  text-align: center;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   background: none;
   outline: none;
-  width: 100%;
-  color: #E9E9FD;
+  width: 90%;
+  color: #9E9E9E;
   padding: 5px 10px 10px 5px;
   border: none;
   border-radius: 0;
@@ -95,19 +96,6 @@ input[type="text"] {
   font-family: 'Comfortaa', cursive;
 }
 
-input[type="password"] {
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 16px;
-  background: none;
-  color: #E9E9FD;
-  padding: 5px 10px 10px 5px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #36407c;
-  outline: none;
-}
-
 .login-sub {
   background: #121a42;
   color: #fff;
@@ -119,11 +107,6 @@ input[type="password"] {
   border: 1px solid #fffcfcfa;
   min-width: 40%;
 }
-
-/* .login-sub:hover {
-  background: #fff; 
-  color: #28285d;
-} */
 
 .hve-acct {
   color: #36407c;

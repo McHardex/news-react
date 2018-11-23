@@ -43,12 +43,12 @@ export class Login extends Component {
           <form className='loginFormContainer' onSubmit={this.loginUser}>
             <div className='email-cont'>
               <label className='label-col'>Email</label>
-              <input className='input-style transform-text' name='email' type='text'/><br/>
+              <input className='login-input transform-text' name='email' type='text'/><br/>
             </div>
 
             <div className='pwd-cont'>
               <label className='label-col'>Password</label>
-              <input className='input-style' name='password' type='password'/><br/>
+              <input className='login-input' name='password' type='password'/><br/>
             </div>
             <button type='submit' className='login-sub'>{this.props.auth.isLoading ? <Loader 
               type="Bars"

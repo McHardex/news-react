@@ -60,7 +60,8 @@ class HomePageComponent extends Component {
 
   changeEditMode = () => {
     this.setState({ edit: !this.state.edit })
-    this.props.articles.isLoadingArticles = false
+    this.props.articles.isLoadingEditArticle = false
+
   }
   
   renderEditMode() {
@@ -93,7 +94,7 @@ class HomePageComponent extends Component {
             <label className='label'>Image Url:</label>
             <input className='input-col input-edit' name='imageUrl' type='text' defaultValue={article.imageUrl} />
           </div> 
-          <button className='article-save-btn' id={article._id} type='submit'>{this.props.articles.isLoading ? <Loader 
+          <button className='article-save-btn' id={article._id} type='submit'>{this.props.articles.isLoadingEditArticle ? <Loader 
             type="Bars"
             color="#fff"
             height="25"	

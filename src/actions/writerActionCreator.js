@@ -17,8 +17,15 @@ export const getWritersError = (error) => {
   }
 }
 
+export const writersLoading = () => {
+  return {
+    type: actionTypes.WRITERS_LOADING
+  }
+}
+
 export function getWriters() {
   return (dispatch) => {
+    dispatch(writersLoading())
     return (
       writerRequests.getWriters()
         .then(response => response.json())
