@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getUsers } from '../actions/userActionCreator'
 import { Link } from 'react-router'
 import '../assets/stylesheets/user.css'
+import '../assets/stylesheets/searchBar.css'
 import Loader from 'react-loader-spinner'
 import UserList from './UserList'
 
