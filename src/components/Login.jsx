@@ -7,9 +7,16 @@ import '../assets/stylesheets/login.css'
 import Loader from 'react-loader-spinner'
 
 export class Login extends Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      type: false,
+      mode: false
+    }
+
     this.loginUser = this.loginUser.bind(this)
+    this.togglePassword = this.togglePassword.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,8 +36,14 @@ export class Login extends Component {
     for (let entry of formData.entries()) {
       data[entry[0]] = entry[1]
     }
-
     this.props.loginUser(data)
+  }
+
+  togglePassword = () => {
+    this.setState({
+      type: !this.state.type,
+      mode: !this.state.mode
+    })
   }
   
   render() {
@@ -48,7 +61,10 @@ export class Login extends Component {
 
             <div className='pwd-cont'>
               <label className='label-col'>Password</label>
-              <input className='login-input' name='password' type='password'/><br/>
+              <div className='passwordToggle'> 
+                <input className='login-input' name='password' type={this.state.type ? 'text' : 'password'}/>
+                <span className='togglePassword' onClick={this.togglePassword}>{this.state.mode ? 'hide' : 'show'}</span>
+              </div><br/>
             </div>
             <button type='submit' className='login-sub'>{this.props.auth.isLoading ? <Loader 
               type="Bars"

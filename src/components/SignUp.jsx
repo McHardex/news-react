@@ -10,9 +10,15 @@ export class SignUp extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      type: false,
+      mode: false
+    }
+
     this.signUpUser = this.signUpUser.bind(this)
     this.resetForm = this.resetForm.bind(this)
     this.closeModal = this.closeModal.bind(this)
+    this.togglePassword = this.togglePassword.bind(this)
   }
 
   resetForm = (target) => {
@@ -38,6 +44,13 @@ export class SignUp extends Component {
     this.props.clearFormErrors()
     this.props.closeComponent()
   }
+
+  togglePassword = () => {
+    this.setState({
+      type: !this.state.type,
+      mode: !this.state.mode
+    })
+  }
   
   render() {
     return (
@@ -59,7 +72,10 @@ export class SignUp extends Component {
 
           <div className='passwordContainer'>
             <label>Password</label>
-            <input  className='signup-input' name='password' type='password' /><br/>
+            <div className='passwordToggle'> 
+              <input className='signup-input' name='password' type={this.state.type ? 'text' : 'password'}/>
+              <span className='togglePassword' onClick={this.togglePassword}>{this.state.mode ? 'hide' : 'show'}</span>
+            </div><br/>
           </div>
 
           <div className='bioContainer'>
