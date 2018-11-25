@@ -107,7 +107,8 @@ input.input-col {
   background: #fff;
   outline: none;
   color: #28285d;
-  padding: 5px 10px 10px 5px;
+  padding: 5px 10px;
+  width: 100%;
 }
 
 textarea.input-col {

@@ -9,15 +9,28 @@ class ProfileViewProps extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      edit: false
+      edit: false,
+      type: false,
+      mode: false
     }
+
     this.toggleEdit = this.toggleEdit.bind(this)
     this.submitEdit = this.submitEdit.bind(this)
     this.deleteAccount = this.deleteAccount.bind(this)
+    this.togglePassword = this.togglePassword.bind(this)
   }
+
+  
   toggleEdit = () => {
     this.setState({edit: !this.state.edit})
     this.props.users.updateUserError = null
+  }
+
+  togglePassword = () => {
+    this.setState({
+      type: !this.state.type,
+      mode: !this.state.mode
+    })
   }
 
   submitEdit = (event) => {
@@ -74,7 +87,10 @@ class ProfileViewProps extends Component {
             </div>
             <div className='form-edit'>
               <label className='prof-label'>Password:</label>
-              <input className='input-col' name='password' type='password'/>
+              <div className='passwordToggle'> 
+                <input className='input-col' name='password' type={this.state.type ? 'text' : 'password'}/>
+                <span className='togglePassword' onClick={this.togglePassword}>{this.state.mode ? 'hide' : 'show'}</span>
+              </div>
             </div>
             <div className='btn-wrap'>
               <button className='save-btn' id={profile._id} type='submit'>{ this.props.users.isLoadingProfileEdit ? <Loader 
