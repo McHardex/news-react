@@ -5,6 +5,8 @@ import { Link } from 'react-router'
 import '../assets/stylesheets/signUp.css'
 import { clearFormErrors } from '../actions/formActionCreator'
 import Loader from 'react-loader-spinner'
+import showPwd from '../assets/images/show-password.png'
+import hidepwd from '../assets/images/hide-password.png'
 
 export class SignUp extends Component {
   constructor(props) {
@@ -74,7 +76,7 @@ export class SignUp extends Component {
             <label>Password</label>
             <div className='passwordToggle'> 
               <input className='signup-input' name='password' type={this.state.type ? 'text' : 'password'}/>
-              <span className='togglePassword' onClick={this.togglePassword}>{this.state.mode ? 'hide' : 'show'}</span>
+              <span className='togglePassword' onClick={this.togglePassword}>{this.state.mode ? <img src={hidepwd} alt='passwordHide-icon'/> : <img src={showPwd} alt='passwordShow-icon'/> }</span>
             </div><br/>
           </div>
 
