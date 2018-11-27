@@ -36,8 +36,8 @@ input.signup-input, textarea.signup-input {
   background: none;
   outline: none;
   width: 100%;
-  color: #36417c;
-  padding: 5px 10px 10px 5px;
+  color: #101e41;
+  padding: 8px 10px;
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #36407c;
@@ -53,7 +53,7 @@ label {
 
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #E9E9FD inset;
-  -webkit-text-fill-color: #013ef5 !important;
+  -webkit-text-fill-color: #101e41 !important;
 }
 
 .signup-Submit {
