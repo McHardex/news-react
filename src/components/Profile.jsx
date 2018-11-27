@@ -8,8 +8,20 @@ import Loader from 'react-loader-spinner'
 
 
 export class Profile extends Component {
+  constructor(props) {
+    super(props);
 
-  componentDidMount() {
+    this.state = { edit: false }
+
+    this.toggleEdit = this.toggleEdit.bind(this)
+  }
+
+  toggleEdit = () => {
+    this.setState({edit: !this.state.edit})
+    this.props.users.updateUserError = null
+  }
+
+  componentWillMount() {
     this.props.getUserProfile()
   }
 
@@ -27,7 +39,7 @@ export class Profile extends Component {
             color="#121a42" 
             height="80" 
             width="80"/></span> :
-            <ProfileViewProps />
+          <ProfileViewProps profile={this.props.users.userProfile} edit={this.state.edit} toggleEdit={this.toggleEdit}/>
         }
       </div>
     )
@@ -35,4 +47,4 @@ export class Profile extends Component {
 }
 
 const mapStateToProps = ({ users }) => ({ users })
-export default connect(mapStateToProps, { getUserProfile })(Profile)
+export default connect(mapStateToProps, {getUserProfile})(Profile)

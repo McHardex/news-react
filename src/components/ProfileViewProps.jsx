@@ -8,30 +8,11 @@ import { connect } from 'react-redux'
 class ProfileViewProps extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      edit: false,
-      type: false,
-      mode: false
-    }
 
-    this.toggleEdit = this.toggleEdit.bind(this)
     this.submitEdit = this.submitEdit.bind(this)
     this.deleteAccount = this.deleteAccount.bind(this)
-    this.togglePassword = this.togglePassword.bind(this)
   }
 
-  
-  toggleEdit = () => {
-    this.setState({edit: !this.state.edit})
-    this.props.users.updateUserError = null
-  }
-
-  togglePassword = () => {
-    this.setState({
-      type: !this.state.type,
-      mode: !this.state.mode
-    })
-  }
 
   submitEdit = (event) => {
     event.preventDefault();
@@ -45,7 +26,7 @@ class ProfileViewProps extends Component {
       data[entry[0]] = entry[1]
     }
 
-    this.props.updateUserProfile(event.target.id, data, token, () => this.toggleEdit())
+    this.props.updateUserProfile(event.target.id, data, token, () => this.props.toggleEdit())
     this.props.users.updateUserError = null
   }
 
@@ -62,17 +43,16 @@ class ProfileViewProps extends Component {
   }
 
   render() {
-    const profile = this.props.users.userProfile
-
+    const profile = this.props.profile
     return (
       <div>
         <span className='nav-head'>My Profile</span>
         <div className='pf-btn'>
-          <button className='edit-btn' onClick={this.toggleEdit}>Edit Profile</button>
+          <button className='edit-btn' onClick={this.props.toggleEdit}>Edit Profile</button>
           <button className='delete-btn' id={profile._id} onClick={ this.deleteAccount }>Delete Account</button>
         </div>
-        { this.state.edit ? 
-          <form className='profileFormEdit' onSubmit={this.submitEdit} id={'123454'}>
+        { this.props.edit ? 
+          <form className='profileFormEdit' onSubmit={this.submitEdit} id={profile._id}>
             <div className='form-edit'>
               <label className='prof-label'>Name:</label>
               <input className='input-col' name='name' defaultValue={profile.name} type='text'/>
@@ -85,24 +65,17 @@ class ProfileViewProps extends Component {
               <label className='prof-label'>Bio:</label>
               <textarea className='input-col' name='bio' defaultValue={profile.bio} type='text'/>
             </div>
-            <div className='form-edit'>
-              <label className='prof-label'>Password:</label>
-              <div className='passwordToggle'> 
-                <input className='input-col' name='password' type={this.state.type ? 'text' : 'password'}/>
-                <span className='togglePassword' onClick={this.togglePassword}>{this.state.mode ? 'hide' : 'show'}</span>
-              </div>
-            </div>
             <div className='btn-wrap'>
-              <button className='save-btn' id={profile._id} type='submit'>{ this.props.users.isLoadingProfileEdit ? <Loader 
+              <button className='save-btn' type='submit'>{ this.props.users.isLoadingProfileEdit ? <Loader 
                 type="Bars" 
                 color="#121a42" 
                 height="20" 
                 width="20"/>: 'save'}</button>
-              <button className='cancel-btn' onClick={this.toggleEdit}>cancel</button>
+              <button className='cancel-btn' onClick={this.props.toggleEdit}>cancel</button>
             </div>
               <p className='edit-err'>{this.props.users.updateUserError}</p>
           </form> :
-          <div className='profileBody' key={profile._id}>
+          <div className='profileBody' key={profile._id + 1}>
             <div className='profiles-div'>
               <label className='profiles-label'>Name: </label><span>{profile.name}</span>
             </div>
