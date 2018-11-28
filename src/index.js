@@ -9,7 +9,8 @@ import HomePage from '../src/components/HomePage'
 import Users from '../src/components/Users'
 import Writers from '../src/components/Writers'
 import Profile from '../src/components/Profile'
-import {LandingPage} from '../src/components/LandingPage'
+import LandingPage from '../src/components/LandingPage'
+import ResetPassword from '../src/components/ResetPassword'
 import * as serviceWorker from './serviceWorker';
 
 import store from './lib/store'
@@ -24,6 +25,7 @@ ReactDOM.render((
         <Route path="users" component={Users} />
         <Route path="writers" component={Writers} />
         <Route path="profile" component={Profile} />
+        <Route path="reset-password" component={ResetPassword} />
       </Route>
     </Router>
   </Provider>
