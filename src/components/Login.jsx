@@ -76,6 +76,7 @@ export class Login extends Component {
             </button>
           </form>
           <p className='hve-acct'>don't have an account? <Link to='/' onClick={this.props.clearFormErrors} className='signupLink'>Sign Up</Link></p>
+          <Link to='forgot-password'>forgot password?</Link>
         </div>
       </div>
     )

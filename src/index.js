@@ -11,6 +11,7 @@ import Writers from '../src/components/Writers'
 import Profile from '../src/components/Profile'
 import LandingPage from '../src/components/LandingPage'
 import ResetPassword from '../src/components/ResetPassword'
+import ForgotPassword from '../src/components/ForgotPassword'
 import * as serviceWorker from './serviceWorker';
 
 import store from './lib/store'
@@ -26,6 +27,7 @@ ReactDOM.render((
         <Route path="writers" component={Writers} />
         <Route path="profile" component={Profile} />
         <Route path="reset-password" component={ResetPassword} />
+        <Route path="forgot-password" component={ForgotPassword} />
       </Route>
     </Router>
   </Provider>
