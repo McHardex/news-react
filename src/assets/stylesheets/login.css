@@ -27,6 +27,7 @@
 }
 
 .login-cont {
+  text-align: center;
   min-width: 30%;
   box-sizing: border-box;
   border: 1px solid #252e5b;
@@ -154,7 +155,15 @@ input.login-input {
   height: auto;
 }
 
+a.forg-pwd {
+  color: #121a42;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
+  a.forg-pwd {
+    color: white;
+  }
+
   .hve-acct, .signupLink {
     font-size: 14px;
   }
