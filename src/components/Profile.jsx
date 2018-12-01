@@ -4,6 +4,7 @@ import { getUserProfile } from '../actions/userActionCreator'
 import { Link } from 'react-router'
 import '../assets/stylesheets/profile.css'
 import ProfileViewProps from './ProfileViewProps'
+import ImageLoad from './imageUpload'
 import Loader from 'react-loader-spinner'
 
 
@@ -34,6 +35,7 @@ export class Profile extends Component {
           <Link to='writers'>Writers</Link>
           <Link to='users'>Users</Link>
         </header>
+        <ImageLoad />
         { this.props.users.isLoadingProfile ? <span className='loading'><Loader 
             type="ThreeDots" 
             color="#121a42" 
