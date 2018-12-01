@@ -13,7 +13,7 @@ export default {
 
   // post an article
   postArticle(articleData, accessToken) {
-    return getApi('POST', `https://mchnews.herokuapp.com/api/articles`, articleData, accessToken)
+    return getApi('POST', `http://localhost:5000/api/articles`, articleData, accessToken)
   },
 
   // edit an article
