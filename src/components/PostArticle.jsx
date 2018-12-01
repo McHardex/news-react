@@ -59,11 +59,6 @@ export class PostArticle extends Component {
             <label className='bodyLb'>Body: </label>
             <textarea className='body' name='body'/><br/>
           </div>
-
-           <div className='pst-art-imgUrl'>
-            <label className='imgLb'>Image Url: </label>
-            <input name='imageUrl' className='img-url'/><br/>
-          </div>
           <button className='sub-art' type='submit'>{this.props.articles.isLoading ? <Loader 
             type="Bars"
             color="#fff"
