@@ -95,8 +95,10 @@ header {
 }
 
 .create-acc:hover {
-  color: #28285d;
-  background: #f7fbff71
+  /* color: #fff;
+  background: #28285d;
+  opacity: 0.4; */
+  text-decoration: underline;
 }
 
 footer {

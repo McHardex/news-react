@@ -92,7 +92,7 @@ export class SignUp extends Component {
             width="30"/> : 'Sign Up'}
           </button>
         </form>
-        <p className='hve-acc'>Already have an account? <Link to='login' className='loginLink'>Log in</Link></p>
+        <p className='hve-acc'>Already have an account? <Link to='login' className='loginLink'>Login</Link></p>
         
       </div>
     )

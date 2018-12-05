@@ -25,7 +25,7 @@ export class LandingPage extends Component {
       <div className='container'>
         <header>
           <div className='logo'>Mchardex::</div>
-          <div className='getstarted'>get started <Link to='login' className='loginLink'>log in</Link></div>
+          <div className='getstarted'>get right inside<Link to='login' className='loginLink'>login</Link></div>
         </header>
         <div className='section1'>
           <div className='sectionContent'>
@@ -33,7 +33,7 @@ export class LandingPage extends Component {
             <p className='create'>create as many articles as you can</p>
             <p className='create'>become a writer</p>
             <p className='move'>get new exiciting features</p>
-            <button className='create-acc' onClick={this.openComponent}>create an account now</button>
+            <button className='create-acc' onClick={this.openComponent}>go here to create an account</button>
           </div>
         </div>
         {this.state.isOpen && <SignUp closeComponent={this.closeComponent} /> }

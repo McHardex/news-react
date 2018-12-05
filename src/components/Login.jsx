@@ -53,7 +53,7 @@ export class Login extends Component {
       <div className='cont'>
         <div id='overlay'></div>
         <div className="login-cont">
-          <div className='login-txt'>Log In</div>
+          <div className='login-txt'>Login</div>
           <p className='loginErr'>{ this.props.auth.loginError }</p>
           <form className='loginFormContainer' onSubmit={this.loginUser}>
             <div className='email-cont'>
@@ -72,7 +72,7 @@ export class Login extends Component {
               type="Bars"
               color="#fff"
               height="30"	
-              width="30"/> : 'Log In'}
+              width="30"/> : 'Login'}
             </button>
           </form>
           <p className='hve-acct'>don't have an account? <Link to='/' onClick={this.props.clearFormErrors} className='signupLink'>Sign Up</Link></p>
