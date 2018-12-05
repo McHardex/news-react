@@ -26,7 +26,7 @@ ReactDOM.render((
         <Route path="users" component={Users} />
         <Route path="writers" component={Writers} />
         <Route path="profile" component={Profile} />
-        <Route path="reset-password" component={ResetPassword} />
+        <Route path="reset-password/:token" component={ResetPassword} />
         <Route path="forgot-password" component={ForgotPassword} />
       </Route>
     </Router>

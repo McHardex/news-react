@@ -34,6 +34,12 @@ class ForgotPassword extends Component {
     this.props.forgotPassword(data, () => this.resetForm(target))
   }
 
+  componentWillUnmount() {
+    this.props.recoverPassword.showInputError = null
+    this.props.recoverPassword.successMessageFromServer = null
+    this.props.recoverPassword.errorMessageFromServer = null
+  }
+
   render() {
     return (
       <div className='forgotPwd-cont'>
@@ -56,7 +62,7 @@ class ForgotPassword extends Component {
               width="15"/> : 'SEND PASSWORD RESET EMAIL'}</button>
             </div>
             {this.props.recoverPassword.successMessageFromServer && <p className='pwdsucc-msg'>{this.props.recoverPassword.successMessageFromServer}</p>}
-            <Link to='login' className='loginAcc'>log in to account</Link>
+            <Link to='/' className='loginAcc'>create an account</Link>
           </form>
           {this.props.recoverPassword.errorMessageFromServer && <span className='pwdRest-Error'>That email address isn't recognized. Please try again
             or register for a new account.

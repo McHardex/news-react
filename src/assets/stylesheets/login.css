@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 .cont {
-  background: #222b56;
+  background: #252e5b;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -21,9 +21,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #4c484729;
-  opacity: 0.8;
-  z-index: 1;
+  background-color: #5b5d63;
+  opacity: 0.2;
+  z-index: 2;
 }
 
 .login-cont {
@@ -83,7 +83,7 @@ input.login-input {
   padding: 8px 10px;
   border: none;
   border-radius: 0;
-  border-bottom: 1px solid #36407c;
+  border-bottom: 1px solid #bdbdbd;
 }
 
 .label-col {
@@ -156,7 +156,13 @@ input.login-input {
 }
 
 a.forg-pwd {
-  color: #121a42;
+  color: #273153;
+  text-decoration: none;
+}
+
+a.forg-pwd:hover {
+  text-decoration: underline;
+  opacity: 0.8;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -175,7 +181,7 @@ a.forg-pwd {
   .login-cont {
     width: 100%;
     height: 100vh;
-    background: #121a42;
+    background: #101e41;
     display: flex;
     flex-direction: column;
     align-items: center;
